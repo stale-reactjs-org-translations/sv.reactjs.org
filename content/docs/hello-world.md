@@ -6,7 +6,7 @@ prev: cdn-links.html
 next: introducing-jsx.html
 ---
 
-Ett litet React exempel ser ut så här:
+Ett litet React-exempel ser ut så här:
 
 ```js
 ReactDOM.render(
@@ -24,7 +24,7 @@ Klicka på länken ovan för att öppna en kodredigerare online. Testa att göra
 
 ## Hur den här guiden fungerar {#how-to-read-this-guide}
 
-I den här guiden kommer vi att titta närmre på de byggblock som en React app består utav: element och komponenter. När du behärskar dem kan du skapa komplexa appar utifrån mindre byggnadsdelar som kan återanvändas.
+I den här guiden kommer vi att titta närmre på de byggblock som en React-app består utav: element och komponenter. När du behärskar dem kan du skapa komplexa appar utifrån mindre byggnadsdelar som kan återanvändas.
 
 >Tips
 >
@@ -40,9 +40,9 @@ React är ett JavaScript-bibliotek och därför kommer vi anta att du har en bas
 
 >Notera
 >
->Den här guiden använder till och från nyare JavaScript syntax i exemplen. Om du inte har jobbat med JavaScript under de senaste åren bör [dessa tre punkter](https://gist.github.com/gaearon/683e676101005de0add59e8bb345340c) hjälpa dig på vägen.
+>Den här guiden använder till och från nyare JavaScript-syntax i exemplen. Om du inte har jobbat med JavaScript under de senaste åren bör [dessa tre punkter](https://gist.github.com/gaearon/683e676101005de0add59e8bb345340c) hjälpa dig på vägen.
 
 
 ## Nu kör vi igång! {#lets-get-started}
 
-Fortsätt scrolla, länken till [nästa kapitel i den här guiden](/docs/introducing-jsx.html)hittar du precis innan sidfoten.
+Fortsätt scrolla, länken till [nästa kapitel i den här guiden](/docs/introducing-jsx.html) hittar du precis innan sidfoten.
