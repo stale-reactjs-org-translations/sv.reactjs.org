@@ -1,6 +1,6 @@
 ---
 id: tutorial
-title: "Tutorial: Intro to React"
+title: "Guide: Intro till React"
 layout: tutorial
 sectionid: tutorial
 permalink: tutorial/tutorial.html
@@ -12,97 +12,97 @@ redirect_from:
   - "docs/tutorial-zh-CN.html"
 ---
 
-This tutorial doesn't assume any existing React knowledge.
+Denna guide förutsätter inte några förkunskapar inom React.
 
-## Before We Start the Tutorial {#before-we-start-the-tutorial}
+## Innan vi startar guiden {#before-we-start-the-tutorial}
 
-We will build a small game during this tutorial. **You might be tempted to skip it because you're not building games -- but give it a chance.** The techniques you'll learn in the tutorial are fundamental to building any React apps, and mastering it will give you a deep understanding of React.
+I denna guide kommer vi att bygga ett litet spel. **Du kan känna dig frestad att hoppa över det för att du inte bygger spel -- men ge det en chans.** Teknikerna du kommer lära dig i guiden är fundamentala för att bygga vilken React-applikation som helst, och genom att bemästra dem kommer du få djupare förståelse för React.
 
->Tip
+>Tips
 >
->This tutorial is designed for people who prefer to **learn by doing**. If you prefer learning concepts from the ground up, check out our [step-by-step guide](/docs/hello-world.html). You might find this tutorial and the guide complementary to each other.
+>Denna guide är utformad för personer som föredrar att **lära genom att göra**. Om du föredrar att lära dig koncept från grunden, spana in vår [steg-för-steg-guide](/docs/hello-world.html). Du kanske finner att båda guiderna kompletterar varandra.
 
-The tutorial is divided into several sections:
+Denna guide är indelad i flera sektioner:
 
-* [Setup for the Tutorial](#setup-for-the-tutorial) will give you **a starting point** to follow the tutorial.
-* [Overview](#overview) will teach you **the fundamentals** of React: components, props, and state.
-* [Completing the Game](#completing-the-game) will teach you **the most common techniques** in React development.
-* [Adding Time Travel](#adding-time-travel) will give you **a deeper insight** into the unique strengths of React.
+* [Uppsättning för guiden](#setup-for-the-tutorial) kommer ge dig **en utgångspunkt* att följa guiden.
+* [Överblick](#overview) kommer lära dig **grundprinciperna** i React: komponenter, props och state.
+* [Färdigställa Spelet](#completing-the-game) kommer lära dig **de vanligaste teknikerna** i React-utveckling.
+* [Lägg till Time Travel](#adding-time-travel) kommer ge dig **en djupare insikt** i Reacts unika styrkor.
 
-You don't have to complete all of the sections at once to get the value out of this tutorial. Try to get as far as you can -- even if it's one or two sections.
+Du behöver inte fullfölja alla sektionerna på en gång för att få värdet ur denna guide. Försöka att komma så långt du kan -- även om det är en eller två sektioner.
 
-### What Are We Building? {#what-are-we-building}
+### Vad är det vi bygger? {#what-are-we-building}
 
-In this tutorial, we'll show how to build an interactive tic-tac-toe game with React.
+I denna guide kommer vi visa hur man bygger ett interaktivt tre-i-rad-spel med React.
 
-You can see what we'll be building here: **[Final Result](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**. If the code doesn't make sense to you, or if you are unfamiliar with the code's syntax, don't worry! The goal of this tutorial is to help you understand React and its syntax.
+Du kan se vad vi kommer att bygga här: **[Slutresultat](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)** Om koden inte ser vettig ut för dig, eller om du är obekant med kodens syntax, oroa dig inte! Målet med denna guide är att hjälpa dig förstå React och dess syntax.
 
-We recommend that you check out the tic-tac-toe game before continuing with the tutorial. One of the features that you'll notice is that there is a numbered list to the right of the game's board. This list gives you a history of all of the moves that have occurred in the game, and is updated as the game progresses.
+Vi rekommenderar att du titta på tre-i-rad-spelet innan du fortsätter med guiden. En av funktionerna som du kommer märke är att det finns en numrerad lista till höger och spelplanen. Denna lista ger dig historiken över alla drag som skett i spelet och hållas uppdaterad under spelets gång.
 
-You can close the tic-tac-toe game once you're familiar with it. We'll be starting from a simpler template in this tutorial. Our next step is to set you up so that you can start building the game.
+Du kan stänga tre-i-rad-spelet när du känner dig bekant med det. Vi kommer att börja med en enklare mall i denna guide. Nästa steg är att sätta upp din miljö så att du kan börja bygga spelet.
 
-### Prerequisites {#prerequisites}
+### Förutsättningar {#prerequisites}
 
-We'll assume that you have some familiarity with HTML and JavaScript, but you should be able to follow along even if you're coming from a different programming language. We'll also assume that you're familiar with programming concepts like functions, objects, arrays, and to a lesser extent, classes.
+Vi antar att du är någorlunda bekant med HTML och JavaScript, men du borde kunna följa med även om du kommer från ett annat programmeringsspråk. Vi antar också att du är bekand med koncept inom programmering såsom funktioner, objekt, arrayer och i mindre utsträckning klasser.
 
-If you need to review JavaScript, we recommend reading [this guide](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript). Note that we're also using some features from ES6 -- a recent version of JavaScript. In this tutorial, we're using [arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions), [classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes), [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let), and [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) statements. You can use the [Babel REPL](babel://es5-syntax-example) to check what ES6 code compiles to.
+Om du behöver se över JavaScript rekommenderar vi att du läser [denna guide](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript). Notera att vi också använder några funktioner från ES6 - en nyare version av JavaScript. I denna guide använder vi [arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions), [classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes), [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let), och [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const). Du kan använda [Babel REPL](babel://es5-syntax-example) för att se vad ES6-kod kompileras till.
 
-## Setup for the Tutorial {#setup-for-the-tutorial}
+## Uppsättning för guiden {#setup-for-the-tutorial}
 
-There are two ways to complete this tutorial: you can either write the code in your browser, or you can set up a local development environment on your computer.
+Det finns två sätt att fullfölja denna guide: du kan antingen skriva koden i din webbläsare, eller så kan du sätta upp en lokalt utvecklingsmiljö på din dator.
 
-### Setup Option 1: Write Code in the Browser {#setup-option-1-write-code-in-the-browser}
+### Uppsättning Alterantiv 1: Skriv kod i webbläsaren {#setup-option-1-write-code-in-the-browser}
 
-This is the quickest way to get started!
+Det snabbaste sättet att komma igång!
 
-First, open this **[Starter Code](https://codepen.io/gaearon/pen/oWWQNa?editors=0010)** in a new tab. The new tab should display an empty tic-tac-toe game board and React code. We will be editing the React code in this tutorial.
+Börja med att öppna denna **[Start-mall](https://codepen.io/gaearon/pen/oWWQNa?editors=0010)** i en ny flik. Den nya fliken borde visa en tom tre-i-rad-spelplan och React-kod. Vi kommer att redigera React-koden i denna guide.
 
-You can now skip the second setup option, and go to the [Overview](#overview) section to get an overview of React.
+Du kan nu hoppa över det andra alternativet och gå direkt till sektionen [Överblick](#overview) för att få en överblick av React.
 
-### Setup Option 2: Local Development Environment {#setup-option-2-local-development-environment}
+### Uppsättning Alternativ 2: Lokal utvecklingsmiljö {#setup-option-2-local-development-environment}
 
-This is completely optional and not required for this tutorial!
+Detta är helt valfritt och inte ett krav för denna guide!
 
 <br>
 
 <details>
 
-<summary><b>Optional: Instructions for following along locally using your preferred text editor</b></summary>
+<summary><b>Valfritt: Instrukioner för att följa med lokalt med din föredragna textredigerare</b></summary>
 
-This setup requires more work but allows you to complete the tutorial using an editor of your choice. Here are the steps to follow:
+Denna uppsättning kräver mer arbete men tillåter dig att fullfölja denna guide med en textredigerare du väljer själv. Gör följande steg:
 
-1. Make sure you have a recent version of [Node.js](https://nodejs.org/en/) installed.
-2. Follow the [installation instructions for Create React App](/docs/create-a-new-react-app.html#create-react-app) to make a new project.
+1. Se till att du har en senare version av [Node.js](https://nodejs.org/en/) installerad.
+2. Följ [instruktionerna för installations hos Create React App](/docs/create-a-new-react-app.html#create-react-app) för att skapa ett nytt projekt.
 
 ```bash
 npx create-react-app my-app
 ```
 
-3. Delete all files in the `src/` folder of the new project 
+3. Ta bort alla filerna i `src/`-katalogen för det nya projektet.
 
-> Note:
+> Obs:
 >
->**Don't delete the entire `src` folder, just the original source files inside it.** We'll replace the default source files with examples for this project in the next step.
+>**Ta inte bort hela `src`-katalogen, bara de ursprungilga källfilerna inuti den.** I nästa steg kommer vi att ersätta de ursprungliga källfilerna med kod för detta projekt.
 
 ```bash
 cd my-app
 cd src
 
-# If you're using a Mac or Linux:
+# Om du använder Mac eller Linux:
 rm -f *
 
-# Or, if you're on Windows:
+# Eller, om du använder Windows:
 del *
 
-# Then, switch back to the project folder
+# Väl klart, byt tillbaka till projekt-katalogen
 cd ..
 ```
 
-4. Add a file named `index.css` in the `src/` folder with [this CSS code](https://codepen.io/gaearon/pen/oWWQNa?editors=0100).
+4. Lägg till en fil vid namn `index.css` inuti `src/`-katalogen med [denna CSS-kod](https://codepen.io/gaearon/pen/oWWQNa?editors=0100).
 
-5. Add a file named `index.js` in the `src/` folder with [this JS code](https://codepen.io/gaearon/pen/oWWQNa?editors=0010).
+5. Lägg till en fil vid namn `index.js` inuti `src/`-katalogen med [denna JS-kod](https://codepen.io/gaearon/pen/oWWQNa?editors=0010).
 
-6. Add these three lines to the top of `index.js` in the `src/` folder:
+6. Lägg till följande tre rader i toppen av `index.js` som ligger inuti `src`-katalogen.
 
 ```js
 import React from 'react';
@@ -110,32 +110,32 @@ import ReactDOM from 'react-dom';
 import './index.css';
 ```
 
-Now if you run `npm start` in the project folder and open `http://localhost:3000` in the browser, you should see an empty tic-tac-toe field.
+Nu om du kör `npm start` i projekt-katalogen och öppnar `http://localhost:3000` i din webbläsare så borde du se en tom spelplan för tre-i-rad.
 
-We recommend following [these instructions](https://babeljs.io/docs/editors/) to configure syntax highlighting for your editor.
+Vi rekommenderar att du följer [dessa instruktioner](https://babeljs.io/docs/editors/) för att konfigurera syntaxmarkering för din textredigerare.
 
 </details>
 
-### Help, I'm Stuck! {#help-im-stuck}
+### Hjälp, jag är fast! {#help-im-stuck}
 
-If you get stuck, check out the [community support resources](/community/support.html). In particular, [Reactiflux Chat](https://discord.gg/0ZcbPKXt5bZjGY5n) is a great way to get help quickly. If you don't receive an answer, or if you remain stuck, please file an issue, and we'll help you out.
+Om du fastnar, kolla in [de tillgängliga support-resurserna](/community/support.html). I synnerhet så är [Reactiflux Chatten](https://discord.gg/0ZcbPKXt5bZjGY5n) en jättebra plats att få hjälp snabbt. Om du inte får ett svar, eller om du förblir fast, skapa en issue så hjälper vi dig.
 
-## Overview {#overview}
+## Överblick {#overview}
 
-Now that you're set up, let's get an overview of React!
+Nu när allt är uppsatt, lås oss skaffa och en överblick av React!
 
-### What Is React? {#what-is-react}
+### Vad är React? {#what-is-react}
 
-React is a declarative, efficient, and flexible JavaScript library for building user interfaces. It lets you compose complex UIs from small and isolated pieces of code called "components".
+React är ett deklarativt, effektivt och flexibelt JavaScript-bibliotek för att bygga användargränssnitt. Det låter dig komponera ihop komplexa gränssnitt med hjälp av mindre och isolerade delar av kod som kallas "komponenter".
 
-React has a few different kinds of components, but we'll start with `React.Component` subclasses:
+React har några olika typer av komponenter, men vi börjar med subklasser av `React.Component`:
 
 ```javascript
 class ShoppingList extends React.Component {
   render() {
     return (
       <div className="shopping-list">
-        <h1>Shopping List for {this.props.name}</h1>
+        <h1>Shopping-lista för {this.props.name}</h1>
         <ul>
           <li>Instagram</li>
           <li>WhatsApp</li>
@@ -146,25 +146,25 @@ class ShoppingList extends React.Component {
   }
 }
 
-// Example usage: <ShoppingList name="Mark" />
+// Exempel på användning: <ShoppingList name="Mark" />
 ```
 
-We'll get to the funny XML-like tags soon. We use components to tell React what we want to see on the screen. When our data changes, React will efficiently update and re-render our components.
+Vi kommer till de lite konstiga XML-liknande taggarna inom kort. Vi använder komponenter för att berätta för React vad vi vill se för något på skärmen. När vår data förändras så kommer React på ett effektivt sätt att uppdatera och rita om våra komponenter.
 
-Here, ShoppingList is a **React component class**, or **React component type**. A component takes in parameters, called `props` (short for "properties"), and returns a hierarchy of views to display via the `render` method.
+I detta exepmel så är ShoppingList en **React-komponent-klass** eller **React-komponent-typ**. En komponent kan ta emot parametrar, så kallade `props` (förkorning av engelskans "properties") och returnerar en hierarki av vyer att visa via `render`-metoden.
 
-The `render` method returns a *description* of what you want to see on the screen. React takes the description and displays the result. In particular, `render` returns a **React element**, which is a lightweight description of what to render. Most React developers use a special syntax called "JSX" which makes these structures easier to write. The `<div />` syntax is transformed at build time to `React.createElement('div')`. The example above is equivalent to:
+`render`-metoden returnerar en *beskrivning* av vad du vill se på skärmen. React tar beskrivningen och visar resultatet. Specifikt så returnerar `render` ett **React-element**, vilket är en lättviktigt beskrivning av vad som ska ritas ut. De flesta React-utvecklarna använder en speciell syntax kallas "JSX" som gör det enklare att skriva dessa strukturer. Koden `<div />` transformeras vid bygge till `React.createElement('div')`. Exemplet ovan är samma sak som:
 
 ```javascript
 return React.createElement('div', {className: 'shopping-list'},
-  React.createElement('h1', /* ... h1 children ... */),
-  React.createElement('ul', /* ... ul children ... */)
+  React.createElement('h1', /* ... barn till h1 ... */),
+  React.createElement('ul', /* ... barn till ul ... */)
 );
 ```
 
-[See full expanded version.](babel://tutorial-expanded-version)
+[Se full version.](babel://tutorial-expanded-version)
 
-If you're curious, `createElement()` is described in more detail in the [API reference](/docs/react-api.html#createelement), but we won't be using it in this tutorial. Instead, we will keep using JSX.
+Om du är intresserad så finns `createElement()` beskrivet i mer detalj i [API-dokumentationen](/docs/react-api.html#createelement), vi kommer dock inte använda den mer i denna guide. Istället kommer vi fortsätta använda oss av JSX.
 
 JSX comes with the full power of JavaScript. You can put *any* JavaScript expressions within braces inside JSX. Each React element is a JavaScript object that you can store in a variable or pass around in your program.
 
