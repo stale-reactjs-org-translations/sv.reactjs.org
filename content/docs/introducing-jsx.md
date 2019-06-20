@@ -14,7 +14,7 @@ const element = <h1>Hej, världen!</h1>;
 
 Denna märkliga tagg-syntax är varken en sträng eller HTML.
 
-Det kallas JSX, och är en syntaktisk förlängning av JavaScript. Vi rekommenderar att använda det tillsammans med React för att beskriva hur användargränssnittet ska se ut. JSX må påminna om ett template-språk, men det kommer med dedn fulla kraften av JavaScript.
+Det kallas JSX, och är en syntaktisk förlängning av JavaScript. Vi rekommenderar att använda det tillsammans med React för att beskriva hur användargränssnittet ska se ut. JSX må påminna om ett template-språk, men det kommer med den fulla kraften av JavaScript.
 
 JSX skapar React-"element". Vi kommer utforska rendrering av dessa till DOM:en i [nästa sektion](/docs/rendering-elements.html). Nedan kan du finna grunderna i JSX som är nödvändiga för att komma igång.
 
