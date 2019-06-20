@@ -55,7 +55,7 @@ Det finns två sätt att fullfölja denna guide: du kan antingen skriva koden i 
 
 Det snabbaste sättet att komma igång!
 
-Börja med att öppna denna **[Start-mall](https://codepen.io/gaearon/pen/oWWQNa?editors=0010)** i en ny flik. Den nya fliken borde visa en tom tre-i-rad-spelplan och React-kod. Vi kommer att redigera React-koden i denna guide.
+Börja med att öppna denna **[Start-kod](https://codepen.io/gaearon/pen/oWWQNa?editors=0010)** i en ny flik. Den nya fliken borde visa en tom tre-i-rad-spelplan och React-kod. Vi kommer att redigera React-koden i denna guide.
 
 Du kan nu hoppa över det andra alternativet och gå direkt till sektionen [Överblick](#overview) för att få en överblick av React.
 
@@ -166,31 +166,31 @@ return React.createElement('div', {className: 'shopping-list'},
 
 Om du är intresserad så finns `createElement()` beskrivet i mer detalj i [API-dokumentationen](/docs/react-api.html#createelement), vi kommer dock inte använda den mer i denna guide. Istället kommer vi fortsätta använda oss av JSX.
 
-JSX comes with the full power of JavaScript. You can put *any* JavaScript expressions within braces inside JSX. Each React element is a JavaScript object that you can store in a variable or pass around in your program.
+JSX kommer med all funktionalitet som finns i JavaScript. Du skriva *vilket JavaScript-uttryck som helst* innanför krokiga paranteser i JSX. Varje React-element är ett JavaScript-objekt som du kan spara i en variabel och passa runt i ditt program.
 
-The `ShoppingList` component above only renders built-in DOM components like `<div />` and `<li />`. But you can compose and render custom React components too. For example, we can now refer to the whole shopping list by writing `<ShoppingList />`. Each React component is encapsulated and can operate independently; this allows you to build complex UIs from simple components.
+`ShopplingList`-komponenten ovan rendrera bara ut inbyggda DOM-komponenter som `<div />` och `<li />`. Men man kan komponera och rendrera egna React-komponenter också. Till exempel så kan vi nu referera till hela shoppinglistan genom att skriva `<ShoppingList />`. Varje React-komponent är inkapslad och kan fungera oberoende av andra, detta gör att du kan bygga komplexa användargränssnit från enkla komponenter.
 
-## Inspecting the Starter Code {#inspecting-the-starter-code}
+## Inspekterande av Start-koden {#inspecting-the-starter-code}
 
-If you're going to work on the tutorial **in your browser,** open this code in a new tab: **[Starter Code](https://codepen.io/gaearon/pen/oWWQNa?editors=0010)**. If you're going to work on the tutorial **locally,** instead open `src/index.js` in your project folder (you have already touched this file during the [setup](#setup-option-2-local-development-environment)).
+Om du kommer arbeta med denna guide **i din webbläsrare,** öppna denna kod i en ny flik: **[Start-kod](https://codepen.io/gaearon/pen/oWWQNa?editors=0010)**.Om du kommer arbeta med denna guide **lokalt,** öppna istället `src/index.js` i projekt-katalogen (du har redan rört denna fil under [uppsättningen](#setup-option-2-local-development-environment)).
 
-This Starter Code is the base of what we're building. We've provided the CSS styling so that you only need to focus on learning React and programming the tic-tac-toe game.
+Denna Start-kod utgör basen för det vi ska bygga. Vi har tillhandahållit all CSS-styling så att du endast behöver fokusera på att lära dig React och programmera tre-i-rad-spelet.
 
-By inspecting the code, you'll notice that we have three React components:
+Genom att inspektera koden så kommer du att se att vi har tre stycken React-komponenter:
 
 * Square
 * Board
 * Game
 
-The Square component renders a single `<button>` and the Board renders 9 squares. The Game component renders a board with placeholder values which we'll modify later. There are currently no interactive components.
+Square-komponenten rendrera en enda `<button>` och Board-komponenten rendrerar nio Square-komponenter. Game-komponenten rendrerar en spelplan med platshållarvärden som vi kommer modifiera senare. Det finns för nävarande inga interaktiva komponenter.
 
-### Passing Data Through Props {#passing-data-through-props}
+### Passa data genom props {#passing-data-through-props}
 
-To get our feet wet, let's try passing some data from our Board component to our Square component.
+För att komma igång, låt oss prova att passa viss data från vår Board-komponent till vår Square-komponent.
 
-We strongly recommend typing code by hand as you're working through the tutorial and not using copy/paste. This will help you develop muscle memory and a stronger understanding.
+We rekommenderar starkt att skriva kod för hand medan du arbetar dig igenom guiden och inte använda dig av kopiera/klistra in. Det kommer hjälpa dig utveckla muskelminne och bättre förståelse.
 
-In Board's `renderSquare` method, change the code to pass a prop called `value` to the Square:
+I Boards `renderSquare`-metod, ändra koden så att den passar en prop vid namn `value` till Square.
 
 ```js{3}
 class Board extends React.Component {
@@ -213,17 +213,17 @@ class Square extends React.Component {
 }
 ```
 
-Before:
+Före:
 
 ![React Devtools](../images/tutorial/tictac-empty.png)
 
-After: You should see a number in each square in the rendered output.
+Efter: Du borde se en siffra i varje fyrkant på det rendrerade resultatet.
 
 ![React Devtools](../images/tutorial/tictac-numbers.png)
 
-**[View the full code at this point](https://codepen.io/gaearon/pen/aWWQOG?editors=0010)**
+**[Se all kod vid denna tidpunkt](https://codepen.io/gaearon/pen/aWWQOG?editors=0010)**
 
-Congratulations! You've just "passed a prop" from a parent Board component to a child Square component. Passing props is how information flows in React apps, from parents to children.
+Grattis! Du har just "passat en prop" från en föräldra-komponent, Board, till en barn-komponent, Square. Passande av props är hur information flöder genom en React-app, från föräldrar till barn.
 
 ### Making an Interactive Component {#making-an-interactive-component}
 
