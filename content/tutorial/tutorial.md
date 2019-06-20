@@ -225,10 +225,10 @@ Efter: Du borde se en siffra i varje fyrkant på det rendrerade resultatet.
 
 Grattis! Du har just "passat en prop" från en föräldra-komponent, Board, till en barn-komponent, Square. Passande av props är hur information flöder genom en React-app, från föräldrar till barn.
 
-### Making an Interactive Component {#making-an-interactive-component}
+### Skapa en interaktiv komponent {#making-an-interactive-component}
 
-Let's fill the Square component with an "X" when we click it.
-First, change the button tag that is returned from the Square component's `render()` function to this:
+Låt oss fylla i Square-komponenten med ett "X" när vi klickar.
+Ändra först button-taggen som returneras från Square-komponentens `render()`-funktion till detta:
 
 ```javascript{4}
 class Square extends React.Component {
@@ -242,11 +242,11 @@ class Square extends React.Component {
 }
 ```
 
-If you click on a Square now, you should see an alert in your browser.
+Om du nu klickar på en Square så borde du se en meddelanderuta i din webbläsare.
 
->Note
+>OBS
 >
->To save typing and avoid the [confusing behavior of `this`](https://yehudakatz.com/2011/08/11/understanding-javascript-function-invocation-and-this/), we will use the [arrow function syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) for event handlers here and further below:
+>För att spara skrivande och undvika [förvirrande beteende av `this`](https://yehudakatz.com/2011/08/11/understanding-javascript-function-invocation-and-this/), kommer vi använda [arrow function syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) för eventhanterare här och längre nedan.
 >
 >```javascript{4}
 >class Square extends React.Component {
@@ -260,13 +260,13 @@ If you click on a Square now, you should see an alert in your browser.
 >}
 >```
 >
->Notice how with `onClick={() => alert('click')}`, we're passing *a function* as the `onClick` prop. React will only call this function after a click. Forgetting `() =>` and writing `onClick={alert('click')}` is a common mistake, and would fire the alert every time the component re-renders.
+>Notera att med `onClick={() => alert('click')}` så passar vi *en funktion* som `onClick`-prop. React kommer endast att anropa denna funktion efter ett klick. Det är vanligt att glömma `() =>` och skriva `onClick={alert('click')}` istället, det skulle medföra att meddelanderutan skulle visas varje gång komponenten rendrerar om.
 
-As a next step, we want the Square component to "remember" that it got clicked, and fill it with an "X" mark. To "remember" things, components use **state**.
+Som ett nästa steg så vill vi att Square-komponenten ska "komma ihåg" att den blivit klickad och fylla den med ett "X"-markering. För att "komma ihåg" saker använder komponenter sig av **state**.
 
-React components can have state by setting `this.state` in their constructors. `this.state` should be considered as private to a React component that it's defined in. Let's store the current value of the Square in `this.state`, and change it when the Square is clicked.
+React-komponenter kan spara state genom att sätta `this.state` i sin konstruktor. `this.state` ska anses vara privat till den React-komponent som definierat den. Låt oss spara det nuvarande värdet och Square i `this.state` och ändra det när Square blir klickad.
 
-First, we'll add a constructor to the class to initialize the state:
+Först lägger vi till en konstruktor till klassen för att initialisera state:
 
 ```javascript{2-7}
 class Square extends React.Component {
@@ -287,17 +287,17 @@ class Square extends React.Component {
 }
 ```
 
->Note
+>OBS
 >
->In [JavaScript classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes), you need to always call `super` when defining the constructor of a subclass. All React component classes that have a `constructor` should start it with a `super(props)` call.
+>I [JavaScript-klasser](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes) så behöver man alltid kalla på `super` när man definierar en konstruktor i en subklass. Alla React-komponent-klasser som har en konstruktor ska börja den med ett anrop till `super(props)`.
 
 Now we'll change the Square's `render` method to display the current state's value when clicked:
 
-* Replace `this.props.value` with `this.state.value` inside the `<button>` tag.
-* Replace the `onClick={...}` event handler with `onClick={() => this.setState({value: 'X'})}`.
-* Put the `className` and `onClick` props on separate lines for better readability.
+* Ersätt `this.props.value` med `this.state.value` inuti `<button>`-taggen.
+* Ersätt eventhanterarern `onClick={...}` med `onClick={() => this.setState({value: 'X'})}`.
+* Placera props `className` och `onClick` på egna rader för ökad läsbarhet.
 
-After these changes, the `<button>` tag that is returned by the Square's `render` method looks like this:
+Efter dessa ändringar så ser `<button>`-taggen, som returneras från Squares `render`-metod, ut så här:
 
 ```javascript{12-13,15}
 class Square extends React.Component {
@@ -321,9 +321,9 @@ class Square extends React.Component {
 }
 ```
 
-By calling `this.setState` from an `onClick` handler in the Square's `render` method, we tell React to re-render that Square whenever its `<button>` is clicked. After the update, the Square's `this.state.value` will be `'X'`, so we'll see the `X` on the game board. If you click on any Square, an `X` should show up.
+Genom att anropa `this.setState` från en `onClick`-hanterare i Squares `render`-metod så säger vi till React att rendrera om den Square-komponenten när helst dess `<button>` blir klickad. Efter uppdateringen så kommer den Sqaure-komponentens `this.state.value` att vara `'X'`, därför ser vi ett `X` på spelplanen. Om du klickar på vilken Square som helst så ska ett `X` dyka upp där.
 
-When you call `setState` in a component, React automatically updates the child components inside of it too.
+När du anropar `setState` i en komponent så kommer React automatiskt att uppdatera alla barn-komponentern inuti den också.
 
 **[View the full code at this point](https://codepen.io/gaearon/pen/VbbVLg?editors=0010)**
 
