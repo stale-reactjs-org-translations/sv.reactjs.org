@@ -8,7 +8,7 @@ prev: introducing-jsx.html
 next: components-and-props.html
 ---
 
-Element är de minsta byggstenarna i React applikationer.
+Element är de minsta byggstenarna i React-applikationer.
 
 Ett element beskriver vad som skall visas på skärmen:
 
@@ -25,7 +25,7 @@ Till skillnad från DOM-elementen i en webbläsare är React-element enkla och k
 
 ## Rendering av element i DOM {#rendering-an-element-into-the-dom}
 
-Låt oss säga att du har en `<div>` någonstans i din HTML fil:
+Låt oss säga att du har en `<div>` någonstans i din HTML-fil:
 
 ```html
 <div id="root"></div>
@@ -41,11 +41,11 @@ För att rendera ett React-element i en root DOM-nod, skicka båda till `ReactDO
 
 [](codepen://rendering-elements/render-an-element)
 
-Detta kommer att visa "Hello, world" på sidan.
+Det visar "Hello, world" på sidan.
 
 ## Uppdatera det renderade elementet {#updating-the-rendered-element}
 
-React-element är [immutable](https://en.wikipedia.org/wiki/Immutable_object). När du väl har skapat ett element så kan du inte ändra på dess barn eller attribut. Ett element är likt en stillbild i en film: den representerar användargränssnittet vid en specfik tidpunkt.
+React-element är [oföränderliga](https://en.wikipedia.org/wiki/Immutable_object). När du väl har skapat ett element så kan du inte ändra på dess barn eller attribut. Ett element är likt en stillbild i en film: den representerar användargränssnittet vid en specfik tidpunkt.
 
 Med vad vi har lärt oss hittills är det enda sättet att uppdatera användargränssnittet, att skapa ett nytt element och skicka det till `ReactDOM.render()`.
 
@@ -59,7 +59,7 @@ Den kallar på `ReactDOM.render()` varje sekund från en [`setInterval()`](https
 
 >**Obs:**
 >
->I praktiken kallar de flesta React applikationer på `ReactDOM.render()` endast en gång. I nästa avsnitt lär vi oss hur vi inkapslar sådan kod i [stateful komponenter](/docs/state-and-lifecycle.html).
+>I praktiken kallar de flesta React applikationer på `ReactDOM.render()` endast en gång. I nästa avsnitt lär vi oss hur vi kapslar in sådan kod i [komponenter med state](/docs/state-and-lifecycle.html).
 >
 >Vi rekomenderar att du läser avsnitten i ordning då de bygger vidare på varandra.
 
@@ -70,7 +70,7 @@ React DOM jämför det nuvarande elementet och dess barn med det föregående, o
 Du kan verifiera genom att inspektera det [senaste exemplet](codepen://rendering-elements/update-rendered-element) med utvecklingsverktygen för webbläsare:
 
 
-![DOM inspector showing granular updates](../images/docs/granular-dom-updates.gif)
+![DOM-inspekteraren som visar uppdatering](../images/docs/granular-dom-updates.gif)
 
 Trots att vi skapar ett element som beskriver hela användargränssnittet varje sekund, kommer endast textnoden vars innehåll har ändrats att uppdateras av React DOM.
 
