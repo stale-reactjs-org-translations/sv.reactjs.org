@@ -6,7 +6,7 @@ prev: cdn-links.html
 next: introducing-jsx.html
 ---
 
-The smallest React example looks like this:
+Ett litet React-exempel ser ut så här:
 
 ```js
 ReactDOM.render(
@@ -15,36 +15,34 @@ ReactDOM.render(
 );
 ```
 
-It displays a heading saying "Hello, world!" on the page.
+Det visar rubriken "Hello, world!" på webbsidan.
 
 [](codepen://hello-world)
 
-Click the link above to open an online editor. Feel free to make some changes, and see how they affect the output. Most pages in this guide will have editable examples like this one.
+Klicka på länken ovan för att öppna en kodredigerare online. Testa att göra ändringar i koden och se hur de påverkar innehållet som visas. De flesta sidor i den här guiden kommer att ha exempel som detta där du kan göra ändringar och testa dig fram.
 
 
-## How to Read This Guide {#how-to-read-this-guide}
+## Hur den här guiden fungerar {#how-to-read-this-guide}
 
-In this guide, we will examine the building blocks of React apps: elements and components. Once you master them, you can create complex apps from small reusable pieces.
+I den här guiden kommer vi att titta närmre på de byggblock som en React-app består utav: element och komponenter. När du behärskar dem kan du skapa komplexa appar utifrån mindre byggnadsdelar som kan återanvändas.
 
->Tip
+>Tips
 >
->This guide is designed for people who prefer **learning concepts step by step**. If you prefer to learn by doing, check out our [practical tutorial](/tutorial/tutorial.html). You might find this guide and the tutorial complementary to each other.
+>Den här guiden är skapad för de som föredrar att  **lära sig koncept steg-för-steg**. Om du föredrar att lära dig genom att göra, kolla in vår [praktiska guide](/tutorial/tutorial.html). Den här guiden, och den praktiska guiden, kan även vara bra komplement till varandra.
 
-This is the first chapter in a step-by-step guide about main React concepts. You can find a list of all its chapters in the navigation sidebar. If you're reading this from a mobile device, you can access the navigation by pressing the button in the bottom right corner of your screen.
+Det här är det första kapitlet i steg-för-steg guiden om de huvudsakliga begreppen inom React. Du hittar en lista med alla kapitel i menyn i sidspalten. Om du läser detta via mobilen hittar du menyn genom att klicka på knappen i det nedre högra hörnet på din skärm.
 
-Every chapter in this guide builds on the knowledge introduced in earlier chapters. **You can learn most of React by reading the “Main Concepts” guide chapters in the order they appear in the sidebar.** For example, [“Introducing JSX”](/docs/introducing-jsx.html) is the next chapter after this one.
+Varje kapitel i den här guiden bygger på kunskapen du fått i de föregående kapitlen. **Du kan lära dig det mesta om React genom att läsa kapitlen i guiden ”Huvudsakliga begrepp” i den ordning de visas i sidspalten.** Till exempel är [“Introduktion till JSX”](/docs/introducing-jsx.html) nästa kapitel efter detta.
 
-## Knowledge Level Assumptions {#knowledge-level-assumptions}
+## Antaganden om kunskapsnivå {#knowledge-level-assumptions}
 
-React is a JavaScript library, and so we'll assume you have a basic understanding of the JavaScript language. **If you don't feel very confident, we recommend [going through a JavaScript tutorial](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript) to check your knowledge level** and enable you to follow along this guide without getting lost. It might take you between 30 minutes and an hour, but as a result you won't have to feel like you're learning both React and JavaScript at the same time.
+React är ett JavaScript-bibliotek och därför kommer vi anta att du har en basal förståelse för JavaScript som programmeringsspråk. **Om du inte känner dig väldigt säker på din kunskapsnivå rekommenderar vi [att gå igenom en guide om JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript) för att se hur du ligger till**, så att du kan följa med i guiden utan att tappa bort dig. Det kan ta mellan 30 min och en timme, men resultatet blir att du inte behöver känna det som att du lär dig både React och Javascript på samma gång.
 
->Note
+>Notera
 >
->This guide occasionally uses some of the newer JavaScript syntax in the examples. If you haven't worked with JavaScript in the last few years, [these three points](https://gist.github.com/gaearon/683e676101005de0add59e8bb345340c) should get you most of the way.
+>Den här guiden använder till och från nyare JavaScript-syntax i exemplen. Om du inte har jobbat med JavaScript under de senaste åren bör [dessa tre punkter](https://gist.github.com/gaearon/683e676101005de0add59e8bb345340c) hjälpa dig på vägen.
 
 
-## Let's Get Started! {#lets-get-started}
+## Nu kör vi igång! {#lets-get-started}
 
-Keep scrolling down, and you'll find the link to the [next chapter of this guide](/docs/introducing-jsx.html) right before the website footer.
-
-
+Fortsätt scrolla, länken till [nästa kapitel i den här guiden](/docs/introducing-jsx.html) hittar du precis innan sidfoten.
