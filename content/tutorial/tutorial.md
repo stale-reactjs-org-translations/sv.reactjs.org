@@ -325,24 +325,24 @@ Genom att anropa `this.setState` från en `onClick`-hanterare i Squares `render`
 
 När du anropar `setState` i en komponent så kommer React automatiskt att uppdatera alla barn-komponentern inuti den också.
 
-**[View the full code at this point](https://codepen.io/gaearon/pen/VbbVLg?editors=0010)**
+**[Se all kod vid denna tidpunkt](https://codepen.io/gaearon/pen/VbbVLg?editors=0010)**)
 
-### Developer Tools {#developer-tools}
+### Utvecklarverktyg {#developer-tools}
 
-The React Devtools extension for [Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en) and [Firefox](https://addons.mozilla.org/en-US/firefox/addon/react-devtools/) lets you inspect a React component tree with your browser's developer tools.
+Tillägget React Devtools för [Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en) och [Firefox](https://addons.mozilla.org/en-US/firefox/addon/react-devtools/) låter dig inspektera ett React-komponent-träd i din webbläsarens utvecklarverktyg.
 
 <img src="../images/tutorial/devtools.png" alt="React Devtools" style="max-width: 100%">
 
-The React DevTools let you check the props and the state of your React components.
+React Devtools låter dig kontrollera React-komponenters props och state.
 
-After installing React DevTools, you can right-click on any element on the page, click "Inspect" to open the developer tools, and the React tab will appear as the last tab to the right.
+Efter installation av React Devtools så kan du högerklicka på något element på sidan och sedan klicka på "Inspektera" för att öpnna utvecklarverktygen. En React-flik kommer visas sist längst till höger.
 
-**However, note there are a few extra steps to get it working with CodePen:**
+**Dock så krävs det ytterligare några steg för att få det att fungera med CodePen:**
 
-1. Log in or register and confirm your email (required to prevent spam).
-2. Click the "Fork" button.
-3. Click "Change View" and then choose "Debug mode".
-4. In the new tab that opens, the devtools should now have a React tab.
+1. Logga in eller registrera dig, samt bekräfta din e-postaddress (krävs för att förhindra spam)
+2. Klicka på knappen "Fork".
+3. Klicka på "Change View" och välj sedan "Debug mode".
+4. I den nya fliken som öppnas borde utvecklareverktygen ha en React-flik.
 
 ## Completing the Game {#completing-the-game}
 
