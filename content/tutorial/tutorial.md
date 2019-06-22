@@ -563,13 +563,13 @@ Den primära fördelen med oföränderlighet är att det hjälper dig bygga _ren
 
 Du kan lära mer om `shouldComponentUpdate()` och hur du kan bygga *rena komponenter* genom att läsa [Optimera prestanda](/docs/optimizing-performance.html#examples).
 
-### Function Components {#function-components}
+### Funktion-komponenter {#function-components}
 
-We'll now change the Square to be a **function component**.
+Vi kommer nu ändra Square till att bli en **funktion-komponent**.
 
-In React, **function components** are a simpler way to write components that only contain a `render` method and don't have their own state. Instead of defining a class which extends `React.Component`, we can write a function that takes `props` as input and returns what should be rendered. Function components are less tedious to write than classes, and many components can be expressed this way.
+I React är **funktion-komponenter** ett simplare sätt att skriva komponenter på, som endast har en `render`-metod och inte innehar eget state. Istället för att definiera en klass som utökar `React.Component` kan vi definiera en funktion som tar `props` som input och returnerar det som ska rendreras. Funktion-komponenter är inte lika tradig att skriva som klasser och många komponenter kan uttryckas på detta sätt.
 
-Replace the Square class with this function:
+Ersätt Square-klassen med denna funktion:
 
 ```javascript
 function Square(props) {
@@ -581,19 +581,19 @@ function Square(props) {
 }
 ```
 
-We have changed `this.props` to `props` both times it appears.
+Vi har ändrat `this.props` till `props` på båda platser det förekommer.
 
-**[View the full code at this point](https://codepen.io/gaearon/pen/QvvJOv?editors=0010)**
+**[Se full kod vid denna tidpunkt](https://codepen.io/gaearon/pen/QvvJOv?editors=0010)**
 
->Note
+>OBS
 >
->When we modified the Square to be a function component, we also changed `onClick={() => this.props.onClick()}` to a shorter `onClick={props.onClick}` (note the lack of parentheses on *both* sides).
+>När vi modifierade Square till att bli en funktion-komponent ändrade vi också `onClick={() => this.props.onClick()}` till det kortare `onClick={props.onClick}` (notera avsaknade av paranteser på *båda* sidorna).
 
-### Taking Turns {#taking-turns}
+### Turas om {#taking-turns}
 
-We now need to fix an obvious defect in our tic-tac-toe game: the "O"s cannot be marked on the board.
+Vi behöver åtgärda en uppenbar defekt i vårt tre-i-rad-spel: "O" kan inte markeras på spelplanen.
 
-We'll set the first move to be "X" by default. We can set this default by modifying the initial state in our Board constructor:
+Vi sätter första speldraget till att vara "X" som standard. Vi kan sätta standardvärdet genom att modifiera det initiala statet i konstruktorn i vår Board.
 
 ```javascript{6}
 class Board extends React.Component {
@@ -606,7 +606,7 @@ class Board extends React.Component {
   }
 ```
 
-Each time a player moves, `xIsNext` (a boolean) will be flipped to determine which player goes next and the game's state will be saved. We'll update the Board's `handleClick` function to flip the value of `xIsNext`:
+Varje gång en spelare gör ett drag kommer `xIsNext` (en boolesk datatyp) att växlas för att avgöra vilken spelares tur det är här näst samt spara spelets state. Vi uppdaterar Boars `handleClick`-funktion till att växla värdet av `xIsNext`:
 
 ```javascript{3,6}
   handleClick(i) {
@@ -619,19 +619,19 @@ Each time a player moves, `xIsNext` (a boolean) will be flipped to determine whi
   }
 ```
 
-With this change, "X"s and "O"s can take turns. Try it!
+Med denna ändringar turas "X" och "O" om. Testa!
 
-Let's also change the "status" text in Board's `render` so that it displays which player has the next turn:
+Låt oss också ändra "status"-texten i Boards `render` för att visa vilken spelare som gör nästa drag.
 
 ```javascript{2}
   render() {
-    const status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
+    const status = 'Nästa spelare: ' + (this.state.xIsNext ? 'X' : 'O');
 
     return (
-      // the rest has not changed
+      // resten är oförändrat
 ```
 
-After applying these changes, you should have this Board component:
+Efter applicering av dessa förändringar borde du ha följande Board-komponent:
 
 ```javascript{6,11-16,29}
 class Board extends React.Component {
@@ -662,7 +662,7 @@ class Board extends React.Component {
   }
 
   render() {
-    const status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
+    const status = 'Nästa spelare: ' + (this.state.xIsNext ? 'X' : 'O');
 
     return (
       <div>
@@ -688,7 +688,7 @@ class Board extends React.Component {
 }
 ```
 
-**[View the full code at this point](https://codepen.io/gaearon/pen/KmmrBy?editors=0010)**
+**[Se full kod vid denna tidpunkt](https://codepen.io/gaearon/pen/KmmrBy?editors=0010)**
 
 ### Declaring a Winner {#declaring-a-winner}
 
