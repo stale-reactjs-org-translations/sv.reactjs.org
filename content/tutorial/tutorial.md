@@ -690,9 +690,9 @@ class Board extends React.Component {
 
 **[Se full kod vid denna tidpunkt](https://codepen.io/gaearon/pen/KmmrBy?editors=0010)**
 
-### Declaring a Winner {#declaring-a-winner}
+### Utse en vinnare {#declaring-a-winner}
 
-Now that we show which player's turn is next, we should also show when the game is won and there are no more turns to make. Copy this helper function and paste it at the end of the file:
+När vi nu visar vilken spelare tur det är här näst borde vi också visa när spelet är vunnet och det inte längre finns några fler drag att göra. Kopiera denna hjälp-funktion och klistra in den i slutet av filen:
 
 ```javascript
 function calculateWinner(squares) {
@@ -716,25 +716,25 @@ function calculateWinner(squares) {
 }
 ```
 
-Given an array of 9 squares, this function will check for a winner and return `'X'`, `'O'`, or `null` as appropriate.
+Givet en array av 9 rutor kommer denna funktion att kolla efter en vinntare och returnera `'X'`, `'O'`, or `null` i förekommande fall.
 
-We will call `calculateWinner(squares)` in the Board's `render` function to check if a player has won. If a player has won, we can display text such as "Winner: X" or "Winner: O". We'll replace the `status` declaration in Board's `render` function with this code:
+Vi kommer kalla `calculateWinner(squares)` i Boards `render`-funktion för att kolla om en spelare har vunnit. Om en spelare har vunnit kan vi visa en text såsom "Vinnare: X" eller "Vinnare: O". Vi kommer ersätta deklarationen av `status` i BOards `render`-funktion med denna kod:
 
 ```javascript{2-8}
   render() {
     const winner = calculateWinner(this.state.squares);
     let status;
     if (winner) {
-      status = 'Winner: ' + winner;
+      status = 'Vinnare: ' + winner;
     } else {
-      status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
+      status = 'Nästa spelare: ' + (this.state.xIsNext ? 'X' : 'O');
     }
 
     return (
-      // the rest has not changed
+      // resten är oförändrat
 ```
 
-We can now change the Board's `handleClick` function to return early by ignoring a click if someone has won the game or if a Square is already filled:
+Vi kan nu ändra Boards `handleClick`-funktion att returnera tidigt genom att ignorera klick om någon har vunnit spelet eller om en ruta redan är markerad:
 
 ```javascript{3-5}
   handleClick(i) {
@@ -750,9 +750,9 @@ We can now change the Board's `handleClick` function to return early by ignoring
   }
 ```
 
-**[View the full code at this point](https://codepen.io/gaearon/pen/LyyXgK?editors=0010)**
+**[Se full kod vid denna tidpunkt](https://codepen.io/gaearon/pen/LyyXgK?editors=0010)**
 
-Congratulations! You now have a working tic-tac-toe game. And you've just learned the basics of React too. So *you're* probably the real winner here.
+Grattis! Du har nu ett fungerande tre-i-rad-spel. Du har också lärt det grunderna i React. So *du* är troligen den riktiga vinnaren här.
 
 ## Adding Time Travel {#adding-time-travel}
 
