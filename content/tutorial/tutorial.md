@@ -1,6 +1,6 @@
 ---
 id: tutorial
-title: "Tutorial: Intro to React"
+title: "Guide: Intro till React"
 layout: tutorial
 sectionid: tutorial
 permalink: tutorial/tutorial.html
@@ -12,97 +12,97 @@ redirect_from:
   - "docs/tutorial-zh-CN.html"
 ---
 
-This tutorial doesn't assume any existing React knowledge.
+Denna guide förutsätter inte några förkunskapar inom React.
 
-## Before We Start the Tutorial {#before-we-start-the-tutorial}
+## Innan vi startar guiden {#before-we-start-the-tutorial}
 
-We will build a small game during this tutorial. **You might be tempted to skip it because you're not building games -- but give it a chance.** The techniques you'll learn in the tutorial are fundamental to building any React apps, and mastering it will give you a deep understanding of React.
+I denna guide kommer vi att bygga ett litet spel. **Du kan känna dig frestad att hoppa över det för att du inte bygger spel -- men ge det en chans.** Teknikerna du kommer lära dig i guiden är fundamentala för att bygga vilken React-applikation som helst, och genom att bemästra dem kommer du få djupare förståelse för React.
 
->Tip
+>Tips
 >
->This tutorial is designed for people who prefer to **learn by doing**. If you prefer learning concepts from the ground up, check out our [step-by-step guide](/docs/hello-world.html). You might find this tutorial and the guide complementary to each other.
+>Denna guide är utformad för personer som föredrar att **lära genom att göra**. Om du föredrar att lära dig koncept från grunden, spana in vår [steg-för-steg-guide](/docs/hello-world.html). Du kanske finner att båda guiderna kompletterar varandra.
 
-The tutorial is divided into several sections:
+Denna guide är indelad i flera sektioner:
 
-* [Setup for the Tutorial](#setup-for-the-tutorial) will give you **a starting point** to follow the tutorial.
-* [Overview](#overview) will teach you **the fundamentals** of React: components, props, and state.
-* [Completing the Game](#completing-the-game) will teach you **the most common techniques** in React development.
-* [Adding Time Travel](#adding-time-travel) will give you **a deeper insight** into the unique strengths of React.
+* [Uppsättning för guiden](#setup-for-the-tutorial) kommer ge dig *en utgångspunkt* för att följa guiden.
+* [Överblick](#overview) kommer lära dig **grundprinciperna** i React: komponenter, props och state.
+* [Färdigställa spelet](#completing-the-game) kommer lära dig **de vanligaste teknikerna** inom React-utveckling.
+* [Lägg till Time Travel](#adding-time-travel) kommer ge dig **en djupare insikt** i Reacts unika styrkor.
 
-You don't have to complete all of the sections at once to get the value out of this tutorial. Try to get as far as you can -- even if it's one or two sections.
+Du behöver inte fullfölja alla sektionerna på en och samma gång för att få värde ur denna guide. Försöka att komma så långt du kan -- även om det är en eller två sektioner.
 
-### What Are We Building? {#what-are-we-building}
+### Vad är det vi bygger? {#what-are-we-building}
 
-In this tutorial, we'll show how to build an interactive tic-tac-toe game with React.
+I denna guide kommer vi visa hur man bygger ett interaktivt tre-i-rad-spel med React.
 
-You can see what we'll be building here: **[Final Result](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**. If the code doesn't make sense to you, or if you are unfamiliar with the code's syntax, don't worry! The goal of this tutorial is to help you understand React and its syntax.
+Du kan se vad vi kommer att bygga här: **[Slutresultat](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)** Oroa dig inte om du inte begriper dig på koden eller om du är obekant med kodens syntax! Målet med denna guide är att hjälpa dig förstå React och dess syntax.
 
-We recommend that you check out the tic-tac-toe game before continuing with the tutorial. One of the features that you'll notice is that there is a numbered list to the right of the game's board. This list gives you a history of all of the moves that have occurred in the game, and is updated as the game progresses.
+Vi rekommenderar att du tittar på tre-i-rad-spelet innan du fortsätter med guiden. En av funktionerna som du kommer märka är att det finns en numrerad lista till höger och spelplanen. Denna lista ger dig historiken över alla drag som skett i spelet och hålls uppdaterad under spelets gång.
 
-You can close the tic-tac-toe game once you're familiar with it. We'll be starting from a simpler template in this tutorial. Our next step is to set you up so that you can start building the game.
+Du kan stänga tre-i-rad-spelet när du känner dig bekant med det. Vi kommer att börja med en enklare mall i denna guide. Nästa steg är att sätta upp din miljö så att du kan börja bygga spelet.
 
-### Prerequisites {#prerequisites}
+### Förutsättningar {#prerequisites}
 
-We'll assume that you have some familiarity with HTML and JavaScript, but you should be able to follow along even if you're coming from a different programming language. We'll also assume that you're familiar with programming concepts like functions, objects, arrays, and to a lesser extent, classes.
+Vi antar att du är någorlunda bekant med HTML och JavaScript, men du borde kunna följa med även om du kommer från ett annat programmeringsspråk. Vi antar också att du är bekant med koncept inom programmering såsom funktioner, objekt, arrayer och i mindre utsträckning klasser.
 
-If you need to review JavaScript, we recommend reading [this guide](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript). Note that we're also using some features from ES6 -- a recent version of JavaScript. In this tutorial, we're using [arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions), [classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes), [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let), and [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) statements. You can use the [Babel REPL](babel://es5-syntax-example) to check what ES6 code compiles to.
+Om du behöver se över dina JavaScript-kunskaper rekommenderar vi att du läser [denna guide](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript). Notera att vi också använder några funktioner från ES6 -- en nyare version av JavaScript. I denna guide använder vi [arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions), [classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes), [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let), och [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const). Du kan använda [Babel REPL](babel://es5-syntax-example) för att se vad ES6-kod kompileras till.
 
-## Setup for the Tutorial {#setup-for-the-tutorial}
+## Uppsättning för guiden {#setup-for-the-tutorial}
 
-There are two ways to complete this tutorial: you can either write the code in your browser, or you can set up a local development environment on your computer.
+Det finns två sätt att fullfölja denna guide: du kan antingen skriva koden i din webbläsare, eller så kan du sätta upp en lokal utvecklingsmiljö på din dator.
 
-### Setup Option 1: Write Code in the Browser {#setup-option-1-write-code-in-the-browser}
+### Uppsättning Alterantiv 1: Skriv kod i webbläsaren {#setup-option-1-write-code-in-the-browser}
 
-This is the quickest way to get started!
+Det snabbaste sättet att komma igång!
 
-First, open this **[Starter Code](https://codepen.io/gaearon/pen/oWWQNa?editors=0010)** in a new tab. The new tab should display an empty tic-tac-toe game board and React code. We will be editing the React code in this tutorial.
+Börja med att öppna denna **[Start-kod](https://codepen.io/gaearon/pen/oWWQNa?editors=0010)** i en ny flik. Den nya fliken borde visa en tom tre-i-rad-spelplan och React-kod. Vi kommer att redigera React-koden i denna guide.
 
-You can now skip the second setup option, and go to the [Overview](#overview) section to get an overview of React.
+Du kan nu hoppa över det andra alternativet och gå direkt till sektionen [Överblick](#overview) för att få en överblick av React.
 
-### Setup Option 2: Local Development Environment {#setup-option-2-local-development-environment}
+### Uppsättning Alternativ 2: Lokal utvecklingsmiljö {#setup-option-2-local-development-environment}
 
-This is completely optional and not required for this tutorial!
+Detta är helt valfritt och inte ett krav för denna guide!
 
 <br>
 
 <details>
 
-<summary><b>Optional: Instructions for following along locally using your preferred text editor</b></summary>
+<summary><b>Valfritt: Instrukioner för att följa med lokalt med din föredragna textredigerare</b></summary>
 
-This setup requires more work but allows you to complete the tutorial using an editor of your choice. Here are the steps to follow:
+Denna uppsättning kräver mer arbete men tillåter dig att fullfölja denna guide med en textredigerare du väljer själv. Gör följande steg:
 
-1. Make sure you have a recent version of [Node.js](https://nodejs.org/en/) installed.
-2. Follow the [installation instructions for Create React App](/docs/create-a-new-react-app.html#create-react-app) to make a new project.
+1. Se till att du har en nyare version av [Node.js](https://nodejs.org/en/) installerad.
+2. Följ [instruktionerna för installation av Create React App](/docs/create-a-new-react-app.html#create-react-app) för att skapa ett nytt projekt.
 
 ```bash
 npx create-react-app my-app
 ```
 
-3. Delete all files in the `src/` folder of the new project 
+3. Ta bort alla filerna i `src/`-katalogen för det nya projektet.
 
-> Note:
+> Obs:
 >
->**Don't delete the entire `src` folder, just the original source files inside it.** We'll replace the default source files with examples for this project in the next step.
+>**Ta inte bort hela `src`-katalogen, bara de ursprungilga källfilerna inuti den.** I nästa steg kommer vi att ersätta de ursprungliga källfilerna med kod för detta projekt.
 
 ```bash
 cd my-app
 cd src
 
-# If you're using a Mac or Linux:
+# Om du använder Mac eller Linux:
 rm -f *
 
-# Or, if you're on Windows:
+# Eller, om du använder Windows:
 del *
 
-# Then, switch back to the project folder
+# Väl klart, byt tillbaka till projekt-katalogen
 cd ..
 ```
 
-4. Add a file named `index.css` in the `src/` folder with [this CSS code](https://codepen.io/gaearon/pen/oWWQNa?editors=0100).
+4. Lägg till en fil vid namn `index.css` inuti `src/`-katalogen med [denna CSS-kod](https://codepen.io/gaearon/pen/oWWQNa?editors=0100).
 
-5. Add a file named `index.js` in the `src/` folder with [this JS code](https://codepen.io/gaearon/pen/oWWQNa?editors=0010).
+5. Lägg till en fil vid namn `index.js` inuti `src/`-katalogen med [denna JS-kod](https://codepen.io/gaearon/pen/oWWQNa?editors=0010).
 
-6. Add these three lines to the top of `index.js` in the `src/` folder:
+6. Lägg till följande tre rader i toppen av `index.js` som ligger inuti `src`-katalogen.
 
 ```js
 import React from 'react';
@@ -110,32 +110,32 @@ import ReactDOM from 'react-dom';
 import './index.css';
 ```
 
-Now if you run `npm start` in the project folder and open `http://localhost:3000` in the browser, you should see an empty tic-tac-toe field.
+Om du nu kör `npm start` i projekt-katalogen och öppnar `http://localhost:3000` i din webbläsare så borde du se en tom spelplan för tre-i-rad.
 
-We recommend following [these instructions](https://babeljs.io/docs/editors/) to configure syntax highlighting for your editor.
+Vi rekommenderar att du följer [dessa instruktioner](https://babeljs.io/docs/editors/) för att konfigurera syntaxmarkering för din textredigerare.
 
 </details>
 
-### Help, I'm Stuck! {#help-im-stuck}
+### Hjälp, jag är fast! {#help-im-stuck}
 
-If you get stuck, check out the [community support resources](/community/support.html). In particular, [Reactiflux Chat](https://discord.gg/0ZcbPKXt5bZjGY5n) is a great way to get help quickly. If you don't receive an answer, or if you remain stuck, please file an issue, and we'll help you out.
+Om du fastnar, kolla in [de tillgängliga support-resurserna](/community/support.html). I synnerhet så är [Reactiflux-chatten](https://discord.gg/0ZcbPKXt5bZjGY5n) en jättebra plats att få hjälp snabbt. Om du inte får ett svar, eller om du förblir fast, skapa en issue så hjälper vi dig.
 
-## Overview {#overview}
+## Överblick {#overview}
 
-Now that you're set up, let's get an overview of React!
+Nu när allt är uppsatt, lås oss skaffa oss en överblick av React!
 
-### What Is React? {#what-is-react}
+### Vad är React? {#what-is-react}
 
-React is a declarative, efficient, and flexible JavaScript library for building user interfaces. It lets you compose complex UIs from small and isolated pieces of code called "components".
+React är ett deklarativt, effektivt och flexibelt JavaScript-bibliotek för att bygga användargränssnitt. Det låter dig komponera ihop komplexa gränssnitt med hjälp av mindre och isolerade delar av kod som kallas "komponenter".
 
-React has a few different kinds of components, but we'll start with `React.Component` subclasses:
+React har några olika typer av komponenter, men vi börjar med typer som är subklasser av `React.Component`:
 
 ```javascript
 class ShoppingList extends React.Component {
   render() {
     return (
       <div className="shopping-list">
-        <h1>Shopping List for {this.props.name}</h1>
+        <h1>Shopping-lista för {this.props.name}</h1>
         <ul>
           <li>Instagram</li>
           <li>WhatsApp</li>
@@ -146,51 +146,51 @@ class ShoppingList extends React.Component {
   }
 }
 
-// Example usage: <ShoppingList name="Mark" />
+// Exempel på användning: <ShoppingList name="Mark" />
 ```
 
-We'll get to the funny XML-like tags soon. We use components to tell React what we want to see on the screen. When our data changes, React will efficiently update and re-render our components.
+Vi kommer att komma till de lite konstiga XML-liknande taggarna inom kort. Vi använder komponenter för att berätta för React vad vi vill se för något på skärmen. När vår data förändras så kommer React på ett effektivt sätt att uppdatera och rita om våra komponenter.
 
-Here, ShoppingList is a **React component class**, or **React component type**. A component takes in parameters, called `props` (short for "properties"), and returns a hierarchy of views to display via the `render` method.
+I detta exepmel så är ShoppingList en **React-komponent-klass** eller **React-komponent-typ**. En komponent kan ta emot parametrar, så kallade `props` (förkorning av engelskans "properties") och returnerar en hierarki av vyer att visa via `render`-metoden.
 
-The `render` method returns a *description* of what you want to see on the screen. React takes the description and displays the result. In particular, `render` returns a **React element**, which is a lightweight description of what to render. Most React developers use a special syntax called "JSX" which makes these structures easier to write. The `<div />` syntax is transformed at build time to `React.createElement('div')`. The example above is equivalent to:
+`render`-metoden returnerar en *beskrivning* av vad du vill se på skärmen. React tar beskrivningen och visar resultatet. Specifikt så returnerar `render` ett **React-element**, vilket är en lättviktigt beskrivning av vad som ska ritas ut. De flesta React-utvecklare använder en speciell syntax som kallas "JSX" och som gör det enklare att skriva dessa strukturer. Koden `<div />` transformeras vid bygge till `React.createElement('div')`. Exemplet ovan är samma sak som:
 
 ```javascript
 return React.createElement('div', {className: 'shopping-list'},
-  React.createElement('h1', /* ... h1 children ... */),
-  React.createElement('ul', /* ... ul children ... */)
+  React.createElement('h1', /* ... barn till h1 ... */),
+  React.createElement('ul', /* ... barn till ul ... */)
 );
 ```
 
-[See full expanded version.](babel://tutorial-expanded-version)
+[Se full version.](babel://tutorial-expanded-version)
 
-If you're curious, `createElement()` is described in more detail in the [API reference](/docs/react-api.html#createelement), but we won't be using it in this tutorial. Instead, we will keep using JSX.
+Om du är intresserad så finns `createElement()` beskrivet i mer detalj i [API-dokumentationen](/docs/react-api.html#createelement), vi kommer dock inte använda den mer i denna guide. Istället kommer vi fortsätta använda oss av JSX.
 
-JSX comes with the full power of JavaScript. You can put *any* JavaScript expressions within braces inside JSX. Each React element is a JavaScript object that you can store in a variable or pass around in your program.
+JSX kommer med all funktionalitet som finns i JavaScript. Du skriva *vilket JavaScript-uttryck som helst* innanför krokiga paranteser i JSX. Varje React-element är ett JavaScript-objekt som du kan spara i en variabel och passa runt i ditt program.
 
-The `ShoppingList` component above only renders built-in DOM components like `<div />` and `<li />`. But you can compose and render custom React components too. For example, we can now refer to the whole shopping list by writing `<ShoppingList />`. Each React component is encapsulated and can operate independently; this allows you to build complex UIs from simple components.
+`ShopplingList`-komponenten ovan rendrerar bara ut inbyggda DOM-komponenter som `<div />` och `<li />`. Men man kan komponera och rendrera egna React-komponenter också. Till exempel så kan vi nu referera till hela shoppinglistan genom att skriva `<ShoppingList />`. Varje React-komponent är inkapslad och kan fungera oberoende av andra, detta gör att du kan bygga komplexa användargränssnit från enkla komponenter.
 
-## Inspecting the Starter Code {#inspecting-the-starter-code}
+## Inspekterande av Start-koden {#inspecting-the-starter-code}
 
-If you're going to work on the tutorial **in your browser,** open this code in a new tab: **[Starter Code](https://codepen.io/gaearon/pen/oWWQNa?editors=0010)**. If you're going to work on the tutorial **locally,** instead open `src/index.js` in your project folder (you have already touched this file during the [setup](#setup-option-2-local-development-environment)).
+Om du kommer arbeta med denna guide **i din webbläsrare,** öppna denna kod i en ny flik: **[Start-kod](https://codepen.io/gaearon/pen/oWWQNa?editors=0010)**. Om du kommer arbeta med denna guide **lokalt,** öppna istället `src/index.js` i projekt-katalogen (du har redan rört denna fil under [uppsättningen](#setup-option-2-local-development-environment)).
 
-This Starter Code is the base of what we're building. We've provided the CSS styling so that you only need to focus on learning React and programming the tic-tac-toe game.
+Denna Start-kod utgör basen för det vi ska bygga. Vi har tillhandahållit all CSS-styling så att du endast behöver fokusera på att lära dig React och programmera tre-i-rad-spelet.
 
-By inspecting the code, you'll notice that we have three React components:
+Genom att inspektera koden så kommer du att se att vi har tre stycken React-komponenter:
 
 * Square
 * Board
 * Game
 
-The Square component renders a single `<button>` and the Board renders 9 squares. The Game component renders a board with placeholder values which we'll modify later. There are currently no interactive components.
+Square-komponenten rendrerar en enda `<button>` och Board-komponenten rendrerar nio Square-komponenter. Game-komponenten rendrerar en spelplan med platshållarvärden som vi kommer modifiera senare. Det finns för nävarande inga interaktiva komponenter.
 
-### Passing Data Through Props {#passing-data-through-props}
+### Passa data genom props {#passing-data-through-props}
 
-To get our feet wet, let's try passing some data from our Board component to our Square component.
+För att bli varma i kläderna, låt oss prova att passa viss data från vår Board-komponent till vår Square-komponent.
 
-We strongly recommend typing code by hand as you're working through the tutorial and not using copy/paste. This will help you develop muscle memory and a stronger understanding.
+Vi rekommenderar starkt att skriva kod för hand medan du arbetar dig igenom guiden och inte använda dig av kopiera/klistra in. Det kommer hjälpa dig utveckla muskelminne och bättre förståelse.
 
-In Board's `renderSquare` method, change the code to pass a prop called `value` to the Square:
+I Boards `renderSquare`-metod, ändra koden så att den passar en prop vid namn `value` till Square.
 
 ```js{3}
 class Board extends React.Component {
@@ -199,7 +199,7 @@ class Board extends React.Component {
   }
 ```
 
-Change Square's `render` method to show that value by replacing `{/* TODO */}` with `{this.props.value}`:
+Ändra Squares `render`-metod så att den visar det givna värdet genom att ersätta `{/* TODO */} med `{this.props.value}`:
 
 ```js{5}
 class Square extends React.Component {
@@ -213,22 +213,22 @@ class Square extends React.Component {
 }
 ```
 
-Before:
+Före:
 
 ![React Devtools](../images/tutorial/tictac-empty.png)
 
-After: You should see a number in each square in the rendered output.
+Efter: Du borde se en siffra i varje fyrkant på det rendrerade resultatet.
 
 ![React Devtools](../images/tutorial/tictac-numbers.png)
 
-**[View the full code at this point](https://codepen.io/gaearon/pen/aWWQOG?editors=0010)**
+**[Se full kod vid denna tidpunkt](https://codepen.io/gaearon/pen/aWWQOG?editors=0010)**
 
-Congratulations! You've just "passed a prop" from a parent Board component to a child Square component. Passing props is how information flows in React apps, from parents to children.
+Grattis! Du har just "passat en prop" från en föräldra-komponent, Board, till en barn-komponent, Square. Passande av props är hur information flöder genom en React-app, från föräldrar till barn.
 
-### Making an Interactive Component {#making-an-interactive-component}
+### Skapa en interaktiv komponent {#making-an-interactive-component}
 
-Let's fill the Square component with an "X" when we click it.
-First, change the button tag that is returned from the Square component's `render()` function to this:
+Låt oss fylla i Square-komponenten med ett "X" när vi klickar.
+Ändra först button-taggen som returneras från Square-komponentens `render()`-funktion till detta:
 
 ```javascript{4}
 class Square extends React.Component {
@@ -242,11 +242,11 @@ class Square extends React.Component {
 }
 ```
 
-If you click on a Square now, you should see an alert in your browser.
+Om du nu klickar på en Square så borde du se en meddelanderuta i din webbläsare.
 
->Note
+>OBS
 >
->To save typing and avoid the [confusing behavior of `this`](https://yehudakatz.com/2011/08/11/understanding-javascript-function-invocation-and-this/), we will use the [arrow function syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) for event handlers here and further below:
+>För att spara skrivande och undvika [förvirrande beteende av `this`](https://yehudakatz.com/2011/08/11/understanding-javascript-function-invocation-and-this/), kommer vi använda [arrow function syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) för eventhanterare här och längre nedan.
 >
 >```javascript{4}
 >class Square extends React.Component {
@@ -260,13 +260,13 @@ If you click on a Square now, you should see an alert in your browser.
 >}
 >```
 >
->Notice how with `onClick={() => alert('click')}`, we're passing *a function* as the `onClick` prop. React will only call this function after a click. Forgetting `() =>` and writing `onClick={alert('click')}` is a common mistake, and would fire the alert every time the component re-renders.
+>Notera att med `onClick={() => alert('click')}` så passar vi *en funktion* som `onClick`-prop. React kommer endast att anropa denna funktion efter ett klick. Det är vanligt att glömma `() =>` och skriva `onClick={alert('click')}` istället, det skulle medföra att meddelanderutan skulle visas varje gång komponenten rendrerar om.
 
-As a next step, we want the Square component to "remember" that it got clicked, and fill it with an "X" mark. To "remember" things, components use **state**.
+Som ett nästa steg så vill vi att Square-komponenten ska "komma ihåg" att den blivit klickad på och fylla den med en "X"-markering. För att "komma ihåg" saker använder komponenter sig av **state**.
 
-React components can have state by setting `this.state` in their constructors. `this.state` should be considered as private to a React component that it's defined in. Let's store the current value of the Square in `this.state`, and change it when the Square is clicked.
+React-komponenter kan spara state genom att sätta `this.state` i sin konstruktor. `this.state` ska anses vara privat till den React-komponent som definierat den. Låt oss spara det nuvarande värdet för Square i `this.state` och ändra det när Square blir klickad.
 
-First, we'll add a constructor to the class to initialize the state:
+Först lägger vi till en konstruktor till klassen för att initialisera state:
 
 ```javascript{2-7}
 class Square extends React.Component {
@@ -287,17 +287,18 @@ class Square extends React.Component {
 }
 ```
 
->Note
+>OBS
 >
->In [JavaScript classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes), you need to always call `super` when defining the constructor of a subclass. All React component classes that have a `constructor` should start it with a `super(props)` call.
+>I [JavaScript-klasser](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes) så behöver man alltid kalla på `super` när man definierar en konstruktor i en subklass. Alla React-komponent-klasser som har en konstruktor ska börja den med ett anrop till `super(props)`.
 
+Nu ändrar vi Squares `render`-metod till att visa nuvarande värdet i state när
 Now we'll change the Square's `render` method to display the current state's value when clicked:
 
-* Replace `this.props.value` with `this.state.value` inside the `<button>` tag.
-* Replace the `onClick={...}` event handler with `onClick={() => this.setState({value: 'X'})}`.
-* Put the `className` and `onClick` props on separate lines for better readability.
+* Ersätt `this.props.value` med `this.state.value` inuti `<button>`-taggen.
+* Ersätt eventhanterarern `onClick={...}` med `onClick={() => this.setState({value: 'X'})}`.
+* Placera props `className` och `onClick` på egna rader för ökad läsbarhet.
 
-After these changes, the `<button>` tag that is returned by the Square's `render` method looks like this:
+Efter dessa ändringar så ser `<button>`-taggen, som returneras från Squares `render`-metod, ut så här:
 
 ```javascript{12-13,15}
 class Square extends React.Component {
@@ -321,44 +322,44 @@ class Square extends React.Component {
 }
 ```
 
-By calling `this.setState` from an `onClick` handler in the Square's `render` method, we tell React to re-render that Square whenever its `<button>` is clicked. After the update, the Square's `this.state.value` will be `'X'`, so we'll see the `X` on the game board. If you click on any Square, an `X` should show up.
+Genom att anropa `this.setState` från en `onClick`-hanterare i Squares `render`-metod så säger vi till React att rendrera om den Square-komponenten när helst dess `<button>` blir klickad. Efter uppdateringen så kommer den Sqaure-komponentens `this.state.value` att vara `'X'`, därför ser vi ett `X` på spelplanen. Om du klickar på vilken Square som helst så ska ett `X` dyka upp där.
 
-When you call `setState` in a component, React automatically updates the child components inside of it too.
+När du anropar `setState` i en komponent så kommer React automatiskt att uppdatera alla barn-komponenter inuti den också.
 
-**[View the full code at this point](https://codepen.io/gaearon/pen/VbbVLg?editors=0010)**
+**[Se full kod vid denna tidpunkt](https://codepen.io/gaearon/pen/VbbVLg?editors=0010)**)
 
-### Developer Tools {#developer-tools}
+### Utvecklarverktyg {#developer-tools}
 
-The React Devtools extension for [Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en) and [Firefox](https://addons.mozilla.org/en-US/firefox/addon/react-devtools/) lets you inspect a React component tree with your browser's developer tools.
+Tillägget React Devtools för [Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en) och [Firefox](https://addons.mozilla.org/en-US/firefox/addon/react-devtools/) låter dig inspektera ett React-komponent-träd i din webbläsarens utvecklarverktyg.
 
 <img src="../images/tutorial/devtools.png" alt="React Devtools" style="max-width: 100%">
 
-The React DevTools let you check the props and the state of your React components.
+React Devtools låter dig kontrollera React-komponenters props och state.
 
-After installing React DevTools, you can right-click on any element on the page, click "Inspect" to open the developer tools, and the React tab will appear as the last tab to the right.
+Efter installation av React Devtools så kan du högerklicka på något element på sidan och sedan klicka på "Inspektera" för att öpnna utvecklarverktygen. En React-flik kommer visas sist längst till höger.
 
-**However, note there are a few extra steps to get it working with CodePen:**
+**Dock så krävs det ytterligare några steg för att få det att fungera med CodePen:**
 
-1. Log in or register and confirm your email (required to prevent spam).
-2. Click the "Fork" button.
-3. Click "Change View" and then choose "Debug mode".
-4. In the new tab that opens, the devtools should now have a React tab.
+1. Logga in eller registrera dig, samt bekräfta din e-postaddress (krävs för att förhindra spam)
+2. Klicka på knappen "Fork".
+3. Klicka på "Change View" och välj sedan "Debug mode".
+4. I den nya fliken som öppnas borde utvecklareverktygen ha en React-flik.
 
-## Completing the Game {#completing-the-game}
+## Färdigställa Spelet {#completing-the-game}
 
-We now have the basic building blocks for our tic-tac-toe game. To have a complete game, we now need to alternate placing "X"s and "O"s on the board, and we need a way to determine a winner.
+Nu har vi de grundläggande byggstenarna för vårt tre-i-rad-spel. För att färdigställa spelet så behöver vi växla mellan att placera "X" och "O" på spelplanen, samt ett sätt att avgöra vinnaren.
 
-### Lifting State Up {#lifting-state-up}
+### Lyfta upp state {#lifting-state-up}
 
-Currently, each Square component maintains the game's state. To check for a winner, we'll maintain the value of each of the 9 squares in one location.
+För närvarande så håller varje Square-komponent reda på spelets state. För att kolla efter en vinnare så kommer vi upprätthålla värdet av samtliga nio Square-komponenter på en och samma plats.
 
-We may think that Board should just ask each Square for the Square's state. Although this approach is possible in React, we discourage it because the code becomes difficult to understand, susceptible to bugs, and hard to refactor. Instead, the best approach is to store the game's state in the parent Board component instead of in each Square. The Board component can tell each Square what to display by passing a prop, [just like we did when we passed a number to each Square](#passing-data-through-props).
+Man kan tro att Board bara borde fråga varje Square för dess state. Trots att detta tillvägagångssätt är möjligt i React så avråder vi från det för att koden blir svår att förstå, mottaglig för buggar och svår att refaktorera. I stället är det bästa tillvägagånssättet att spara spelets state i föräldra-komponenten Board till skillnad från i varje individuell Squre. Board-komponenten kan tala om för varje Square vad som ska visas genom att passa en prop [precis som vi gjorde när vi passade en siffra till varje Square](#passing-data-through-props)
 
-**To collect data from multiple children, or to have two child components communicate with each other, you need to declare the shared state in their parent component instead. The parent component can pass the state back down to the children by using props; this keeps the child components in sync with each other and with the parent component.**
+**För att samla data från flera barn, eller ha två barn-komponenter som kommunicerar med varandra, behöver du deklarera det delade statet i föräldra-komponent i stället. Föräldra-komponenten kan passa statet ner till barnen genom att använda props; detta håller barn-komponenter i synk med varandra och med föräldra-komponenten.**
 
-Lifting state into a parent component is common when React components are refactored -- let's take this opportunity to try it out.
+Lyfta state till en föräldra-komponent är vanligt när React-komponenter blir refaktorerade -- låt oss ta tillfället i akt att testa det.
 
-Add a constructor to the Board and set the Board's initial state to contain an array of 9 nulls corresponding to the 9 squares:
+Lägg till en konstruktor till Board och sätt Boards initiala state till att innehålla en array av 9 null-värden som motsvarar de 9 Squares.
 
 ```javascript{2-7}
 class Board extends React.Component {
@@ -374,7 +375,7 @@ class Board extends React.Component {
   }
 ```
 
-When we fill the board in later, the `this.state.squares` array will look something like this:
+När vi fyller i spelplanen senare, så kommer `this.state.squares`-arrayen att se ut något så här:
 
 ```javascript
 [
@@ -384,7 +385,7 @@ When we fill the board in later, the `this.state.squares` array will look someth
 ]
 ```
 
-The Board's `renderSquare` method currently looks like this:
+Boards `renderSquare`-metod ser för närvarande ut så här:
 
 ```javascript
   renderSquare(i) {
@@ -392,9 +393,9 @@ The Board's `renderSquare` method currently looks like this:
   }
 ```
 
-In the beginning, we [passed the `value` prop down](#passing-data-through-props) from the Board to show numbers from 0 to 8 in every Square. In a different previous step, we replaced the numbers with an "X" mark [determined by Square's own state](#making-an-interactive-component). This is why Square currently ignores the `value` prop passed to it by the Board.
+I början så  [passade vi `value`-propen neråt](#passing-data-through-props) från Board för att visa siffror från 0 till 8 i varje Square. I ett annat, tidigare steg, ersatte vi siffrorna med en "X"-markering [bestämt av Squares egna state](#making-an-interactive-component). Det är därför som Square för närvarande ignorerar `value`-propen som passas till den av Board.
 
-We will now use the prop passing mechanism again. We will modify the Board to instruct each individual Square about its current value (`'X'`, `'O'`, or `null`). We have already defined the `squares` array in the Board's constructor, and we will modify the Board's `renderSquare` method to read from it:
+Vi kommer nu använda mekanismen att passa props igen. Vi kommer modifiera Board till att instruera varje individuell Square om dess nuvarande värde (`'X'`, `'O'`, eller `null`). Vi har redan definierat `squares`-arrayen i Boards kontruktor och vi kommer modifiera Boards `renderSquare`-metod till att läsa från det:
 
 ```javascript{2}
   renderSquare(i) {
@@ -402,13 +403,13 @@ We will now use the prop passing mechanism again. We will modify the Board to in
   }
 ```
 
-**[View the full code at this point](https://codepen.io/gaearon/pen/gWWQPY?editors=0010)**
+**[Se full kod vid denna tidpunkt](https://codepen.io/gaearon/pen/gWWQPY?editors=0010)**
 
-Each Square will now receive a `value` prop that will either be `'X'`, `'O'`, or `null` for empty squares.
+Varje Square kommer nu att ta emot en `value`-prop som kommer vara antingen `'X'`, `'O'`, eller `null` för tomma rutor.
 
-Next, we need to change what happens when a Square is clicked. The Board component now maintains which squares are filled. We need to create a way for the Square to update the Board's state. Since state is considered to be private to a component that defines it, we cannot update the Board's state directly from Square.
+Härnäst behöver vi ändra vad som händer när en Square blir klickad. Board-komponenten håller nu reda på vilka rutor som är fyllda. Vi behöver skapa ett sätt för Square att uppdatera Boards state. Eftersom state ska anses vara privat till komponenten som definierar det, så kan vi inte uppdatera Boards state direkt från Square.
 
-Instead, we'll pass down a function from the Board to the Square, and we'll have Square call that function when a square is clicked. We'll change the `renderSquare` method in Board to:
+Istället passar vi ner en funktion från Board till Square och får Square att anropa på den funktionen när Square blir klickad. Vi kommer ändra `renderSquare`-metoden i Board också:
 
 ```javascript{5}
   renderSquare(i) {
@@ -421,17 +422,17 @@ Instead, we'll pass down a function from the Board to the Square, and we'll have
   }
 ```
 
->Note
+>OBS
 >
->We split the returned element into multiple lines for readability, and added parentheses so that JavaScript doesn't insert a semicolon after `return` and break our code.
+>Vi delar upp det returnerade elementet i flera rader för ökad läsbarhet och lade till paranteser så att inte JavaScript lägger in semikolon efter `return` och har sönder vår kod.
 
-Now we're passing down two props from Board to Square: `value` and `onClick`. The `onClick` prop is a function that Square can call when clicked. We'll make the following changes to Square:
+Nu passar vi ner två props från Board till Square: `value` och `onClick`. `onClick`-propen är en funktion som Square kan anropa när den blir klickad. Vi gör följande förändringar till Square:
 
-* Replace `this.state.value` with `this.props.value` in Square's `render` method
-* Replace `this.setState()` with `this.props.onClick()` in Square's `render` method
-* Delete the `constructor` from Square because Square no longer keeps track of the game's state
+* Ersätt `this.state.value` med `this.props.value` in Squares `render`-metod
+* Ersätt `this.setState()` med `this.props.onClick()` i Squares `render`-metod
+* Ta bort `constructor` från Square, eftersom Square inte längre håller koll på spelets state
 
-After these changes, the Square component looks like this:
+Efter dessa förändras ser Square-komponenten ut så här:
 
 ```javascript{1,2,6,8}
 class Square extends React.Component {
@@ -448,19 +449,19 @@ class Square extends React.Component {
 }
 ```
 
-When a Square is clicked, the `onClick` function provided by the Board is called. Here's a review of how this is achieved:
+När en Square blir klickad blir `onClick`-funktionen som tillhandahålls av Board kallad. Här är en genomgång av hur detta uppnås:
 
-1. The `onClick` prop on the built-in DOM `<button>` component tells React to set up a click event listener.
-2. When the button is clicked, React will call the `onClick` event handler that is defined in Square's `render()` method.
-3. This event handler calls `this.props.onClick()`. The Square's `onClick` prop was specified by the Board.
-4. Since the Board passed `onClick={() => this.handleClick(i)}` to Square, the Square calls `this.handleClick(i)` when clicked.
-5. We have not defined the `handleClick()` method yet, so our code crashes. If you click a square now, you should see a red error screen saying something like "this.handleClick is not a function".
+1. `onClick`-propen på den inbyggda DOM `<button>`-komponenten talar om för React att sätta upp en klick-eventlyssnare.
+2. När en knapp blir klickad, kallar React på `onClick`-eventhanteraren som är definierad i Squares `render()`-metod.
+3. Denna eventhanterare kallar på `this.props.onClick()`. Squares `onClick`-prop var specificerad av Board.
+4. Eftersom Board passar `onClick={() => this.handleClick(i)}` till Square, kallar Square på `this.handleClick(i)` när den blir klickad.
+5. Vi har inte definierat `handleClick()`-metoden än, så vår kod kraschar. Om du klickar en ruta nu borde du se en röd felskärm som säger något i stil med "this.handleClick is not a function".
 
->Note
+>OBS
 >
->The DOM `<button>` element's `onClick` attribute has a special meaning to React because it is a built-in component. For custom components like Square, the naming is up to you. We could give any name to the Square's `onClick` prop or Board's `handleClick` method, and the code would work the same. In React, it's conventional to use `on[Event]` names for props which represent events and `handle[Event]` for the methods which handle the events.
+> DOM `<button>`-elementets `onClick` attribute har speciell innebörd för React eftersom det är en inbyggd komponent. För egna komponenter som Square så är namngivningen upp till dig. Vi skulle kunna ge vilket namn som helst till Squares `onClick`-prop eller Boards `handleClick`-metod, och koden skulle fungera likadant. I React är det vedertaget att använda namn som `on[Event]` för props som representerar event och `handle[Event]` för metoder som hanterar eventen.
 
-When we try to click a Square, we should get an error because we haven't defined `handleClick` yet. We'll now add `handleClick` to the Board class:
+Vi borde få ett fel när vi klickar på Square, eftersom vi inte har definierat `handleClick` än. Vi kommer nu lägga till `handleClick` till Board-klassen:
 
 ```javascript{9-13}
 class Board extends React.Component {
@@ -513,63 +514,63 @@ class Board extends React.Component {
 }
 ```
 
-**[View the full code at this point](https://codepen.io/gaearon/pen/ybbQJX?editors=0010)**
+**[Se full kod vid denna tidpunkt](https://codepen.io/gaearon/pen/ybbQJX?editors=0010)**
 
-After these changes, we're again able to click on the Squares to fill them, the same as we had before. However, now the state is stored in the Board component instead of the individual Square components. When the Board's state changes, the Square components re-render automatically. Keeping the state of all squares in the Board component will allow it to determine the winner in the future.
+Efter dessa förändringar är vi tillbaka till att kunna klicka på Squares för att fylla dem, precis som vi kunde innan. Dock så är state nu sparat i Board-komponenten istället för i varje individuell Square-komponent. När Boards state förändras rendreras Square-komponenterna om automatiskt. Genom att hålla state av alla rutor i Board-komponenten så möjliggör det Board att avgöra vinnaren i framtiden.
 
-Since the Square components no longer maintain state, the Square components receive values from the Board component and inform the Board component when they're clicked. In React terms, the Square components are now **controlled components**. The Board has full control over them.
+Eftersom Square-komponenterna inte längre håller state så får de värden från Board-komponenten och informerar Board-komponenten när de blivit klickade. I React-termer är Square-komponenterna nu **kontrollerade komponenter**. Board har full kontroll över dem.
 
-Note how in `handleClick`, we call `.slice()` to create a copy of the `squares` array to modify instead of modifying the existing array. We will explain why we create a copy of the `squares` array in the next section.
+Notera hur vi i `handleClick` kallar på `.slice()` för att skapa en kopia av `squares`-arrayen som vi kan modifiera, istället för att modifiera en befintlig array. Vi kommer förklara varför vi skapar en kopia av `squares`-arrayen i nästa sektion.
 
-### Why Immutability Is Important {#why-immutability-is-important}
+### Varför oföränderlighet är viktigt {#why-immutability-is-important}
 
-In the previous code example, we suggested that you use the `.slice()` method to create a copy of the `squares` array to modify instead of modifying the existing array. We'll now discuss immutability and why immutability is important to learn.
+I föregående kod-exempel föreslog vi att du skulle använda `.slice()`-metoden för att skapa en kopia av `squares`-arrayen för att modifiera, istället för att modifiera en befintlig array. Vi ska nu diskutera oföränderlighet och varför oföränderlighet är viktigt att lära.
 
-There are generally two approaches to changing data. The first approach is to *mutate* the data by directly changing the data's values. The second approach is to replace the data with a new copy which has the desired changes.
+Det finns generellt två tillvägagångssätt att förändra data. Det första är att *mutera* datan genom att direkt ändra datans värden. Det andra är att ersätta datan med en ny kopia som har de önskade förändringarna.
 
-#### Data Change with Mutation {#data-change-with-mutation}
+#### Data-ändring med mutation {#data-change-with-mutation}
 ```javascript
 var player = {score: 1, name: 'Jeff'};
 player.score = 2;
-// Now player is {score: 2, name: 'Jeff'}
+// Nu är player {score: 2, name: 'Jeff'}
 ```
 
-#### Data Change without Mutation {#data-change-without-mutation}
+#### Data-ändring utan mutation {#data-change-without-mutation}
 ```javascript
 var player = {score: 1, name: 'Jeff'};
 
 var newPlayer = Object.assign({}, player, {score: 2});
-// Now player is unchanged, but newPlayer is {score: 2, name: 'Jeff'}
+// Nu är player oförändrad, men newPlayer är {score: 2, name: 'Jeff'}
 
-// Or if you are using object spread syntax proposal, you can write:
+// Eller om du använder "object spread syntax proposal", så kan du skriva:
 // var newPlayer = {...player, score: 2};
 ```
 
-The end result is the same but by not mutating (or changing the underlying data) directly, we gain several benefits described below.
+Slutresultat är detsamma, men genom att inte mutera (eller ändra den underliggande datan) direkt så får vi flera fördelar som beskrivs nedan.
 
-#### Complex Features Become Simple {#complex-features-become-simple}
+#### Komplexa funktioner blir enkla  {#complex-features-become-simple}
 
-Immutability makes complex features much easier to implement. Later in this tutorial, we will implement a "time travel" feature that allows us to review the tic-tac-toe game's history and "jump back" to previous moves. This functionality isn't specific to games -- an ability to undo and redo certain actions is a common requirement in applications. Avoiding direct data mutation lets us keep previous versions of the game's history intact, and reuse them later.
+Oföränderlighet gör komplexa funktioner mycket enklare att implementera. Senare i denna guide kommer vi implementera en "time travel"-funktion som kommer tillåta oss att gå igenom tre-i-rad-spelets historik och "hoppa tillbaka" till ett föregående drag. Denna funktionalitet är inte specifik för spel -- förmågan att ångra och göra om vissa åtgärder är ett vanligt krav i applikationer. Genom att undvika direkt mutation av data så låter det oss behålla föregående version av spelets historik intakt och återanvända de i ett senare skede.
 
-#### Detecting Changes {#detecting-changes}
+#### Upptäcka ändringar {#detecting-changes}
 
-Detecting changes in mutable objects is difficult because they are modified directly. This detection requires the mutable object to be compared to previous copies of itself and the entire object tree to be traversed.
+Att upptäcka ändringar i muterbara objekt är svårt eftersom de modifieras direkt. För att lyckas upptäcka ändringar så krävs det att man jämför det muterade objektet med föregående kopia av sig själv och hela objektets träd måste då traverseras.
 
-Detecting changes in immutable objects is considerably easier. If the immutable object that is being referenced is different than the previous one, then the object has changed.
+Att upptäcka ändringar i oföränderliga objekt är betydligt enklare. Om ett oföränderligt objekt som refereras till skiljer sig från det föregående, så har objektet ändrats.
 
-#### Determining When to Re-Render in React {#determining-when-to-re-render-in-react}
+#### Avgöra när man rendrerar om i React {#determining-when-to-re-render-in-react}
 
-The main benefit of immutability is that it helps you build _pure components_ in React. Immutable data can easily determine if changes have been made which helps to determine when a component requires re-rendering.
+Den primära fördelen med oföränderlighet är att det hjälper dig bygga _rena komponenter_ i React. Oföränderlig data kan med lätthet avgöra om det skett ändringar vilket hjälper med att avgöra när en komponent behöver rendreras om.
 
-You can learn more about `shouldComponentUpdate()` and how you can build *pure components* by reading [Optimizing Performance](/docs/optimizing-performance.html#examples).
+Du kan lära mer om `shouldComponentUpdate()` och hur du kan bygga *rena komponenter* genom att läsa [Optimera prestanda](/docs/optimizing-performance.html#examples).
 
-### Function Components {#function-components}
+### Funktion-komponenter {#function-components}
 
-We'll now change the Square to be a **function component**.
+Vi kommer nu ändra Square till att bli en **funktion-komponent**.
 
-In React, **function components** are a simpler way to write components that only contain a `render` method and don't have their own state. Instead of defining a class which extends `React.Component`, we can write a function that takes `props` as input and returns what should be rendered. Function components are less tedious to write than classes, and many components can be expressed this way.
+I React är **funktion-komponenter** ett simplare sätt att skriva komponenter på, som endast har en `render`-metod och inte innehar eget state. Istället för att definiera en klass som utökar `React.Component` kan vi definiera en funktion som tar `props` som input och returnerar det som ska rendreras. Funktion-komponenter är inte lika tradig att skriva som klasser och många komponenter kan uttryckas på detta sätt.
 
-Replace the Square class with this function:
+Ersätt Square-klassen med denna funktion:
 
 ```javascript
 function Square(props) {
@@ -581,19 +582,19 @@ function Square(props) {
 }
 ```
 
-We have changed `this.props` to `props` both times it appears.
+Vi har ändrat `this.props` till `props` på båda platser det förekommer.
 
-**[View the full code at this point](https://codepen.io/gaearon/pen/QvvJOv?editors=0010)**
+**[Se full kod vid denna tidpunkt](https://codepen.io/gaearon/pen/QvvJOv?editors=0010)**
 
->Note
+>OBS
 >
->When we modified the Square to be a function component, we also changed `onClick={() => this.props.onClick()}` to a shorter `onClick={props.onClick}` (note the lack of parentheses on *both* sides).
+>När vi modifierade Square till att bli en funktion-komponent ändrade vi också `onClick={() => this.props.onClick()}` till det kortare `onClick={props.onClick}` (notera avsaknade av paranteser på *båda* sidorna).
 
-### Taking Turns {#taking-turns}
+### Turas om {#taking-turns}
 
-We now need to fix an obvious defect in our tic-tac-toe game: the "O"s cannot be marked on the board.
+Vi behöver åtgärda en uppenbar defekt i vårt tre-i-rad-spel: "O" kan inte markeras på spelplanen.
 
-We'll set the first move to be "X" by default. We can set this default by modifying the initial state in our Board constructor:
+Vi sätter första speldraget till att vara "X" som standard. Vi kan sätta standardvärdet genom att modifiera det initiala statet i konstruktorn i vår Board.
 
 ```javascript{6}
 class Board extends React.Component {
@@ -606,7 +607,7 @@ class Board extends React.Component {
   }
 ```
 
-Each time a player moves, `xIsNext` (a boolean) will be flipped to determine which player goes next and the game's state will be saved. We'll update the Board's `handleClick` function to flip the value of `xIsNext`:
+Varje gång en spelare gör ett drag kommer `xIsNext` (en boolesk datatyp) att växlas för att avgöra vilken spelares tur det är här näst samt spara spelets state. Vi uppdaterar Boards `handleClick`-funktion till att växla värdet av `xIsNext`:
 
 ```javascript{3,6}
   handleClick(i) {
@@ -619,19 +620,19 @@ Each time a player moves, `xIsNext` (a boolean) will be flipped to determine whi
   }
 ```
 
-With this change, "X"s and "O"s can take turns. Try it!
+Med denna ändringar turas "X" och "O" om. Testa!
 
-Let's also change the "status" text in Board's `render` so that it displays which player has the next turn:
+Låt oss också ändra "status"-texten i Boards `render` för att visa vilken spelare som gör nästa drag.
 
 ```javascript{2}
   render() {
-    const status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
+    const status = 'Nästa spelare: ' + (this.state.xIsNext ? 'X' : 'O');
 
     return (
-      // the rest has not changed
+      // resten är oförändrat
 ```
 
-After applying these changes, you should have this Board component:
+Efter applicering av dessa förändringar borde du ha följande Board-komponent:
 
 ```javascript{6,11-16,29}
 class Board extends React.Component {
@@ -662,7 +663,7 @@ class Board extends React.Component {
   }
 
   render() {
-    const status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
+    const status = 'Nästa spelare: ' + (this.state.xIsNext ? 'X' : 'O');
 
     return (
       <div>
@@ -688,11 +689,11 @@ class Board extends React.Component {
 }
 ```
 
-**[View the full code at this point](https://codepen.io/gaearon/pen/KmmrBy?editors=0010)**
+**[Se full kod vid denna tidpunkt](https://codepen.io/gaearon/pen/KmmrBy?editors=0010)**
 
-### Declaring a Winner {#declaring-a-winner}
+### Utse en vinnare {#declaring-a-winner}
 
-Now that we show which player's turn is next, we should also show when the game is won and there are no more turns to make. Copy this helper function and paste it at the end of the file:
+När vi nu visar vilken spelares tur det är här näst borde vi också visa när spelet är vunnet och det inte längre finns några fler drag att göra. Kopiera denna hjälp-funktion och klistra in den i slutet av filen:
 
 ```javascript
 function calculateWinner(squares) {
@@ -716,25 +717,25 @@ function calculateWinner(squares) {
 }
 ```
 
-Given an array of 9 squares, this function will check for a winner and return `'X'`, `'O'`, or `null` as appropriate.
+Givet en array av 9 rutor kommer denna funktion att kolla efter en vinntare och returnera `'X'`, `'O'`, or `null` i förekommande fall.
 
-We will call `calculateWinner(squares)` in the Board's `render` function to check if a player has won. If a player has won, we can display text such as "Winner: X" or "Winner: O". We'll replace the `status` declaration in Board's `render` function with this code:
+Vi kommer kalla `calculateWinner(squares)` i Boards `render`-funktion för att kolla om en spelare har vunnit. Om en spelare har vunnit kan vi visa en text såsom "Vinnare: X" eller "Vinnare: O". Vi kommer ersätta deklarationen av `status` i Boards `render`-funktion med denna kod:
 
 ```javascript{2-8}
   render() {
     const winner = calculateWinner(this.state.squares);
     let status;
     if (winner) {
-      status = 'Winner: ' + winner;
+      status = 'Vinnare: ' + winner;
     } else {
-      status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
+      status = 'Nästa spelare: ' + (this.state.xIsNext ? 'X' : 'O');
     }
 
     return (
-      // the rest has not changed
+      // resten är oförändrat
 ```
 
-We can now change the Board's `handleClick` function to return early by ignoring a click if someone has won the game or if a Square is already filled:
+Vi kan nu ändra Boards `handleClick`-funktion att returnera tidigt genom att ignorera klick om någon har vunnit spelet eller om en ruta redan är markerad:
 
 ```javascript{3-5}
   handleClick(i) {
@@ -750,25 +751,25 @@ We can now change the Board's `handleClick` function to return early by ignoring
   }
 ```
 
-**[View the full code at this point](https://codepen.io/gaearon/pen/LyyXgK?editors=0010)**
+**[Se full kod vid denna tidpunkt](https://codepen.io/gaearon/pen/LyyXgK?editors=0010)**
 
-Congratulations! You now have a working tic-tac-toe game. And you've just learned the basics of React too. So *you're* probably the real winner here.
+Grattis! Du har nu ett fungerande tre-i-rad-spel. Du har också lärt dig grunderna i React. Så *du* är troligen den riktiga vinnaren här.
 
-## Adding Time Travel {#adding-time-travel}
+## Lägga till Time Travel {#adding-time-travel}
 
-As a final exercise, let's make it possible to "go back in time" to the previous moves in the game.
+Som en sista övning, lås oss göra det möjligt att "gå tillbaka i tiden" till ett tidigare drag i spelet, kallat "time travel".
 
-### Storing a History of Moves {#storing-a-history-of-moves}
+### Spara historik över dragen  {#storing-a-history-of-moves}
 
-If we mutated the `squares` array, implementing time travel would be very difficult.
+Om vi muterat `squares`-arrayen hade det varit väldigt svårt att implementera "time travel".
 
-However, we used `slice()` to create a new copy of the `squares` array after every move, and [treated it as immutable](#why-immutability-is-important). This will allow us to store every past version of the `squares` array, and navigate between the turns that have already happened.
+Dock så använde vi `slice()` för att skapa en kopia av `squares`-arrayen efter varhe drag och [behandlade det som oföränderligt](#why-immutability-is-important). Detta låter oss spara varje tidigare version av `squares`-arrayen och navigera mellan dragen som redan har skett.
 
-We'll store the past `squares` arrays in another array called `history`. The `history` array represents all board states, from the first to the last move, and has a shape like this:
+Vi kommer spara tidigare `squares`-arrayer i en annan array kallad `history`. `history`-arrayen representerar all spelplanens state, från första till sista drag, och har en from som denna:
 
 ```javascript
 history = [
-  // Before first move
+  // Före första draget
   {
     squares: [
       null, null, null,
@@ -776,7 +777,7 @@ history = [
       null, null, null,
     ]
   },
-  // After first move
+  // Efter första draget
   {
     squares: [
       null, null, null,
@@ -784,7 +785,7 @@ history = [
       null, null, null,
     ]
   },
-  // After second move
+  // Efter andra draget
   {
     squares: [
       null, null, null,
@@ -796,15 +797,15 @@ history = [
 ]
 ```
 
-Now we need to decide which component should own the `history` state.
+Nu behöver vi avgöra vilken kopmonent som borde äga `history` statet.
 
-### Lifting State Up, Again {#lifting-state-up-again}
+### Lyfta upp state, igen {#lifting-state-up-again}
 
-We'll want the top-level Game component to display a list of past moves. It will need access to the `history` to do that, so we will place the `history` state in the top-level Game component.
+Vi vill att Game-komponenten på högsta nivå ska visa en lista av tidigare drag. För att kunna göra det behöver den tillgång till `history`, därför placerar vi det statet i Game-komponenten på högsta nivå.
 
-Placing the `history` state into the Game component lets us remove the `squares` state from its child Board component. Just like we ["lifted state up"](#lifting-state-up) from the Square component into the Board component, we are now lifting it up from the Board into the top-level Game component. This gives the Game component full control over the Board's data, and lets it instruct the Board to render previous turns from the `history`.
+Genom att placera `history` statet in i Game-komponenten låter det oss ta bort `squares` state från dess barn-komponent Board. Precis som vi ["lyfte state uppåt"](#lifting-state-up) från Square-komponenten in till Board-komponentent, så lyfter vi nu det uppåt från Board-komponenten in till Game-komponenten på högsta nivån. Detta ger Game-komponentent full kontroll över Board-komponentens data och låter den instruera Board att rendrera tidigare drag från `history`.
 
-First, we'll set up the initial state for the Game component within its constructor:
+Först så sätter vi upp det initiala statet för Game-komponentent inuti dess konstruktor:
 
 ```javascript{2-10}
 class Game extends React.Component {
@@ -834,13 +835,13 @@ class Game extends React.Component {
 }
 ```
 
-Next, we'll have the Board component receive `squares` and `onClick` props from the Game component. Since we now have a single click handler in Board for many Squares, we'll need to pass the location of each Square into the `onClick` handler to indicate which Square was clicked. Here are the required steps to transform the Board component:
+Sen gör vi så att Board-komponenten tar emot `squares`- och `onClick`-props från Game-komponenten. Eftersom vi nu har en enda klickhanterare i Board som hanterar klick för flera Squares, så behöver vi passa platsen för varje Square in till `onClick`-hanteraren för att indikera vilken Square som blev klickad. Här är de nödvändiga stegen för att transformera Board-komponenten.
 
-* Delete the `constructor` in Board.
-* Replace `this.state.squares[i]` with `this.props.squares[i]` in Board's `renderSquare`.
-* Replace `this.handleClick(i)` with `this.props.onClick(i)` in Board's `renderSquare`.
+* Ta bort `constructor` i Board.
+* Ersätt `this.state.squares[i]` med `this.props.squares[i]` i Boards `renderSquare`.
+* Ersätt `this.handleClick(i)` med `this.props.onClick(i)` i Board `renderSquare`.
 
-The Board component now looks like this:
+Board-komponenten ser nu ut så här:
 
 ```javascript{17,18}
 class Board extends React.Component {
@@ -869,9 +870,9 @@ class Board extends React.Component {
     const winner = calculateWinner(this.state.squares);
     let status;
     if (winner) {
-      status = 'Winner: ' + winner;
+      status = 'Vinnare: ' + winner;
     } else {
-      status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
+      status = 'Nästa spelare: ' + (this.state.xIsNext ? 'X' : 'O');
     }
 
     return (
@@ -898,7 +899,7 @@ class Board extends React.Component {
 }
 ```
 
-We'll update the Game component's `render` function to use the most recent history entry to determine and display the game's status:
+Vi uppdaterar Game-komponentens `render`-funktion till att använda det senaste draget i historiken för att avgöra och visa spelets status:
 
 ```javascript{2-11,16-19,22}
   render() {
@@ -908,9 +909,9 @@ We'll update the Game component's `render` function to use the most recent histo
 
     let status;
     if (winner) {
-      status = 'Winner: ' + winner;
+      status = 'Vinnare: ' + winner;
     } else {
-      status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
+      status = 'Nästa spelare: ' + (this.state.xIsNext ? 'X' : 'O');
     }
 
     return (
@@ -930,7 +931,7 @@ We'll update the Game component's `render` function to use the most recent histo
   }
 ```
 
-Since the Game component is now rendering the game's status, we can remove the corresponding code from the Board's `render` method. After refactoring, the Board's `render` function looks like this:
+Eftersom Game-komponenten nu rendrerar spelets status kan vi ta bort motsvarande kod från Boards `render`-metod. Efter refaktorering ser Boards `render`-funktion ut så här:
 
 ```js{1-4}
   render() {
@@ -956,7 +957,7 @@ Since the Game component is now rendering the game's status, we can remove the c
   }
 ```
 
-Finally, we need to move the `handleClick` method from the Board component to the Game component. We also need to modify `handleClick` because the Game component's state is structured differently. Within the Game's `handleClick` method, we concatenate new history entries onto `history`.
+Till sist, behöver vi flytta `handleClick`-metoden från Board-komponenten till Game-komponenten. Vi behöver också modifiera `handleClick` eftersom Game-komponentens state är lite annorlunda strukturerad. I Games `handleClick`-metod sammanfogar vi nya historik-poster in i `history`.
 
 ```javascript{2-4,10-12}
   handleClick(i) {
@@ -976,30 +977,30 @@ Finally, we need to move the `handleClick` method from the Board component to th
   }
 ```
 
->Note
+>OBS
 >
->Unlike the array `push()` method you might be more familiar with, the `concat()` method doesn't mutate the original array, so we prefer it.
+>Till skillnad från array-metoden `push()`, som du kanske är mer bekant med, så muterar inte `concat()`-metoden original-arrayen, därför föredrar vi den.
 
-At this point, the Board component only needs the `renderSquare` and `render` methods. The game's state and the `handleClick` method should be in the Game component.
+Vid det här laget behöver Board-komponenten bara `renderSquare`- och `render`-metoderna. Spelets state och `handleClick`-metoden borde vara i Game-komponenten.
 
-**[View the full code at this point](https://codepen.io/gaearon/pen/EmmOqJ?editors=0010)**
+**[Se full kod vid denna tidpunkt](https://codepen.io/gaearon/pen/EmmOqJ?editors=0010)**
 
-### Showing the Past Moves {#showing-the-past-moves}
+### Visa de tidigare dragen {#showing-the-past-moves}
 
-Since we are recording the tic-tac-toe game's history, we can now display it to the player as a list of past moves.
+Eftersom vi sparar tre-i-rad-spelets historik kan vi nu visa den för spelaren som en lista av tidigare drag.
 
-We learned earlier that React elements are first-class JavaScript objects; we can pass them around in our applications. To render multiple items in React, we can use an array of React elements.
+Tidigare lärde vi oss att React-element är förstklassiga JavaScript-objekt, vi kan alltså passa runt dem i vår applikation. För att rendrera flera objekt i React kan vi använda en array av React-element.
 
-In JavaScript, arrays have a [`map()` method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) that is commonly used for mapping data to other data, for example:
+I JavaScript har arrayen en [`map()`-metod](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) som vanligen används för att översätta data till annan data, till exempel:
 
 ```js
 const numbers = [1, 2, 3];
 const doubled = numbers.map(x => x * 2); // [2, 4, 6]
 ```
 
-Using the `map` method, we can map our history of moves to React elements representing buttons on the screen, and display a list of buttons to "jump" to past moves.
+Genom att använda `map`-metoden kan vi översätta vår spelhistorik till React-element som representerar knappar på skärmen och visa en lista av knappar som "hoppar" till tidigare drag.
 
-Let's `map` over the `history` in the Game's `render` method:
+Låt oss använda `map` för att översätta `history` i Games `render`-metod:
 
 ```javascript{6-15,34}
   render() {
@@ -1009,8 +1010,8 @@ Let's `map` over the `history` in the Game's `render` method:
 
     const moves = history.map((step, move) => {
       const desc = move ?
-        'Go to move #' + move :
-        'Go to game start';
+        'Gå till drag #' + move :
+        'Gå till spelstart';
       return (
         <li>
           <button onClick={() => this.jumpTo(move)}>{desc}</button>
@@ -1020,9 +1021,9 @@ Let's `map` over the `history` in the Game's `render` method:
 
     let status;
     if (winner) {
-      status = 'Winner: ' + winner;
+      status = 'Vinnare: ' + winner;
     } else {
-      status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
+      status = 'Nästa spelare: ' + (this.state.xIsNext ? 'X' : 'O');
     }
 
     return (
@@ -1042,62 +1043,62 @@ Let's `map` over the `history` in the Game's `render` method:
   }
 ```
 
-**[View the full code at this point](https://codepen.io/gaearon/pen/EmmGEa?editors=0010)**
+**[Se full kod vid denna tidpunkt](https://codepen.io/gaearon/pen/EmmGEa?editors=0010)**
 
-For each move in the tic-tac-toes's game's history, we create a list item `<li>` which contains a button `<button>`. The button has a `onClick` handler which calls a method called `this.jumpTo()`. We haven't implemented the `jumpTo()` method yet. For now, we should see a list of the moves that have occurred in the game and a warning in the developer tools console that says:
+För varje drag i tre-i-rad-spelets historik skapar vi ett listobjekt `<li>` som innehåller en knapp `<button>`. Knappen har en `onClick`-hanterare som anropar en metod kallad `this.jumpTo()`. Vi har inte implementerat `jumpTo()`-metoden än. Tills vidare borde vi se en lista med drag som har skett i spelet samt en varning i utvecklarverktygens konsol som säger:
 
 >  Warning:
 >  Each child in an array or iterator should have a unique "key" prop. Check the render method of "Game".
 
-Let's discuss what the above warning means.
+Låt oss diskutera vad ovanstående varning betyder.
 
-### Picking a Key {#picking-a-key}
+### Välja en key {#picking-a-key}
 
-When we render a list, React stores some information about each rendered list item. When we update a list, React needs to determine what has changed. We could have added, removed, re-arranged, or updated the list's items.
+När vi rendrerar en lista sparar React lite information om varje rendrerat listobjekt. När vi uppdaterar en lista behöver React avgöra vad som har ändrats. Vi skulle kunna ha lagt till, tagit bort, ordnat om eller uppdaterat listans listobjekt.
 
-Imagine transitioning from
-
-```html
-<li>Alexa: 7 tasks left</li>
-<li>Ben: 5 tasks left</li>
-```
-
-to
+Föreställ dig att gå från
 
 ```html
-<li>Ben: 9 tasks left</li>
-<li>Claudia: 8 tasks left</li>
-<li>Alexa: 5 tasks left</li>
+<li>Alexa: 7 uppgifter kvar</li>
+<li>Ben: 5 uppgifter kvar</li>
 ```
 
-In addition to the updated counts, a human reading this would probably say that we swapped Alexa and Ben's ordering and inserted Claudia between Alexa and Ben. However, React is a computer program and does not know what we intended. Because React cannot know our intentions, we need to specify a *key* property for each list item to differentiate each list item from its siblings. One option would be to use the strings `alexa`, `ben`, `claudia`. If we were displaying data from a database, Alexa, Ben, and Claudia's database IDs could be used as keys.
+till
 
 ```html
-<li key={user.id}>{user.name}: {user.taskCount} tasks left</li>
+<li>Ben: 9 uppgifter kvar</li>
+<li>Claudia: 8 uppgifter kvar</li>
+<li>Alexa: 5 uppgifter kvar</li>
 ```
 
-When a list is re-rendered, React takes each list item's key and searches the previous list's items for a matching key. If the current list has a key that didn't exist before, React creates a component. If the current list is missing a key that existed in the previous list, React destroys the previous component. If two keys match, the corresponding component is moved. Keys tell React about the identity of each component which allows React to maintain state between re-renders. If a component's key changes, the component will be destroyed and re-created with a new state.
+Utöver uppdaterade räknare skulle en människa som läser detta antagligen säga att vi bytte plats på Alexa och Bens ordning och lade till Claudia mellan Alexa och Ben. Dock så är React ett datorprogram och vet inte vad det är vi avsåg. Eftersom React inte kan veta våra intentioner behöver vi specificera en *key*-prop för varje listobjekt för att kunna skilja listobjekten åt. Ett alternativ vore att använda strängarna `alexa`, `ben`, `claudia`. Om vi visade data från en databas skulle Alexa, Ben och Claudias databas-id kunna användas som keys.
 
-`key` is a special and reserved property in React (along with `ref`, a more advanced feature). When an element is created, React extracts the `key` property and stores the key directly on the returned element. Even though `key` may look like it belongs in `props`, `key` cannot be referenced using `this.props.key`. React automatically uses `key` to decide which components to update. A component cannot inquire about its `key`.
+```html
+<li key={user.id}>{user.name}: {user.taskCount} uppgifter kvar</li>
+```
 
-**It's strongly recommended that you assign proper keys whenever you build dynamic lists.** If you don't have an appropriate key, you may want to consider restructuring your data so that you do.
+När en lista rendreras om tar React varje listobjekts key och letar i förra listan efter listobjekt som har en matchande key. Om nuvarande listan har en key som inte existerat tidigare skapar React en komponent. Om nuvarande listan saknar en key som existerade i förra listan river React ner den förra komponenten. Om två keys matchar flyttas motsvarande komponent. Keys berättar om identitet för React vilket gör att React har möjlighet att hålla reda på state mellen rendreringar. Om en komponents key ändras kommer komponenten rivas ner och återskapas med nytt state.
 
-If no key is specified, React will present a warning and use the array index as a key by default. Using the array index as a key is problematic when trying to re-order a list's items or inserting/removing list items. Explicitly passing `key={i}` silences the warning but has the same problems as array indices and is not recommended in most cases.
+`key` är en speciell och reserverad prop i React (tillsammans med `ref`, en mer avancerad funktion). När ett element skapas extraherar React `key`-propen och sparar värdet direkt på det returnerade elementet. Fastän det ser ut som `key` är en del av `props` så kan den inte bli refererad till genom att använda sig av `this.props.key`. React använder automatiskt `key` för att avgöra vilken komponent som behöver uppdateras. En komponent kan inte fråga om sin `key`.
 
-Keys do not need to be globally unique; they only need to be unique between components and their siblings.
+**Det är starkt rekommenderat att du tilldelar ordentliga keys närhelst du bygger dynamiska listor.** Om du inte har en ordentlig key kanske du vill överväga att strukturera om din data så att du får det.
+
+Om ingen key är specificerad kommer React att visa en varning och använda array-indexet som key som standard. Användningen av array-indexet som key är problematiskt när man försöker ordna om eller lägga till/ta bort listobjekt. Att explicit passa `key={i}` tystar varningen med har samma problem som array-index och är inte rekommenderat i de flesta fallen.
+
+Keys behöver inte vara globalt unika utan endast mellan komponenter och dess syskon.
 
 
-### Implementing Time Travel {#implementing-time-travel}
+### Implementera "time travel" {#implementing-time-travel}
 
-In the tic-tac-toe game's history, each past move has a unique ID associated with it: it's the sequential number of the move. The moves are never re-ordered, deleted, or inserted in the middle, so it's safe to use the move index as a key.
+I tre-i-rad-spelets historik har varje tidigare drag ett unikt ID associerat med sig: det är den sekventiella siffra av draget. Dragen ordnas aldrig om, tas aldrig bort eller läggs till i mitten, så det är säkert att använda drages index i arrayen som key.
 
-In the Game component's `render` method, we can add the key as `<li key={move}>` and React's warning about keys should disappear:
+I Game-komponentens `render`-metod kan vi lägga till key som `<li key={move}>` och Reacts varning om keys bordes försvinna:
 
 ```js{6}
     const moves = history.map((step, move) => {
       const desc = move ?
-        'Go to move #' + move :
-        'Go to game start';
+        'Gå till drag #' + move :
+        'Gå till spelstart';
       return (
         <li key={move}>
           <button onClick={() => this.jumpTo(move)}>{desc}</button>
@@ -1106,11 +1107,11 @@ In the Game component's `render` method, we can add the key as `<li key={move}>`
     });
 ```
 
-**[View the full code at this point](https://codepen.io/gaearon/pen/PmmXRE?editors=0010)**
+**[Se full kod vid denna tidpunkt](https://codepen.io/gaearon/pen/PmmXRE?editors=0010)**
 
-Clicking any of the list item's buttons throws an error because the `jumpTo` method is undefined. Before we implement `jumpTo`, we'll add `stepNumber` to the Game component's state to indicate which step we're currently viewing.
+Klick på någon av listobjektens knappar kastar ett fel eftersom `jumpTo`-metoden är odefinierad. Innan vi implementerar `jumpTo` lägger vi till `stepNumber` till Game-komponentens state för att indikera vilket steg vi för närvarande tittar på.
 
-First, add `stepNumber: 0` to the initial state in Game's `constructor`:
+Lägg först till `stepNumber: 0` till det initiala statet i Games `constructor`:
 
 ```js{8}
 class Game extends React.Component {
@@ -1126,11 +1127,11 @@ class Game extends React.Component {
   }
 ```
 
-Next, we'll define the `jumpTo` method in Game to update that `stepNumber`. We also set `xIsNext` to true if the number that we're changing `stepNumber` to is even:
+Sen definierar vi `jumpTo`-metoden i Game för att uppdatera `stepNumber`. Vi sätter också `xIsNext` till sant om siffran vi ändrar `stepNumber` till är jämn:
 
 ```javascript{5-10}
   handleClick(i) {
-    // this method has not changed
+    // denna metod har inte ändrats
   }
 
   jumpTo(step) {
@@ -1141,15 +1142,15 @@ Next, we'll define the `jumpTo` method in Game to update that `stepNumber`. We a
   }
 
   render() {
-    // this method has not changed
+    // denna metod har inte ändrats
   }
 ```
 
-We will now make a few changes to the Game's `handleClick` method which fires when you click on a square.
+Vi kommer nu göra några få ändringar till Games `handleClick`-metod som körs varje gång du klickar på en ruta.
 
-The `stepNumber` state we've added reflects the move displayed to the user now. After we make a new move, we need to update `stepNumber` by adding `stepNumber: history.length` as part of the `this.setState` argument. This ensures we don't get stuck showing the same move after a new one has been made.
+`stepNumber` statet vi har lagt till återspeglar draget som visas för användaren just nu. Efter vi gjort ett drag behöver vi uppdatera `stepNumber` genom att lägga till `stepNumber: history.length` som en del av argumenten till `this.setState`. Detta säkerställer att vi inte fastnar och visar samma drag efter att ett nytt har gjorts.
 
-We will also replace reading `this.state.history` with `this.state.history.slice(0, this.state.stepNumber + 1)`. This ensures that if we "go back in time" and then make a new move from that point, we throw away all the "future" history that would now become incorrect.
+Vi kommer också att ersätta läsningen från `this.state.history` med `this.state.history.slice(0, this.state.stepNumber + 1)`. Detta säkerställer att om vi "går tillbaka i tiden" och sen gör ett nytt drag från den tidpunkten, så förkastar vi alla "framtida" drag i historiken som nu skulle bli felaktiga.
 
 ```javascript{2,13}
   handleClick(i) {
@@ -1170,7 +1171,7 @@ We will also replace reading `this.state.history` with `this.state.history.slice
   }
 ```
 
-Finally, we will modify the Game component's `render` method from always rendering the last move to rendering the currently selected move according to `stepNumber`:
+Till sist ändrar vi Game-komponentens `render`-metod från att alltid rendrera senaste draget till att rendrera det aktuella valda draget enligt `stepNumber`:
 
 ```javascript{3}
   render() {
@@ -1178,33 +1179,34 @@ Finally, we will modify the Game component's `render` method from always renderi
     const current = history[this.state.stepNumber];
     const winner = calculateWinner(current.squares);
 
-    // the rest has not changed
+    // resten har inte ändrats
 ```
 
-If we click on any step in the game's history, the tic-tac-toe board should immediately update to show what the board looked like after that step occurred.
+Om vi klickar på vilket drag som helst i spelets historik borde spelplanen för tre-i-rad-spelet genast uppdatera och visa hur spelplanen såg ut efter att det draget gjorts.
 
-**[View the full code at this point](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**
+**[Se full kod vid denna tidpunkt](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**
 
-### Wrapping Up {#wrapping-up}
+### Avslutning {#wrapping-up}
 
-Congratulations! You've created a tic-tac-toe game that:
+Gratulerar! Du har skapat ett tre-i-rad-spel som:
 
-* Lets you play tic-tac-toe,
-* Indicates when a player has won the game,
-* Stores a game's history as a game progresses,
-* Allows players to review a game's history and see previous versions of a game's board.
+* Låter dig spela tre-i-rad,
+* Visar när en spelarw har vunnit spelet,
+* Sparar ett spels historik under spelets gång,
+* Låter spelare återblicka ett spels historik och se tidigare versioner av spelets spelplan.
 
-Nice work! We hope you now feel like you have a decent grasp on how React works.
+Bra jobbat! Vi hoppas att du nu känner att du har ett någorlunda grepp om hur React fungerar.
 
-Check out the final result here: **[Final Result](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**.
+Kolla in det slutliga resultatet här: **[Slutliga resultatet](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**.
 
-If you have extra time or want to practice your new React skills, here are some ideas for improvements that you could make to the tic-tac-toe game which are listed in order of increasing difficulty:
+Om du har mer tid eller vill öva dina nya färdigheter i React så kommer här några idéer på förbättringar som du skulle kunna göra till tre-i-rad-spelet, listade i ordning med ökande svårighetsgrad:
 
-1. Display the location for each move in the format (col, row) in the move history list.
-2. Bold the currently selected item in the move list.
-3. Rewrite Board to use two loops to make the squares instead of hardcoding them.
-4. Add a toggle button that lets you sort the moves in either ascending or descending order.
-5. When someone wins, highlight the three squares that caused the win.
-6. When no one wins, display a message about the result being a draw.
+1. Visa platsen för varje drag i formatet (kolumn, rad) i listan för historiken över dragen.
+2. Fetstila det aktuella valda listobjektet i listan över dragen.
+3. Skriv om Board att använda två loopar för att skapa rutorna istället för att hårdkoda dem.
+4. Lägg till en växlingsknapp som låter dig sortera dragen i antingen stigande eller fallande ordning.
+5. När någon vinner markera de tre rutorna som utgjorde vinsten.
+6. När ingen vinner, visa ett meddelande om att resultatet blev oavgjort.
 
-Throughout this tutorial, we touched on React concepts including elements, components, props, and state. For a more detailed explanation of each of these topics, check out [the rest of the documentation](/docs/hello-world.html). To learn more about defining components, check out the [`React.Component` API reference](/docs/react-component.html).
+
+Genomgående i denna guide har vi berört React-koncept såsom element, komponenter, props och state. För en mer detaljerad förklaring av vart och ett av dessa ämnen, kolla in [resten av dokumentationen](/docs/hello-world.html). För att lära dig mer om att definiera komponenter, kolla in [`React.Component` API-referens](/docs/react-component.html).
