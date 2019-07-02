@@ -24,32 +24,32 @@ I denna guide kommer vi att bygga ett litet spel. **Du kan känna dig frestad at
 
 Denna guide är indelad i flera sektioner:
 
-* [Uppsättning för guiden](#setup-for-the-tutorial) kommer ge dig **en utgångspunkt* att följa guiden.
+* [Uppsättning för guiden](#setup-for-the-tutorial) kommer ge dig *en utgångspunkt* för att följa guiden.
 * [Överblick](#overview) kommer lära dig **grundprinciperna** i React: komponenter, props och state.
-* [Färdigställa Spelet](#completing-the-game) kommer lära dig **de vanligaste teknikerna** i React-utveckling.
+* [Färdigställa spelet](#completing-the-game) kommer lära dig **de vanligaste teknikerna** inom React-utveckling.
 * [Lägg till Time Travel](#adding-time-travel) kommer ge dig **en djupare insikt** i Reacts unika styrkor.
 
-Du behöver inte fullfölja alla sektionerna på en gång för att få värdet ur denna guide. Försöka att komma så långt du kan -- även om det är en eller två sektioner.
+Du behöver inte fullfölja alla sektionerna på en och samma gång för att få värde ur denna guide. Försöka att komma så långt du kan -- även om det är en eller två sektioner.
 
 ### Vad är det vi bygger? {#what-are-we-building}
 
 I denna guide kommer vi visa hur man bygger ett interaktivt tre-i-rad-spel med React.
 
-Du kan se vad vi kommer att bygga här: **[Slutresultat](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)** Om koden inte ser vettig ut för dig, eller om du är obekant med kodens syntax, oroa dig inte! Målet med denna guide är att hjälpa dig förstå React och dess syntax.
+Du kan se vad vi kommer att bygga här: **[Slutresultat](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)** Oroa dig inte om du inte begriper dig på koden eller om du är obekant med kodens syntax! Målet med denna guide är att hjälpa dig förstå React och dess syntax.
 
-Vi rekommenderar att du titta på tre-i-rad-spelet innan du fortsätter med guiden. En av funktionerna som du kommer märke är att det finns en numrerad lista till höger och spelplanen. Denna lista ger dig historiken över alla drag som skett i spelet och hållas uppdaterad under spelets gång.
+Vi rekommenderar att du tittar på tre-i-rad-spelet innan du fortsätter med guiden. En av funktionerna som du kommer märka är att det finns en numrerad lista till höger och spelplanen. Denna lista ger dig historiken över alla drag som skett i spelet och hålls uppdaterad under spelets gång.
 
 Du kan stänga tre-i-rad-spelet när du känner dig bekant med det. Vi kommer att börja med en enklare mall i denna guide. Nästa steg är att sätta upp din miljö så att du kan börja bygga spelet.
 
 ### Förutsättningar {#prerequisites}
 
-Vi antar att du är någorlunda bekant med HTML och JavaScript, men du borde kunna följa med även om du kommer från ett annat programmeringsspråk. Vi antar också att du är bekand med koncept inom programmering såsom funktioner, objekt, arrayer och i mindre utsträckning klasser.
+Vi antar att du är någorlunda bekant med HTML och JavaScript, men du borde kunna följa med även om du kommer från ett annat programmeringsspråk. Vi antar också att du är bekant med koncept inom programmering såsom funktioner, objekt, arrayer och i mindre utsträckning klasser.
 
-Om du behöver se över JavaScript rekommenderar vi att du läser [denna guide](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript). Notera att vi också använder några funktioner från ES6 - en nyare version av JavaScript. I denna guide använder vi [arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions), [classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes), [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let), och [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const). Du kan använda [Babel REPL](babel://es5-syntax-example) för att se vad ES6-kod kompileras till.
+Om du behöver se över dina JavaScript-kunskaper rekommenderar vi att du läser [denna guide](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript). Notera att vi också använder några funktioner från ES6 -- en nyare version av JavaScript. I denna guide använder vi [arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions), [classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes), [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let), och [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const). Du kan använda [Babel REPL](babel://es5-syntax-example) för att se vad ES6-kod kompileras till.
 
 ## Uppsättning för guiden {#setup-for-the-tutorial}
 
-Det finns två sätt att fullfölja denna guide: du kan antingen skriva koden i din webbläsare, eller så kan du sätta upp en lokalt utvecklingsmiljö på din dator.
+Det finns två sätt att fullfölja denna guide: du kan antingen skriva koden i din webbläsare, eller så kan du sätta upp en lokal utvecklingsmiljö på din dator.
 
 ### Uppsättning Alterantiv 1: Skriv kod i webbläsaren {#setup-option-1-write-code-in-the-browser}
 
@@ -71,8 +71,8 @@ Detta är helt valfritt och inte ett krav för denna guide!
 
 Denna uppsättning kräver mer arbete men tillåter dig att fullfölja denna guide med en textredigerare du väljer själv. Gör följande steg:
 
-1. Se till att du har en senare version av [Node.js](https://nodejs.org/en/) installerad.
-2. Följ [instruktionerna för installations hos Create React App](/docs/create-a-new-react-app.html#create-react-app) för att skapa ett nytt projekt.
+1. Se till att du har en nyare version av [Node.js](https://nodejs.org/en/) installerad.
+2. Följ [instruktionerna för installation av Create React App](/docs/create-a-new-react-app.html#create-react-app) för att skapa ett nytt projekt.
 
 ```bash
 npx create-react-app my-app
@@ -110,7 +110,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 ```
 
-Nu om du kör `npm start` i projekt-katalogen och öppnar `http://localhost:3000` i din webbläsare så borde du se en tom spelplan för tre-i-rad.
+Om du nu kör `npm start` i projekt-katalogen och öppnar `http://localhost:3000` i din webbläsare så borde du se en tom spelplan för tre-i-rad.
 
 Vi rekommenderar att du följer [dessa instruktioner](https://babeljs.io/docs/editors/) för att konfigurera syntaxmarkering för din textredigerare.
 
@@ -118,17 +118,17 @@ Vi rekommenderar att du följer [dessa instruktioner](https://babeljs.io/docs/ed
 
 ### Hjälp, jag är fast! {#help-im-stuck}
 
-Om du fastnar, kolla in [de tillgängliga support-resurserna](/community/support.html). I synnerhet så är [Reactiflux Chatten](https://discord.gg/0ZcbPKXt5bZjGY5n) en jättebra plats att få hjälp snabbt. Om du inte får ett svar, eller om du förblir fast, skapa en issue så hjälper vi dig.
+Om du fastnar, kolla in [de tillgängliga support-resurserna](/community/support.html). I synnerhet så är [Reactiflux-chatten](https://discord.gg/0ZcbPKXt5bZjGY5n) en jättebra plats att få hjälp snabbt. Om du inte får ett svar, eller om du förblir fast, skapa en issue så hjälper vi dig.
 
 ## Överblick {#overview}
 
-Nu när allt är uppsatt, lås oss skaffa och en överblick av React!
+Nu när allt är uppsatt, lås oss skaffa oss en överblick av React!
 
 ### Vad är React? {#what-is-react}
 
 React är ett deklarativt, effektivt och flexibelt JavaScript-bibliotek för att bygga användargränssnitt. Det låter dig komponera ihop komplexa gränssnitt med hjälp av mindre och isolerade delar av kod som kallas "komponenter".
 
-React har några olika typer av komponenter, men vi börjar med subklasser av `React.Component`:
+React har några olika typer av komponenter, men vi börjar med typer som är subklasser av `React.Component`:
 
 ```javascript
 class ShoppingList extends React.Component {
@@ -149,11 +149,11 @@ class ShoppingList extends React.Component {
 // Exempel på användning: <ShoppingList name="Mark" />
 ```
 
-Vi kommer till de lite konstiga XML-liknande taggarna inom kort. Vi använder komponenter för att berätta för React vad vi vill se för något på skärmen. När vår data förändras så kommer React på ett effektivt sätt att uppdatera och rita om våra komponenter.
+Vi kommer att komma till de lite konstiga XML-liknande taggarna inom kort. Vi använder komponenter för att berätta för React vad vi vill se för något på skärmen. När vår data förändras så kommer React på ett effektivt sätt att uppdatera och rita om våra komponenter.
 
 I detta exepmel så är ShoppingList en **React-komponent-klass** eller **React-komponent-typ**. En komponent kan ta emot parametrar, så kallade `props` (förkorning av engelskans "properties") och returnerar en hierarki av vyer att visa via `render`-metoden.
 
-`render`-metoden returnerar en *beskrivning* av vad du vill se på skärmen. React tar beskrivningen och visar resultatet. Specifikt så returnerar `render` ett **React-element**, vilket är en lättviktigt beskrivning av vad som ska ritas ut. De flesta React-utvecklarna använder en speciell syntax kallas "JSX" som gör det enklare att skriva dessa strukturer. Koden `<div />` transformeras vid bygge till `React.createElement('div')`. Exemplet ovan är samma sak som:
+`render`-metoden returnerar en *beskrivning* av vad du vill se på skärmen. React tar beskrivningen och visar resultatet. Specifikt så returnerar `render` ett **React-element**, vilket är en lättviktigt beskrivning av vad som ska ritas ut. De flesta React-utvecklare använder en speciell syntax som kallas "JSX" och som gör det enklare att skriva dessa strukturer. Koden `<div />` transformeras vid bygge till `React.createElement('div')`. Exemplet ovan är samma sak som:
 
 ```javascript
 return React.createElement('div', {className: 'shopping-list'},
@@ -168,11 +168,11 @@ Om du är intresserad så finns `createElement()` beskrivet i mer detalj i [API-
 
 JSX kommer med all funktionalitet som finns i JavaScript. Du skriva *vilket JavaScript-uttryck som helst* innanför krokiga paranteser i JSX. Varje React-element är ett JavaScript-objekt som du kan spara i en variabel och passa runt i ditt program.
 
-`ShopplingList`-komponenten ovan rendrera bara ut inbyggda DOM-komponenter som `<div />` och `<li />`. Men man kan komponera och rendrera egna React-komponenter också. Till exempel så kan vi nu referera till hela shoppinglistan genom att skriva `<ShoppingList />`. Varje React-komponent är inkapslad och kan fungera oberoende av andra, detta gör att du kan bygga komplexa användargränssnit från enkla komponenter.
+`ShopplingList`-komponenten ovan rendrerar bara ut inbyggda DOM-komponenter som `<div />` och `<li />`. Men man kan komponera och rendrera egna React-komponenter också. Till exempel så kan vi nu referera till hela shoppinglistan genom att skriva `<ShoppingList />`. Varje React-komponent är inkapslad och kan fungera oberoende av andra, detta gör att du kan bygga komplexa användargränssnit från enkla komponenter.
 
 ## Inspekterande av Start-koden {#inspecting-the-starter-code}
 
-Om du kommer arbeta med denna guide **i din webbläsrare,** öppna denna kod i en ny flik: **[Start-kod](https://codepen.io/gaearon/pen/oWWQNa?editors=0010)**.Om du kommer arbeta med denna guide **lokalt,** öppna istället `src/index.js` i projekt-katalogen (du har redan rört denna fil under [uppsättningen](#setup-option-2-local-development-environment)).
+Om du kommer arbeta med denna guide **i din webbläsrare,** öppna denna kod i en ny flik: **[Start-kod](https://codepen.io/gaearon/pen/oWWQNa?editors=0010)**. Om du kommer arbeta med denna guide **lokalt,** öppna istället `src/index.js` i projekt-katalogen (du har redan rört denna fil under [uppsättningen](#setup-option-2-local-development-environment)).
 
 Denna Start-kod utgör basen för det vi ska bygga. Vi har tillhandahållit all CSS-styling så att du endast behöver fokusera på att lära dig React och programmera tre-i-rad-spelet.
 
@@ -182,13 +182,13 @@ Genom att inspektera koden så kommer du att se att vi har tre stycken React-kom
 * Board
 * Game
 
-Square-komponenten rendrera en enda `<button>` och Board-komponenten rendrerar nio Square-komponenter. Game-komponenten rendrerar en spelplan med platshållarvärden som vi kommer modifiera senare. Det finns för nävarande inga interaktiva komponenter.
+Square-komponenten rendrerar en enda `<button>` och Board-komponenten rendrerar nio Square-komponenter. Game-komponenten rendrerar en spelplan med platshållarvärden som vi kommer modifiera senare. Det finns för nävarande inga interaktiva komponenter.
 
 ### Passa data genom props {#passing-data-through-props}
 
 För att bli varma i kläderna, låt oss prova att passa viss data från vår Board-komponent till vår Square-komponent.
 
-We rekommenderar starkt att skriva kod för hand medan du arbetar dig igenom guiden och inte använda dig av kopiera/klistra in. Det kommer hjälpa dig utveckla muskelminne och bättre förståelse.
+Vi rekommenderar starkt att skriva kod för hand medan du arbetar dig igenom guiden och inte använda dig av kopiera/klistra in. Det kommer hjälpa dig utveckla muskelminne och bättre förståelse.
 
 I Boards `renderSquare`-metod, ändra koden så att den passar en prop vid namn `value` till Square.
 
@@ -199,7 +199,7 @@ class Board extends React.Component {
   }
 ```
 
-Change Square's `render` method to show that value by replacing `{/* TODO */}` with `{this.props.value}`:
+Ändra Squares `render`-metod så att den visar det givna värdet genom att ersätta `{/* TODO */} med `{this.props.value}`:
 
 ```js{5}
 class Square extends React.Component {
@@ -262,9 +262,9 @@ Om du nu klickar på en Square så borde du se en meddelanderuta i din webbläsa
 >
 >Notera att med `onClick={() => alert('click')}` så passar vi *en funktion* som `onClick`-prop. React kommer endast att anropa denna funktion efter ett klick. Det är vanligt att glömma `() =>` och skriva `onClick={alert('click')}` istället, det skulle medföra att meddelanderutan skulle visas varje gång komponenten rendrerar om.
 
-Som ett nästa steg så vill vi att Square-komponenten ska "komma ihåg" att den blivit klickad och fylla den med ett "X"-markering. För att "komma ihåg" saker använder komponenter sig av **state**.
+Som ett nästa steg så vill vi att Square-komponenten ska "komma ihåg" att den blivit klickad på och fylla den med en "X"-markering. För att "komma ihåg" saker använder komponenter sig av **state**.
 
-React-komponenter kan spara state genom att sätta `this.state` i sin konstruktor. `this.state` ska anses vara privat till den React-komponent som definierat den. Låt oss spara det nuvarande värdet och Square i `this.state` och ändra det när Square blir klickad.
+React-komponenter kan spara state genom att sätta `this.state` i sin konstruktor. `this.state` ska anses vara privat till den React-komponent som definierat den. Låt oss spara det nuvarande värdet för Square i `this.state` och ändra det när Square blir klickad.
 
 Först lägger vi till en konstruktor till klassen för att initialisera state:
 
@@ -291,6 +291,7 @@ class Square extends React.Component {
 >
 >I [JavaScript-klasser](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes) så behöver man alltid kalla på `super` när man definierar en konstruktor i en subklass. Alla React-komponent-klasser som har en konstruktor ska börja den med ett anrop till `super(props)`.
 
+Nu ändrar vi Squares `render`-metod till att visa nuvarande värdet i state när
 Now we'll change the Square's `render` method to display the current state's value when clicked:
 
 * Ersätt `this.props.value` med `this.state.value` inuti `<button>`-taggen.
@@ -323,7 +324,7 @@ class Square extends React.Component {
 
 Genom att anropa `this.setState` från en `onClick`-hanterare i Squares `render`-metod så säger vi till React att rendrera om den Square-komponenten när helst dess `<button>` blir klickad. Efter uppdateringen så kommer den Sqaure-komponentens `this.state.value` att vara `'X'`, därför ser vi ett `X` på spelplanen. Om du klickar på vilken Square som helst så ska ett `X` dyka upp där.
 
-När du anropar `setState` i en komponent så kommer React automatiskt att uppdatera alla barn-komponentern inuti den också.
+När du anropar `setState` i en komponent så kommer React automatiskt att uppdatera alla barn-komponenter inuti den också.
 
 **[Se full kod vid denna tidpunkt](https://codepen.io/gaearon/pen/VbbVLg?editors=0010)**)
 
@@ -352,11 +353,11 @@ Nu har vi de grundläggande byggstenarna för vårt tre-i-rad-spel. För att fä
 
 För närvarande så håller varje Square-komponent reda på spelets state. För att kolla efter en vinnare så kommer vi upprätthålla värdet av samtliga nio Square-komponenter på en och samma plats.
 
-Man kan tro att Board borde bara fråga varje Square för dess state. Trots att detta tillvägagångssätt är möjligt i React så avråder vi från det för att koden blir svår att förstå, mottaglig för buggar och svår att refaktorera. I stället är det bästa tillvägagånssättet att spara spelets state i föräldra-komponenten Board till skillnad för i varje individuell Squre. Board-komponenten kan tala om för varje Square vad som ska visas genom att passa en prop [precis som vi gjorde när vi passade en siffra till varje Square](#passing-data-through-props)
+Man kan tro att Board bara borde fråga varje Square för dess state. Trots att detta tillvägagångssätt är möjligt i React så avråder vi från det för att koden blir svår att förstå, mottaglig för buggar och svår att refaktorera. I stället är det bästa tillvägagånssättet att spara spelets state i föräldra-komponenten Board till skillnad från i varje individuell Squre. Board-komponenten kan tala om för varje Square vad som ska visas genom att passa en prop [precis som vi gjorde när vi passade en siffra till varje Square](#passing-data-through-props)
 
-**För att samla data från flera barn, eller ha två barn-komponenter som kommunicerar med varandra, behöver du deklarera det delade statet i föräldra-komponent i stället. Föräldra-komponenten kan passa statet ner till barnen genom att använda props; detta håller barn-komponentenr i synk med varandra och med föräldra-komponenten.**
+**För att samla data från flera barn, eller ha två barn-komponenter som kommunicerar med varandra, behöver du deklarera det delade statet i föräldra-komponent i stället. Föräldra-komponenten kan passa statet ner till barnen genom att använda props; detta håller barn-komponenter i synk med varandra och med föräldra-komponenten.**
 
-Lytfa state in till en föräldra-komponent är vanligt när React-komponenter blir refaktorerade -- låt oss ta tillfället i akt att testa det.
+Lyfta state till en föräldra-komponent är vanligt när React-komponenter blir refaktorerade -- låt oss ta tillfället i akt att testa det.
 
 Lägg till en konstruktor till Board och sätt Boards initiala state till att innehålla en array av 9 null-värden som motsvarar de 9 Squares.
 
@@ -392,9 +393,9 @@ Boards `renderSquare`-metod ser för närvarande ut så här:
   }
 ```
 
-I början så  [passade vi `value`-propen neråt](#passing-data-through-props) från Board för att visa siffror från 0 till 8 i varje Square. I ett annat, tidigare steg, ersatte vi siffrorna med en "X"-markering [bestämt av Squares egna state](#making-an-interactive-component). Det är därför som Square för närvarande ignorerear `value`-propen som passas till den av Board.
+I början så  [passade vi `value`-propen neråt](#passing-data-through-props) från Board för att visa siffror från 0 till 8 i varje Square. I ett annat, tidigare steg, ersatte vi siffrorna med en "X"-markering [bestämt av Squares egna state](#making-an-interactive-component). Det är därför som Square för närvarande ignorerar `value`-propen som passas till den av Board.
 
-Vi kommer nu använda mekanismen att passa props igen. Vi kommer modifiera Board till att instruera varje individuell Square om dess nuvarande värde (`'X'`, `'O'`, or `null`). Vi har redan definierat `squares`-arrayen i Boards kontruktor och vi kommer modifiera Boards `renderSquare`-metod till att läsa från det:
+Vi kommer nu använda mekanismen att passa props igen. Vi kommer modifiera Board till att instruera varje individuell Square om dess nuvarande värde (`'X'`, `'O'`, eller `null`). Vi har redan definierat `squares`-arrayen i Boards kontruktor och vi kommer modifiera Boards `renderSquare`-metod till att läsa från det:
 
 ```javascript{2}
   renderSquare(i) {
@@ -404,11 +405,11 @@ Vi kommer nu använda mekanismen att passa props igen. Vi kommer modifiera Board
 
 **[Se full kod vid denna tidpunkt](https://codepen.io/gaearon/pen/gWWQPY?editors=0010)**
 
-Varje Square kommer nu att ta emot en `value`-prop som kommer vara antingen `'X'`, `'O'`, or `null` för tomma rutor.
+Varje Square kommer nu att ta emot en `value`-prop som kommer vara antingen `'X'`, `'O'`, eller `null` för tomma rutor.
 
 Härnäst behöver vi ändra vad som händer när en Square blir klickad. Board-komponenten håller nu reda på vilka rutor som är fyllda. Vi behöver skapa ett sätt för Square att uppdatera Boards state. Eftersom state ska anses vara privat till komponenten som definierar det, så kan vi inte uppdatera Boards state direkt från Square.
 
-Istället passar vi ner en funktion från Board till Square och får Square att anropa på den funktionen när en ruta blir klickad. Vi kommer ändra `renderSquare`-metoden i Board också:
+Istället passar vi ner en funktion från Board till Square och får Square att anropa på den funktionen när Square blir klickad. Vi kommer ändra `renderSquare`-metoden i Board också:
 
 ```javascript{5}
   renderSquare(i) {
@@ -423,9 +424,9 @@ Istället passar vi ner en funktion från Board till Square och får Square att 
 
 >OBS
 >
->Vi delar upp det returnerade elementet i flera rader för läsbarhet och lade till paranteser så att inte JavaScript lägger in semikolon efter `return` och har stönder vår kod.
+>Vi delar upp det returnerade elementet i flera rader för ökad läsbarhet och lade till paranteser så att inte JavaScript lägger in semikolon efter `return` och har sönder vår kod.
 
-Nu passar vi ner två props från Board till Square: `value` och `onClick`. `onClick`-propen är en funktion som Square can kalla när den blir klickad. Vi gör följande förändrar till Square:
+Nu passar vi ner två props från Board till Square: `value` och `onClick`. `onClick`-propen är en funktion som Square kan anropa när den blir klickad. Vi gör följande förändringar till Square:
 
 * Ersätt `this.state.value` med `this.props.value` in Squares `render`-metod
 * Ersätt `this.setState()` med `this.props.onClick()` i Squares `render`-metod
@@ -458,7 +459,7 @@ När en Square blir klickad blir `onClick`-funktionen som tillhandahålls av Boa
 
 >OBS
 >
-> DOM `<button>`-elementets `onClick` attribute har speciell innebörd för React eftersom det är en inbyggd komponent. För egna komponenter som Square så är namngivningen upp till dig. Vi skulle kunna ge vilket namn som helst till Squares `onClick`-prop eller Boards `handleClick`-metod, och koden skulle fungera likadant. I React är det konventionellt att använda namn som `on[Event]` för props som representerar event och `handle[Event]` för metoder som hanterar eventen.
+> DOM `<button>`-elementets `onClick` attribute har speciell innebörd för React eftersom det är en inbyggd komponent. För egna komponenter som Square så är namngivningen upp till dig. Vi skulle kunna ge vilket namn som helst till Squares `onClick`-prop eller Boards `handleClick`-metod, och koden skulle fungera likadant. I React är det vedertaget att använda namn som `on[Event]` för props som representerar event och `handle[Event]` för metoder som hanterar eventen.
 
 Vi borde få ett fel när vi klickar på Square, eftersom vi inte har definierat `handleClick` än. Vi kommer nu lägga till `handleClick` till Board-klassen:
 
@@ -515,9 +516,9 @@ class Board extends React.Component {
 
 **[Se full kod vid denna tidpunkt](https://codepen.io/gaearon/pen/ybbQJX?editors=0010)**
 
-Efter dessa förändrar är vi tillbaka till att kunna klicka på Squares för att fylla dem, precis som vi kunde innan. Dock så är state nu sparat i Board-komponenten istället för i varje individeuall Square-komponent. När Boards state förändras rendreras Square-komponenterna om automatiskt. Genom att hålla state av alla rutor i Board-komponenten så möjliggör det Board att avgöra vinnaren i framtiden.
+Efter dessa förändringar är vi tillbaka till att kunna klicka på Squares för att fylla dem, precis som vi kunde innan. Dock så är state nu sparat i Board-komponenten istället för i varje individuell Square-komponent. När Boards state förändras rendreras Square-komponenterna om automatiskt. Genom att hålla state av alla rutor i Board-komponenten så möjliggör det Board att avgöra vinnaren i framtiden.
 
-Eftersom Square-komponenterna inte längre håller state så får de värder från Board-komponenten och informerar Board-komponenten när de blivit klickade. I React-termer är Square-komponenterna nu **kontrollerade komponenter**. Board har full kontroll över dem.
+Eftersom Square-komponenterna inte längre håller state så får de värden från Board-komponenten och informerar Board-komponenten när de blivit klickade. I React-termer är Square-komponenterna nu **kontrollerade komponenter**. Board har full kontroll över dem.
 
 Notera hur vi i `handleClick` kallar på `.slice()` för att skapa en kopia av `squares`-arrayen som vi kan modifiera, istället för att modifiera en befintlig array. Vi kommer förklara varför vi skapar en kopia av `squares`-arrayen i nästa sektion.
 
@@ -549,7 +550,7 @@ Slutresultat är detsamma, men genom att inte mutera (eller ändra den underligg
 
 #### Komplexa funktioner blir enkla  {#complex-features-become-simple}
 
-Oföränderlighet gör komplexa funktion mycket enklare att implementera. Senare i denna guide kommer vi implementera en "time travel"-funktion som kommer tillåta oss att gå igenom tre-i-rad-spelets historik och "hoppa tillbaka" till ett föregående drag. Denna funktionalitet är inte specifik för spel -- förmågan att ångra och göra om vissa åtgärder är ett vanligt krav i applikationer. Genom att undvika direkt mutation av data så låter det oss behålla föregående version av spelets historik intakt och återanvända de i ett senare skede.
+Oföränderlighet gör komplexa funktioner mycket enklare att implementera. Senare i denna guide kommer vi implementera en "time travel"-funktion som kommer tillåta oss att gå igenom tre-i-rad-spelets historik och "hoppa tillbaka" till ett föregående drag. Denna funktionalitet är inte specifik för spel -- förmågan att ångra och göra om vissa åtgärder är ett vanligt krav i applikationer. Genom att undvika direkt mutation av data så låter det oss behålla föregående version av spelets historik intakt och återanvända de i ett senare skede.
 
 #### Upptäcka ändringar {#detecting-changes}
 
@@ -606,7 +607,7 @@ class Board extends React.Component {
   }
 ```
 
-Varje gång en spelare gör ett drag kommer `xIsNext` (en boolesk datatyp) att växlas för att avgöra vilken spelares tur det är här näst samt spara spelets state. Vi uppdaterar Boars `handleClick`-funktion till att växla värdet av `xIsNext`:
+Varje gång en spelare gör ett drag kommer `xIsNext` (en boolesk datatyp) att växlas för att avgöra vilken spelares tur det är här näst samt spara spelets state. Vi uppdaterar Boards `handleClick`-funktion till att växla värdet av `xIsNext`:
 
 ```javascript{3,6}
   handleClick(i) {
@@ -692,7 +693,7 @@ class Board extends React.Component {
 
 ### Utse en vinnare {#declaring-a-winner}
 
-När vi nu visar vilken spelare tur det är här näst borde vi också visa när spelet är vunnet och det inte längre finns några fler drag att göra. Kopiera denna hjälp-funktion och klistra in den i slutet av filen:
+När vi nu visar vilken spelares tur det är här näst borde vi också visa när spelet är vunnet och det inte längre finns några fler drag att göra. Kopiera denna hjälp-funktion och klistra in den i slutet av filen:
 
 ```javascript
 function calculateWinner(squares) {
@@ -718,7 +719,7 @@ function calculateWinner(squares) {
 
 Givet en array av 9 rutor kommer denna funktion att kolla efter en vinntare och returnera `'X'`, `'O'`, or `null` i förekommande fall.
 
-Vi kommer kalla `calculateWinner(squares)` i Boards `render`-funktion för att kolla om en spelare har vunnit. Om en spelare har vunnit kan vi visa en text såsom "Vinnare: X" eller "Vinnare: O". Vi kommer ersätta deklarationen av `status` i BOards `render`-funktion med denna kod:
+Vi kommer kalla `calculateWinner(squares)` i Boards `render`-funktion för att kolla om en spelare har vunnit. Om en spelare har vunnit kan vi visa en text såsom "Vinnare: X" eller "Vinnare: O". Vi kommer ersätta deklarationen av `status` i Boards `render`-funktion med denna kod:
 
 ```javascript{2-8}
   render() {
@@ -752,7 +753,7 @@ Vi kan nu ändra Boards `handleClick`-funktion att returnera tidigt genom att ig
 
 **[Se full kod vid denna tidpunkt](https://codepen.io/gaearon/pen/LyyXgK?editors=0010)**
 
-Grattis! Du har nu ett fungerande tre-i-rad-spel. Du har också lärt det grunderna i React. So *du* är troligen den riktiga vinnaren här.
+Grattis! Du har nu ett fungerande tre-i-rad-spel. Du har också lärt dig grunderna i React. Så *du* är troligen den riktiga vinnaren här.
 
 ## Lägga till Time Travel {#adding-time-travel}
 
@@ -834,7 +835,7 @@ class Game extends React.Component {
 }
 ```
 
-Sen gör vi så att Board-komponenten tar emot `squares`- och `onClick`-props från Game-komponenten. Eftersom vi nu har en enda klick-hanterare i Board för många Squares så behöver vi passa platsen för varje Square in till `onClick`-hanteraren för att indikera vilken Square som blev klickad. Här är de nödvändiga stegen för att transformera Board-komponenten.
+Sen gör vi så att Board-komponenten tar emot `squares`- och `onClick`-props från Game-komponenten. Eftersom vi nu har en enda klickhanterare i Board som hanterar klick för flera Squares, så behöver vi passa platsen för varje Square in till `onClick`-hanteraren för att indikera vilken Square som blev klickad. Här är de nödvändiga stegen för att transformera Board-komponenten.
 
 * Ta bort `constructor` i Board.
 * Ersätt `this.state.squares[i]` med `this.props.squares[i]` i Boards `renderSquare`.
@@ -990,14 +991,14 @@ Eftersom vi sparar tre-i-rad-spelets historik kan vi nu visa den för spelaren s
 
 Tidigare lärde vi oss att React-element är förstklassiga JavaScript-objekt, vi kan alltså passa runt dem i vår applikation. För att rendrera flera objekt i React kan vi använda en array av React-element.
 
-I JavaScript har arrayen en [`map()`-method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) som vanliga använda för att översätta data till annan data, till exempel:
+I JavaScript har arrayen en [`map()`-metod](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) som vanligen används för att översätta data till annan data, till exempel:
 
 ```js
 const numbers = [1, 2, 3];
 const doubled = numbers.map(x => x * 2); // [2, 4, 6]
 ```
 
-Genom att använda `map`-metoden kan vi översätta vår spelhistorik till React-element som representerar knappar på skärmen och visa en lista av knappar att "hoppa" till tidigare drag.
+Genom att använda `map`-metoden kan vi översätta vår spelhistorik till React-element som representerar knappar på skärmen och visa en lista av knappar som "hoppar" till tidigare drag.
 
 Låt oss använda `map` för att översätta `history` i Games `render`-metod:
 
@@ -1044,7 +1045,7 @@ Låt oss använda `map` för att översätta `history` i Games `render`-metod:
 
 **[Se full kod vid denna tidpunkt](https://codepen.io/gaearon/pen/EmmGEa?editors=0010)**
 
-För varje drag i tre-i-rad-spelets historik skaåar vi ett listobjekt `<li>` som innehåller en knapp `<button>`. Knappen har en `onClick`-hanterare som anropar en metod kallad `this.jumpTo()`. Vi har inte implementerat `jumpTo()`-metoden än. Tills vidare borde vi se en lista med drag som har skett i spelet samt en varning i utvecklarverktygens konsol som säger:
+För varje drag i tre-i-rad-spelets historik skapar vi ett listobjekt `<li>` som innehåller en knapp `<button>`. Knappen har en `onClick`-hanterare som anropar en metod kallad `this.jumpTo()`. Vi har inte implementerat `jumpTo()`-metoden än. Tills vidare borde vi se en lista med drag som har skett i spelet samt en varning i utvecklarverktygens konsol som säger:
 
 >  Warning:
 >  Each child in an array or iterator should have a unique "key" prop. Check the render method of "Game".
@@ -1053,7 +1054,7 @@ Låt oss diskutera vad ovanstående varning betyder.
 
 ### Välja en key {#picking-a-key}
 
-När vi rendrerar en lista sparar React lite information om varje rendrerar listobjekt. När vi uppdaterar en lista behöver React avgöra vad som har ändrats. Vi skulle kunna ha lagt till, tagit bort, ordnat och eller uppdaterat listans listobjekt.
+När vi rendrerar en lista sparar React lite information om varje rendrerat listobjekt. När vi uppdaterar en lista behöver React avgöra vad som har ändrats. Vi skulle kunna ha lagt till, tagit bort, ordnat om eller uppdaterat listans listobjekt.
 
 Föreställ dig att gå från
 
@@ -1070,7 +1071,7 @@ till
 <li>Alexa: 5 uppgifter kvar</li>
 ```
 
-Utöver uppdaterade räknare skulle en människa som läser detta antagligen säga att vi bytte plats på Alexa och Bens ordning och lade till Claudia mellan Alexa och Ben. Dock så är React ett datorprogram och vet inte vad det är vi avsåg. Eftersom React inte kan veta våra intentioner behöver vi specificera en *key*-prop för varje listobjekt för att kunna skilja listobjekten åt. Ett alternativ våra att använda strängarna `alexa`, `ben`, `claudia`. Om vi visade data från en databas skulle Alexa, Ben och Claudias databas-id kunna användas som keys.
+Utöver uppdaterade räknare skulle en människa som läser detta antagligen säga att vi bytte plats på Alexa och Bens ordning och lade till Claudia mellan Alexa och Ben. Dock så är React ett datorprogram och vet inte vad det är vi avsåg. Eftersom React inte kan veta våra intentioner behöver vi specificera en *key*-prop för varje listobjekt för att kunna skilja listobjekten åt. Ett alternativ vore att använda strängarna `alexa`, `ben`, `claudia`. Om vi visade data från en databas skulle Alexa, Ben och Claudias databas-id kunna användas som keys.
 
 ```html
 <li key={user.id}>{user.name}: {user.taskCount} uppgifter kvar</li>
@@ -1078,7 +1079,7 @@ Utöver uppdaterade räknare skulle en människa som läser detta antagligen sä
 
 När en lista rendreras om tar React varje listobjekts key och letar i förra listan efter listobjekt som har en matchande key. Om nuvarande listan har en key som inte existerat tidigare skapar React en komponent. Om nuvarande listan saknar en key som existerade i förra listan river React ner den förra komponenten. Om två keys matchar flyttas motsvarande komponent. Keys berättar om identitet för React vilket gör att React har möjlighet att hålla reda på state mellen rendreringar. Om en komponents key ändras kommer komponenten rivas ner och återskapas med nytt state.
 
-`key` är en speciell och reserverad prop i React (tillsammans med `ref, en mer avancerad funktion). När ett element skapas extraherar React `key`-propen och sparar värder direkt på det returnerade elementet. Fastän det ser ut som `key` är en del av `props` så kan den inte bli refererad till genom att använda sig av `this.props.key`. React använder automatiskt `key` för att avgöra vilken komponent som behöver uppdateras. En komponent kan inte fråga om sin `key`.
+`key` är en speciell och reserverad prop i React (tillsammans med `ref`, en mer avancerad funktion). När ett element skapas extraherar React `key`-propen och sparar värdet direkt på det returnerade elementet. Fastän det ser ut som `key` är en del av `props` så kan den inte bli refererad till genom att använda sig av `this.props.key`. React använder automatiskt `key` för att avgöra vilken komponent som behöver uppdateras. En komponent kan inte fråga om sin `key`.
 
 **Det är starkt rekommenderat att du tilldelar ordentliga keys närhelst du bygger dynamiska listor.** Om du inte har en ordentlig key kanske du vill överväga att strukturera om din data så att du får det.
 
@@ -1091,7 +1092,7 @@ Keys behöver inte vara globalt unika utan endast mellan komponenter och dess sy
 
 I tre-i-rad-spelets historik har varje tidigare drag ett unikt ID associerat med sig: det är den sekventiella siffra av draget. Dragen ordnas aldrig om, tas aldrig bort eller läggs till i mitten, så det är säkert att använda drages index i arrayen som key.
 
-I Game-komponentsns `render`-metod kan vi lägga till key som `<li key={move}>` och Reacts varning om keys bordes försvinna:
+I Game-komponentens `render`-metod kan vi lägga till key som `<li key={move}>` och Reacts varning om keys bordes försvinna:
 
 ```js{6}
     const moves = history.map((step, move) => {
@@ -1145,11 +1146,11 @@ Sen definierar vi `jumpTo`-metoden i Game för att uppdatera `stepNumber`. Vi s�
   }
 ```
 
-Vi kommer ni göra några få ändringar till Games `handleClick`-metod som körs varje gång du klickar på en ruta.
+Vi kommer nu göra några få ändringar till Games `handleClick`-metod som körs varje gång du klickar på en ruta.
 
-`stepNumber` statet vi har lagt till återspeglar draget som visas för användaren nu. Efter vi gjort ett drag behöver vi uppdatera `stepNumber` genom att lägga till `stepNumber: history.length` som en del av argumenten till `this.setState`. Detta säkerställer att vi inte fastnar och visar samma drag efter att ett nytt har gjorts.
+`stepNumber` statet vi har lagt till återspeglar draget som visas för användaren just nu. Efter vi gjort ett drag behöver vi uppdatera `stepNumber` genom att lägga till `stepNumber: history.length` som en del av argumenten till `this.setState`. Detta säkerställer att vi inte fastnar och visar samma drag efter att ett nytt har gjorts.
 
-Vi kommer också att ersätta läsningen från `this.state.history` med `this.state.history.slice(0, this.state.stepNumber + 1)`. Detta säkerställer att om vi "går tillbakai tiden" och sen gör ett nytt drag från den tidpunkten, så förkastar vi alla "framtida" drag i historiken som nu skulle bli felaktiga.
+Vi kommer också att ersätta läsningen från `this.state.history` med `this.state.history.slice(0, this.state.stepNumber + 1)`. Detta säkerställer att om vi "går tillbaka i tiden" och sen gör ett nytt drag från den tidpunkten, så förkastar vi alla "framtida" drag i historiken som nu skulle bli felaktiga.
 
 ```javascript{2,13}
   handleClick(i) {
@@ -1190,7 +1191,7 @@ Om vi klickar på vilket drag som helst i spelets historik borde spelplanen för
 Gratulerar! Du har skapat ett tre-i-rad-spel som:
 
 * Låter dig spela tre-i-rad,
-* Visar när en spelar har vunnit spelet,
+* Visar när en spelarw har vunnit spelet,
 * Sparar ett spels historik under spelets gång,
 * Låter spelare återblicka ett spels historik och se tidigare versioner av spelets spelplan.
 
@@ -1198,7 +1199,7 @@ Bra jobbat! Vi hoppas att du nu känner att du har ett någorlunda grepp om hur 
 
 Kolla in det slutliga resultatet här: **[Slutliga resultatet](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**.
 
-Om du har extra tid eller vill öva dina nya färdigheter i React så kommer här några idéer på förbättringar som du skulle kunna göra till tre-i-rad-spelet, listade i ordning med ökande svårighetsgrad:
+Om du har mer tid eller vill öva dina nya färdigheter i React så kommer här några idéer på förbättringar som du skulle kunna göra till tre-i-rad-spelet, listade i ordning med ökande svårighetsgrad:
 
 1. Visa platsen för varje drag i formatet (kolumn, rad) i listan för historiken över dragen.
 2. Fetstila det aktuella valda listobjektet i listan över dragen.
@@ -1208,4 +1209,4 @@ Om du har extra tid eller vill öva dina nya färdigheter i React så kommer hä
 6. När ingen vinner, visa ett meddelande om att resultatet blev oavgjort.
 
 
-Genomgående i denna guide har vi berört React-koncept såsom element, komponenter, props och state. FFör en mer detaljerad förklaring av vart och ett av dessa ämnen, kolla in [resten av dokumentationen](/docs/hello-world.html). För att lära dig mer om att definiera komponenter, kolla in [`React.Component` API-referens](/docs/react-component.html).
+Genomgående i denna guide har vi berört React-koncept såsom element, komponenter, props och state. För en mer detaljerad förklaring av vart och ett av dessa ämnen, kolla in [resten av dokumentationen](/docs/hello-world.html). För att lära dig mer om att definiera komponenter, kolla in [`React.Component` API-referens](/docs/react-component.html).
