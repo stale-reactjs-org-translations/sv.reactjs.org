@@ -16,11 +16,11 @@ Denna märkliga tagg-syntax är varken en sträng eller HTML.
 
 Det kallas JSX, och är en syntaktisk förlängning av JavaScript. Vi rekommenderar att använda det tillsammans med React för att beskriva hur användargränssnittet ska se ut. JSX må påminna om ett template-språk, men det kommer med den fulla kraften av JavaScript.
 
-JSX skapar React-"element". Vi kommer utforska rendrering av dessa till DOM:en i [nästa sektion](/docs/rendering-elements.html). Nedan kan du finna grunderna i JSX som är nödvändiga för att komma igång.
+JSX skapar React-"element". Vi kommer utforska rendering av dessa till DOM:en i [nästa sektion](/docs/rendering-elements.html). Nedan kan du finna grunderna i JSX som är nödvändiga för att komma igång.
 
 ### Varför JSX? {#why-jsx}
 
-React omfamnar det faktum att rendreringslogik är automatiskt kopplad till annan gränssnittslogik: hur händelser hanteras, hur tillstånd förändras över tid samt hur data förbereds för uppvisning.
+React omfamnar det faktum att renderingslogik är automatiskt kopplad till annan gränssnittslogik: hur händelser hanteras, hur tillstånd förändras över tid samt hur data förbereds för uppvisning.
 
 Istället för att artificiellt separera *teknologier* genom att sätta struktur och logik i separata filer, [inkapslar](https://sv.wikipedia.org/wiki/Inkapsling_(Separation_of_Concerns)) React löst sammanhängande enheter kallade "komponenter" som innehåller både och. Vi återkommer till komponenter i ett [senare avsnitt](/docs/components-and-props.html), men om du fortfarande inte känner dig bekväm med att placera HTML i JS kanske [denna presentation](https://www.youtube.com/watch?v=x7cQ3mrcKaY) ändra din åsikt.
 
@@ -138,7 +138,7 @@ const title = response.potentiallyMaliciousInput;
 const element = <h1>{title}</h1>;
 ```
 
-Per default, [undflyr](https://stackoverflow.com/questions/7381974/which-characters-need-to-be-escaped-on-html) React DOM de värden som bäddas in i JSX innan de rendreras. Därmed säkrar den att du aldrig kan injecera något som inte är explicit skrivet i din applikation. All omvandlas till en sträng innan det rendreras. Detta hjälper till att förhindra attacker såsom [XSS (cross-site-scripting)](https://en.wikipedia.org/wiki/Cross-site_scripting).
+Per default, [undflyr](https://stackoverflow.com/questions/7381974/which-characters-need-to-be-escaped-on-html) React DOM de värden som bäddas in i JSX innan de renderas. Därmed säkrar den att du aldrig kan injecera något som inte är explicit skrivet i din applikation. All omvandlas till en sträng innan det renderas. Detta hjälper till att förhindra attacker såsom [XSS (cross-site-scripting)](https://en.wikipedia.org/wiki/Cross-site_scripting).
 
 ### JSX Representerar Objekt {#jsx-represents-objects}
 
@@ -177,7 +177,7 @@ const element = {
 
 Dessa objekt kallas "React element". Du kan föreställa dig dem som beskrivningar av vad du vill se på skärmen. React läser dessa objekt och använder dem för att skapa DOM:en och bibehålla den uppdaterad.
 
-Vi kommer att utforska rendrering av React-element till DOM:en i nästa avsnitt.
+Vi kommer att utforska rendering av React-element till DOM:en i nästa avsnitt.
 
 >**Tips:**
 >
