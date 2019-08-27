@@ -8,10 +8,10 @@
 
 module.exports = {
   siteMetadata: {
-    title: 'React: Ett JavaScript-bibliotek för att bygga användargränssnit',
+    title: 'React: Ett JavaScript-bibliotek för att bygga användargränssnitt',
     siteUrl: 'https://reactjs.org',
     rssFeedTitle: 'React',
-    rssFeedDescription: 'Ett JavaScript-bibliotek för att bygga användargränssnit',
+    rssFeedDescription: 'Ett JavaScript-bibliotek för att bygga användargränssnitt',
   },
   mapping: {
     'MarkdownRemark.frontmatter.author': 'AuthorYaml',
