@@ -89,7 +89,7 @@ function getGreeting(user) {
 
 ### Specificera Attribut med JSX {#specifying-attributes-with-jsx}
 
-Du vill troligtvis använda citationstecken för att specificera exakta strängar som attribut:
+Du kan använda citationstecken för att specificera exakta strängar som attribut:
 
 ```js
 const element = <div tabIndex="0"></div>;
