@@ -105,7 +105,7 @@ class CodeEditor extends Component {
                 color: colors.white,
               }}>
               <MetaTitle onDark={true}>
-                Live JSX Editor
+                Live JSX-redigerare
                 <label
                   css={{
                     fontSize: 14,
@@ -175,7 +175,7 @@ class CodeEditor extends Component {
                   cssProps={{
                     color: colors.white,
                   }}>
-                  Error
+                  Fel
                 </MetaTitle>
               </div>
               <pre
@@ -206,7 +206,7 @@ class CodeEditor extends Component {
                   padding: '0 10px',
                   backgroundColor: colors.divider,
                 }}>
-                <MetaTitle>Result</MetaTitle>
+                <MetaTitle>Resultat</MetaTitle>
               </div>
               <div
                 id={containerNodeID}
@@ -270,7 +270,7 @@ class CodeEditor extends Component {
 
   _updateState(code, showJSX = true) {
     try {
-      let newState = {
+      const newState = {
         compiled: compileES5(code),
         error: null,
       };
