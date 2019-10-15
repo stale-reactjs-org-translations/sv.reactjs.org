@@ -9,7 +9,7 @@ redirect_from:
   - "docs/forms-zh-CN.html"
 ---
 
-Form-element fungerar något annorlunda än andra DOM-element i React eftersom form-element naturligt bevakar en viss intern state. Till exempel i vanlig HTML skriva så accepterar denna form ett enda namn:
+Formelement fungerar något annorlunda än andra DOM-element i React eftersom formelement naturligt bevakar en viss intern state. Till exempel i vanlig HTML skriva så accepterar detta formulär ett enda namn:
 
 ```html
 <form>
@@ -21,11 +21,11 @@ Form-element fungerar något annorlunda än andra DOM-element i React eftersom f
 </form>
 ```
 
-Detta formuläret har standardbeteendet för HTML-form-element att öppna en ny webbsida när det skickas. Om du vill ha detta beteende fungerar det automatiskt i React. Normalt sett är det dock föredraget att använda en JavaScript-funktion som hanterar skickandet av formuläret och har tillgång till formulärets innehåll som användaren skrivit in. Det vanligaste sättet att uppnå detta är med en teknik som kallas "kontrollerade komponenter".
+Detta formuläret har standardbeteendet för HTML-formelement att öppna en ny webbsida när det skickas. Om du vill ha detta beteende fungerar det automatiskt i React. Normalt sett är det dock föredraget att använda en JavaScript-funktion som hanterar skickandet av formuläret och har tillgång till formulärets innehåll som användaren skrivit in. Det vanligaste sättet att uppnå detta är med en teknik som kallas "kontrollerade komponenter".
 
 ## Kontrollerade komponenter {#controlled-components}
 
-I vanliga fall bevakar HTML-form-element som `<input>`, `<textarea>`, och `<select>` deras egna state som updateras vid användarinmatning. I React behålls föränderlig state vanligtvis i komponenternas state-attribut och uppdateras endast via [`setState()`](/docs/react-component.html#setstate).
+I vanliga fall bevakar HTML-formulärkontroller som `<input>`, `<textarea>`, och `<select>` deras egna state som uppdateras vid användarinmatning. I React behålls föränderlig state vanligtvis i komponenternas state-attribut och uppdateras endast via [`setState()`](/docs/react-component.html#setstate).
 
 Vi kan kombinera dessa två genom att göra Reacts state till den "enda källan till sanningen". Då kontrollerar React-komponenten som renderar formuläret också vad som händer i detta formulär under fortsatta användarinmatningar. Ett formulär vars innehåll styrs av React på detta sätt kallas en "kontrollerad komponent".
 
@@ -66,7 +66,7 @@ class NameForm extends React.Component {
 
 [**Prova i CodePen**](https://codepen.io/gaearon/pen/VmmPgp?editors=0010)
 
-Eftersom `value`-attributen är inställd på vårt HTML-form-element kommer det renderade värdet alltid att vara `this.state.value` och utgöra Reacts state till den "enda källan till sanningen". Eftersom `handleChange` anropas på varje tangenttryckning för att updatera Reacts state, kommer det värdet som visas att updateras vid användarinmatning.
+Eftersom `value`-attributen är inställd på vårt HTML-formelement kommer det renderade värdet alltid att vara `this.state.value` och utgöra Reacts state till den "enda källan till sanningen". Eftersom `handleChange` anropas på varje tangenttryckning för att uppdatera Reacts state, kommer det värdet som visas att uppdateras så fort användaren gör en input.
 
 Med en kontrollerad komponent har varje state-mutation en tillhörande hanteringsfunktion. Detta gör det enkelt att ändra eller validera användarinmatningen. Om vi till exempel vill genomföra att ett namn skrivs med veraler, kan vi skriva `handleChange` som:
 
@@ -138,7 +138,7 @@ I HTML skapar `<select>` en dropdownlista. Som exempel skapar den här HTML-kode
 </select>
 ```
 
-Notera att kokosnötsalternativet väljs initialt på grund av `selected`-attributet. Istället för att använda detta `selected`-attribut använder React ett `value`-attribut på det yttre `select`-taggen. Detta är mer lätthanterligt i en kontrollerad komponent, eftersom att en uppdatering endast behövs ske på ett ställe. Till exempel:
+Notera att kokosnötsalternativet väljs initialt på grund av `selected`-attributet. Istället för att använda detta `selected`-attribut använder React ett `value`-attribut på det yttre `select`-taggen. Detta är mer lätthanterligt i en kontrollerad komponent, eftersom att en uppdatering endast behöver ske på ett ställe. Till exempel:
 
 ```javascript{4,10-12,24}
 class FlavorForm extends React.Component {
@@ -291,8 +291,8 @@ setTimeout(function() {
 
 ## Alternativ till kontrollerade komponenter {#alternatives-to-controlled-components}
 
-Det kan ibland vara jobbigt att använda kontrollerade komponenter eftersom du alltid behöver skriva en event-hanterare för varje sätt som formulärinnehållet kan förändras och hanteras genom en React-komponent. Särskilt irriterande är det vid konvertering av en existerande kodbas till React eller vid integrering av en Reactapplikation med kod som inte är skriven i React. I dessa lägen kan det vara passande att kolla up [okontrollerade komponenter](/docs/uncontrolled-components.html), en alternativ teknik för att implementera formulär.
+Det kan ibland vara jobbigt att använda kontrollerade komponenter eftersom du alltid behöver skriva en eventhanterare för varje sätt som formulärinnehållet kan förändras och hanteras genom en React-komponent. Särskilt irriterande är det vid konvertering av en existerande kodbas till React eller vid integrering av en Reactapplikation med kod som inte är skriven i React. I dessa lägen kan det vara passande att kolla upp [okontrollerade komponenter](/docs/uncontrolled-components.html), en alternativ teknik för att implementera formulär.
 
 ## Kompletta lösningar {#fully-fledged-solutions}
 
-Om du söker en komplett lösning som innehåller validering, håller koll på de besökta fälten samt hanterar hur formuläret skickas, är [Formik](https://jaredpalmer.com/formik) ett av de mest populära valen. Formik bygger på samma principer some kontrollerade komponenter och state, så negligera inte att lära dig dem.
+Om du söker en komplett lösning som innehåller validering, håller koll på de besökta fälten samt hanterar hur formuläret skickas, är [Formik](https://jaredpalmer.com/formik) ett av de mest populära valen. Formik bygger på samma principer som kontrollerade komponenter och state, så negligera inte att lära dig dem.
