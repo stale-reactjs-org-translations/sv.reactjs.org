@@ -1,6 +1,6 @@
 ---
 id: getting-started
-title: Getting Started
+title: Kom igång
 permalink: docs/getting-started.html
 next: add-react-to-a-website.html
 redirect_from:
@@ -18,109 +18,109 @@ redirect_from:
   - "docs/environments.html"
 ---
 
-This page is an overview of the React documentation and related resources.
+Den här sidan är en överblick av React-dokumentationen och relaterade länkar och resurser.
 
-**React** is a JavaScript library for building user interfaces. Learn what React is all about on [our homepage](/) or [in the tutorial](/tutorial/tutorial.html).
+**React** är ett JavaScript-bibliotek för att bygga användargränssnitt. Få reda på vad React handlar om på [vår startsida](/) eller [i den guidade genomgången](/tutorial/tutorial.html).
 
 ---
 
-- [Try React](#try-react)
-- [Learn React](#learn-react)
-- [Staying Informed](#staying-informed)
-- [Versioned Documentation](#versioned-documentation)
-- [Something Missing?](#something-missing)
+- [Prova på React](#try-react)
+- [Lära sig React](#learn-react)
+- [Hålla sig uppdaterad](#staying-informed)
+- [Versionsbaserad dokumentation](#versioned-documentation)
+- [Fattas det något?](#something-missing)
 
-## Try React {#try-react}
+## Prova på React {#try-react}
 
-React has been designed from the start for gradual adoption, and **you can use as little or as much React as you need.** Whether you want to get a taste of React, add some interactivity to a simple HTML page, or start a complex React-powered app, the links in this section will help you get started.
+React är från början utformat för att underlätta gradvis implementation, och **du kan använda så lite eller så mycket React som du behöver.** Oavsett om du vill få ett smakprov av React, lägga till lite interaktivitet på en enkel HTML-sida, eller påbörja en komplex React-driven app, kommer resurserna i den här avdelningen hjälpa dig att komma igång.
 
 ### Online Playgrounds {#online-playgrounds}
 
-If you're interested in playing around with React, you can use an online code playground. Try a Hello World template on [CodePen](codepen://hello-world), [CodeSandbox](https://codesandbox.io/s/new), or [Glitch](https://glitch.com/edit/#!/remix/starter-react-template).
+Om du är intresserad av att leka runt med React, kan du använda en kod-playground online. Testa en Hello World-mall på [CodePen](codepen://hello-world), [CodeSandbox](https://codesandbox.io/s/new), eller [Glitch](https://glitch.com/edit/#!/remix/starter-react-template).
 
-If you prefer to use your own text editor, you can also [download this HTML file](https://raw.githubusercontent.com/reactjs/reactjs.org/master/static/html/single-file-example.html), edit it, and open it from the local filesystem in your browser. It does a slow runtime code transformation, so we'd only recommend using this for simple demos.
+Om du föredrar att använda din egen textredigerare, kan du även [ladda ner den här HTML-filen](https://raw.githubusercontent.com/reactjs/reactjs.org/master/static/html/single-file-example.html), ändra den, och öppna den från ditt lokala filsystem i din webbläsare. Den kör en långsam kodtransformation i runtime, så vi skulle bara rekommendera att använda detta för enkla demonstrationer.
 
-### Add React to a Website {#add-react-to-a-website}
+### Lägga till React på en webbsida {#add-react-to-a-website}
 
-You can [add React to an HTML page in one minute](/docs/add-react-to-a-website.html). You can then either gradually expand its presence, or keep it contained to a few dynamic widgets.
+Du kan [lägga till React på en webbsida på en minut](/docs/add-react-to-a-website.html). Sedan kan du antingen gradvis öka användandet, eller hålla det begränsat till några få dynamiska widgets.
 
-### Create a New React App {#create-a-new-react-app}
+### Skapa en ny React-app {#create-a-new-react-app}
 
-When starting a React project, a [simple HTML page with script tags](/docs/add-react-to-a-website.html) might still be the best option. It only takes a minute to set up!
+När du startar ett React-projekt, kan en [enkel HTML-sida med script-taggar](/docs/add-react-to-a-website.html) fortfarande vara det bästa alternativet. Det tar bara en minut att få iordning.
 
-As your application grows, you might want to consider a more integrated setup. There are [several JavaScript toolchains](/docs/create-a-new-react-app.html) we recommend for larger applications. Each of them can work with little to no configuration and lets you take full advantage of the rich React ecosystem.
+Allteftersom din applikation växer bör du däremot överväga en mer integrerad konfiguration. Det finns [flera JavaScript-toolchains](/docs/create-a-new-react-app.html) vi rekommenderar för större applikationer. Alla av dem kan fungera med näst intill ingen konfiguration och låter dig dra full nytta av det rika React-ekosystemet.
 
-## Learn React {#learn-react}
+## Lära sig React {#learn-react}
 
-People come to React from different backgrounds and with different learning styles. Whether you prefer a more theoretical or a practical approach, we hope you'll find this section helpful.
+Alla kommer till React från olika bakgrunder och med olika inlärningssätt. Oavsett om du föredrar en mer teoretisk eller praktisk metod, hoppas vi att den här sektionen kan hjälpa dig.
 
-* If you prefer to **learn by doing**, start with our [practical tutorial](/tutorial/tutorial.html).
-* If you prefer to **learn concepts step by step**, start with our [guide to main concepts](/docs/hello-world.html).
+* Om du föredrar att **lära dig genom att göra**, börja med vår [praktiska genomgång](/tutorial/tutorial.html).
+* Om du föredrar att **lära dig koncept steg-för-steg**, börja med vår [grundläggande koncept-guide](/docs/hello-world.html).
 
-Like any unfamiliar technology, React does have a learning curve. With practice and some patience, you *will* get the hang of it.
+Som vilken obekant teknologi som helst, har React en inlärningskurva. Med övning och lite tålamod, *kommer* du att få koll på det.
 
-### First Examples {#first-examples}
+### Ett första smakprov {#first-examples}
 
-The [React homepage](/) contains a few small React examples with a live editor. Even if you don't know anything about React yet, try changing their code and see how it affects the result.
+[React-startsidan](/) innehåller några få små React-exempel med en liveredigerare. Även om du inte kan någonting om React än, försök att ändra kodexemplen och se hur det påverkar resultatet.
 
-### React for Beginners {#react-for-beginners}
+### React för nybörjare {#react-for-beginners}
 
-If you feel that the React documentation goes at a faster pace than you're comfortable with, check out [this overview of React by Tania Rascia](https://www.taniarascia.com/getting-started-with-react/). It introduces the most important React concepts in a detailed, beginner-friendly way. Once you're done, give the documentation another try!
+Om du känner att React-dokumentationen går fortare än du är bekväm med, kolla [den här överblicken av React av Tania Rascia](https://www.taniarascia.com/getting-started-with-react/). Den introducerar de viktigaste React-koncepten på ett detaljerat och nybörjarvänligt sätt. När du är klar, ge då dokumentationen ett till försök!
 
-### React for Designers {#react-for-designers}
+### React för designers {#react-for-designers}
 
-If you're coming from a design background, [these resources](https://reactfordesigners.com/) are a great place to get started.
+Om du har en bakgrund inom design är [de här länkarna](https://reactfordesigners.com/) ett bra sätt att komma igång.
 
-### JavaScript Resources {#javascript-resources}
+### JavaScript-länkar och resurser {#javascript-resources}
 
-The React documentation assumes some familiarity with programming in the JavaScript language. You don't have to be an expert, but it's harder to learn both React and JavaScript at the same time.
+React-dokumentationen antar att du har en viss erfarenhet av programmering i språket JavaScript. Du behöver inte vara en expert, men det är svårare att lära sig både React och JavaScript samtidigt.
 
-We recommend going through [this JavaScript overview](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript) to check your knowledge level. It will take you between 30 minutes and an hour but you will feel more confident learning React.
+Vi rekommenderar att gå igenom [den här JavaScript-överblicken](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript) för att kolla upp din kunskapsnivå. Den tar mellan 30 minuter och en timme, men du kommer att känna dig mer redo att lära dig React.
 
->Tip
+>Tips
 >
->Whenever you get confused by something in JavaScript, [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript) and [javascript.info](https://javascript.info/) are great websites to check. There are also [community support forums](/community/support.html) where you can ask for help.
+>När du blir förvirrad av någonting i JavaScript är [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript) och [javascript.info](https://javascript.info/) värdefulla webbsidor att kolla upp. Det finns också [supportforum av communityn](/community/support.html) där du kan be om hjälp.
 
-### Practical Tutorial {#practical-tutorial}
+### Praktisk guide {#practical-tutorial}
 
-If you prefer to **learn by doing,** check out our [practical tutorial](/tutorial/tutorial.html). In this tutorial, we build a tic-tac-toe game in React. You might be tempted to skip it because you're not building games -- but give it a chance. The techniques you'll learn in the tutorial are fundamental to building *any* React apps, and mastering it will give you a much deeper understanding.
+Om du föredrar att **lära genom att göra**, kolla då vår [praktiska guide](/tutorial/tutorial.html). I den genomgången bygger vi ett luffarschack-spel i React. Det kan kännas frestande att hoppa över den för att du inte bygger spel -- men ge den en chans. Teknikerna du kommer att lära dig i genomgången är grundläggande för att bygga *vilken React-app som helst*, och att bli bra på det kommer att ge dig en mycket bättre förståelse av hur React fungerar.
 
-### Step-by-Step Guide {#step-by-step-guide}
+### Steg-för-steg-guide {#step-by-step-guide}
 
-If you prefer to **learn concepts step by step,** our [guide to main concepts](/docs/hello-world.html) is the best place to start. Every next chapter in it builds on the knowledge introduced in the previous chapters so you won't miss anything as you go along.
+Om du föredrar att **lära dig koncept steg-för-steg** är vår [grundläggande koncept-guide](/docs/hello-world.html) det bästa sättet att komma igång. Varje kapitel i den bygger på den kunskap som introducerats i de föregående kapitlen, så att du inte missar något allteftersom.
 
-### Thinking in React {#thinking-in-react}
+### Att tänka i React {#thinking-in-react}
 
-Many React users credit reading [Thinking in React](/docs/thinking-in-react.html) as the moment React finally "clicked" for them. It's probably the oldest React walkthrough but it's still just as relevant.
+Många React-användare tycker att React äntligen "klickade" för dem efter att ha läst [Att tänka i React](/docs/thinking-in-react.html). Det är förmodligen den äldsta React-guiden, men den är fortfarande precis lika relevant.
 
-### Recommended Courses {#recommended-courses}
+### Rekommenderade kurser {#recommended-courses}
 
-Sometimes people find third-party books and video courses more helpful than the official documentation. We maintain [a list of commonly recommended resources](/community/courses.html), some of which are free.
+Ibland tycker vissa att böcker och videokurser från tredje part är mer hjälpsamma än den officiella dokumentationen. Vi håller i [en lista med ofta rekommenderade resurser](/community/courses.html), där en del är gratis.
 
-### Advanced Concepts {#advanced-concepts}
+### Avancerade koncept {#advanced-concepts}
 
-Once you're comfortable with the [main concepts](/docs/hello-world.html) and played with React a little bit, you might be interested in more advanced topics. This section will introduce you to the powerful, but less commonly used React features like [context](/docs/context.html) and [refs](/docs/refs-and-the-dom.html).
+När du är bekväm med de [grundläggande koncepten](/docs/hello-world.html), och har lekt med React lite grann, kanske du är intresserad av mer avancerade ämnen. Den här sektionen introducerar dig till de kraftfulla men mindre vanliga React-funktionerna såsom [context](/docs/context.html) och [refs](/docs/refs-and-the-dom.html).
 
-### API Reference {#api-reference}
+### API-referens {#api-reference}
 
-This documentation section is useful when you want to learn more details about a particular React API. For example, [`React.Component` API reference](/docs/react-component.html) can provide you with details on how `setState()` works, and what different lifecycle methods are useful for.
+Den här sektionen i dokumentationen är användbar när du vill lära dig fler detaljer om en viss React-API. Exempelvis kan [API-referensen för `React.Component`](/docs/react-component.html) ge dig inblick i hur `setState()` fungerar och vad de olika livscykel-metoderna är användbara för.
 
-### Glossary and FAQ {#glossary-and-faq}
+### Översikt och vanliga frågor {#glossary-and-faq}
 
-The [glossary](/docs/glossary.html) contains an overview of the most common terms you'll see in the React documentation. There is also a FAQ section dedicated to short questions and answers about common topics, including [making AJAX requests](/docs/faq-ajax.html), [component state](/docs/faq-state.html), and [file structure](/docs/faq-structure.html).
+[Översikten](/docs/glossary.html) innehåller en överblick av de vanligaste termerna du kommer se i React-dokumentationen. Det finns också en "Vanliga frågor"-sektion för korta frågor och svar på vanliga ämnen, bland annat [hur man gör AJAX-anrop](/docs/faq-ajax.html), [komponent-state](/docs/faq-state.html), och [filstruktur](/docs/faq-structure.html).
 
-## Staying Informed {#staying-informed}
+## Hålla sig uppdaterad {#staying-informed}
 
-The [React blog](/blog/) is the official source for the updates from the React team. Anything important, including release notes or deprecation notices, will be posted there first.
+[React-bloggen](/blog/) är den officiella källan till React-teamets uppdateringar. Allt viktigt, inklusive release notes eller notiser om något som märkts som deprecated, kommer att publiceras här först.
 
-You can also follow the [@reactjs account](https://twitter.com/reactjs) on Twitter, but you won't miss anything essential if you only read the blog.
+Du kan också följa [@reactjs-kontot](https://twitter.com/reactjs) på Twitter, men du missar inget grundläggande om du bara läser bloggen.
 
-Not every React release deserves its own blog post, but you can find a detailed changelog for every release in the [`CHANGELOG.md` file in the React repository](https://github.com/facebook/react/blob/master/CHANGELOG.md), as well as on the [Releases](https://github.com/facebook/react/releases) page.
+Inte alla React-releaser behöver ett eget blogginlägg, men du kan hitta en detaljerad ändringslogg för varje release i [`CHANGELOG.md`-filen i React-repot](https://github.com/facebook/react/blob/master/CHANGELOG.md), och även på [Releaser](https://github.com/facebook/react/releases)-sidan.
 
-## Versioned Documentation {#versioned-documentation}
+## Versionsbaserad dokumentation {#versioned-documentation}
 
-This documentation always reflects the latest stable version of React. Since React 16, you can find older versions of the documentation on a [separate page](/versions). Note that documentation for past versions is snapshotted at the time of the release, and isn't being continuously updated.
+Den här dokumentationen återspeglar alltid den senaste stabila versionen av React. Sedan React 16 kan du hitta äldre versioner av dokumentationen på en [separat sida](/versions). Tänk på att tidigare versioners dokumentation skrevs vid tiden för dess release, och alltså inte hålls uppdaterad.
 
-## Something Missing? {#something-missing}
+## Fattas det något? {#something-missing}
 
-If something is missing in the documentation or if you found some part confusing, please [file an issue for the documentation repository](https://github.com/reactjs/reactjs.org/issues/new) with your suggestions for improvement, or tweet at the [@reactjs account](https://twitter.com/reactjs). We love hearing from you!
+Om något fattas i dokumentationen, eller om någonting verkar förvirrande, [skapa gärna en issue för dokumentations-repot](https://github.com/reactjs/reactjs.org/issues/new) med dina förbättringsförslag, eller tweeta till [@reactjs-kontot](https://twitter.com/reactjs). Vi älskar att höra era förslag!
