@@ -1,6 +1,6 @@
 ---
 id: create-a-new-react-app
-title: Create a New React App
+title: Skapa en ny React-app
 permalink: docs/create-a-new-react-app.html
 redirect_from:
   - "docs/add-react-to-a-new-app.html"
@@ -8,87 +8,85 @@ prev: add-react-to-a-website.html
 next: cdn-links.html
 ---
 
-Use an integrated toolchain for the best user and developer experience.
+Använd en integrerad verktygskedja för en optimal användar- och utvecklarupplevelse.
 
-This page describes a few popular React toolchains which help with tasks like:
+Den här sidan beskriver några få populära React-verktygskedjor som hjälper till med saker såsom:
 
-* Scaling to many files and components.
-* Using third-party libraries from npm.
-* Detecting common mistakes early.
-* Live-editing CSS and JS in development.
-* Optimizing the output for production.
+* Växa till många filer och komponenter.
+* Använda tredjepartsbibliotek från npm.
+* Upptäcka vanliga misstag tidigt.
+* Redigera CSS och JS i realtid under utveckling.
+* Optimera output:en för produktion.
 
-The toolchains recommended on this page **don't require configuration to get started**.
+De verktygskedjor som rekommenderas på den här sidan **kräver ingen konfiguration för att komma igång**.
 
-## You Might Not Need a Toolchain {#you-might-not-need-a-toolchain}
+## Du kanske inte behöver någon verktygskedja  {#you-might-not-need-a-toolchain}
 
-If you don't experience the problems described above or don't feel comfortable using JavaScript tools yet, consider [adding React as a plain `<script>` tag on an HTML page](/docs/add-react-to-a-website.html), optionally [with JSX](/docs/add-react-to-a-website.html#optional-try-react-with-jsx).
+Om du inte upplever problemen som nämndes ovan eller inte känner dig bekväm i att använda JavaScript-verktyg ännu, överväg [att lägga till React som en vanlig `<script>`-tagg på en HTML-sida](/docs/add-react-to-a-website.html), alternativt även [med JSX](/docs/add-react-to-a-website.html#optional-try-react-with-jsx).
 
-This is also **the easiest way to integrate React into an existing website.** You can always add a larger toolchain if you find it helpful!
+￼Detta är också **det lättaste sättet att integrera React i en befintlig webbsida**. Du kan alltid lägga till en större verktygskedja om du tycker att det vore hjälpsamt!
 
-## Recommended Toolchains {#recommended-toolchains}
+## Rekommenderade verktygskedjor {#recommended-toolchains}
 
-The React team primarily recommends these solutions:
+React-teamet rekommenderar i huvudsak dessa lösningar:
 
-- If you're **learning React** or **creating a new [single-page](/docs/glossary.html#single-page-application) app,** use [Create React App](#create-react-app).
-- If you're building a **server-rendered website with Node.js,** try [Next.js](#nextjs).
-- If you're building a **static content-oriented website,** try [Gatsby](#gatsby).
-- If you're building a **component library** or **integrating with an existing codebase**, try [More Flexible Toolchains](#more-flexible-toolchains).
+- Om du **håller på att lära dig React** eller **skapar en ny [single-page](/docs/glossary.html#single-page-application)-app**, använd [Create React App](#create-react-app).
+- Om du bygger en **serverrenderad webbsida med Node.js**, prova [Next.js](#nextjs).
+- Om du bygger en **statisk innehållsorienterad webbsida**, prova [Gatsby](#gatsby).
+- Om du bygger ett **komponentbibliotek** eller **integrerar med en befintlig kodbas**, se [Mer flexibla verktygskedjor](#more-flexible-toolchains).
 
 ### Create React App {#create-react-app}
 
-[Create React App](https://github.com/facebookincubator/create-react-app) is a comfortable environment for **learning React**, and is the best way to start building **a new [single-page](/docs/glossary.html#single-page-application) application** in React.
+[Create React App](https://github.com/facebookincubator/create-react-app) är en bekväm miljö för **att lära sig React**, och är det bästa sättet att börja bygga **en ny [single-page](/docs/glossary.html#single-page-application)-applikation** i React.
 
-It sets up your development environment so that you can use the latest JavaScript features, provides a nice developer experience, and optimizes your app for production. You’ll need to have Node >= 8.10 and npm >= 5.6 on your machine. To create a project, run:
+Det sätter upp din utvecklingsmiljö så att du kan använda de senaste JavaScript-funktionerna, ger dig en trevlig utvecklarupplevelse, och optimerar din app för produktion. Du kommer att behöva Node >= 8.10 och npm >= 5.6 på din enhet. För att skapa ett projekt, kör:
 
 ```bash
-npx create-react-app my-app
-cd my-app
+npx create-react-app min-app
+cd min-app
 npm start
 ```
 
->Note
+>Tänk på
 >
->`npx` on the first line is not a typo -- it's a [package runner tool that comes with npm 5.2+](https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b).
+>`npx` på den första raden är inget skrivfel — det är ett [verktyg för att köra paket som är inkluderat i npm 5.2+](https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b).
 
-Create React App doesn't handle backend logic or databases; it just creates a frontend build pipeline, so you can use it with any backend you want. Under the hood, it uses [Babel](https://babeljs.io/) and [webpack](https://webpack.js.org/), but you don't need to know anything about them.
+Create React App hanterar inte backendlogik eller databaser; det skapar bara en byggpipeline för frontend, så du kan använda den med vilken backend du vill. Under huven används [Babel](https://babeljs.io/) och [webpack](https://webpack.js.org/), men du behöver inte kunna något om dem.
 
-When you're ready to deploy to production, running `npm run build` will create an optimized build of your app in the `build` folder. You can learn more about Create React App [from its README](https://github.com/facebookincubator/create-react-app#create-react-app--) and the [User Guide](https://facebook.github.io/create-react-app/).
+När du är redo att driftsätta till produktion, kör då `npm run build` för att skapa en optimerad build av din app i `build`-mappen. You kan läsa mer om Create React App [i dess README](https://github.com/facebookincubator/create-react-app#create-react-app--) och dess [Användarguide](https://facebook.github.io/create-react-app/).
 
 ### Next.js {#nextjs}
 
-[Next.js](https://nextjs.org/) is a popular and lightweight framework for **static and server‑rendered applications** built with React. It includes **styling and routing solutions** out of the box, and assumes that you're using [Node.js](https://nodejs.org/) as the server environment.
+[Next.js](https://nextjs.org/) är ett populärt och lättviktsramverk för **statiska och serverrenderade applikationer** byggda med React. Det inkluderar **styling- och routinglösningar** out-of-the-box, och förutsätter att du använder [Node.js](https://nodejs.org/) som servermiljö.
 
-Learn Next.js from [its official guide](https://nextjs.org/learn/).
+Du kan lära dig Next.js via [dess officiella guide](https://nextjs.org/learn/).
 
 ### Gatsby {#gatsby}
 
-[Gatsby](https://www.gatsbyjs.org/) is the best way to create **static websites** with React. It lets you use React components, but outputs pre-rendered HTML and CSS to guarantee the fastest load time.
+[Gatsby](https://www.gatsbyjs.org/) är det bästa sättet att skapa **statiska webbplatser** med React. Det låter dig använda React-komponenter, men matar ut förrenderad HTML och CSS för att garantera snabbast möjliga hämtningstid.
 
-Learn Gatsby from [its official guide](https://www.gatsbyjs.org/docs/) and a [gallery of starter kits](https://www.gatsbyjs.org/docs/gatsby-starters/).
+Du kan lära dig Gatsby via [dess officiella guide](https://www.gatsbyjs.org/docs/) och en [samling med startkit](https://www.gatsbyjs.org/docs/gatsby-starters/).
 
-### More Flexible Toolchains {#more-flexible-toolchains}
+### Mer flexibla verktygskedjor {#more-flexible-toolchains}
 
-The following toolchains offer more flexibility and choice. We recommend them to more experienced users:
+De följande verktygskedjorna erbjuder mer flexibilitet och valfrihet. Vi rekommenderar dem till mer erfarna användare:
 
-- **[Neutrino](https://neutrinojs.org/)** combines the power of [webpack](https://webpack.js.org/) with the simplicity of presets, and includes a preset for [React apps](https://neutrinojs.org/packages/react/) and [React components](https://neutrinojs.org/packages/react-components/).
+- **[Neutrino](https://neutrinojs.org/)** kombinerar styrkan hos [webpack](https://webpack.js.org/) med enkelheten av presets, och inkluderar en preset för [React-appar](https://neutrinojs.org/packages/react/) och [React-komponenter](https://neutrinojs.org/packages/react-components/).
 
-- **[nwb](https://github.com/insin/nwb)** is particularly great for [publishing React components for npm](https://github.com/insin/nwb/blob/master/docs/guides/ReactComponents.md#developing-react-components-and-libraries-with-nwb). It [can be used](https://github.com/insin/nwb/blob/master/docs/guides/ReactApps.md#developing-react-apps-with-nwb) for creating React apps, too. 
+- **[Parcel](https://parceljs.org/)** är en snabb nollkonfigurationspaketerare för webbapplikationer, som [fungerar med React](https://parceljs.org/recipes.html#react).
 
-- **[Parcel](https://parceljs.org/)** is a fast, zero configuration web application bundler that [works with React](https://parceljs.org/recipes.html#react).
+- **[Razzle](https://github.com/jaredpalmer/razzle)** är ett serverrenderingsramverk som inte kräver någon konfiguration, men erbjuder mer flexibilitet än Next.js.
 
-- **[Razzle](https://github.com/jaredpalmer/razzle)** is a server-rendering framework that doesn't require any configuration, but offers more flexibility than Next.js.
+## Skapa en verktygskedja från scratch {#creating-a-toolchain-from-scratch}
 
-## Creating a Toolchain from Scratch {#creating-a-toolchain-from-scratch}
+En JavaScript-verktygskedja består vanligtvis av:
 
-A JavaScript build toolchain typically consists of:
+* En **pakethanterare**, såsom [Yarn](https://yarnpkg.com/) eller [npm](https://www.npmjs.com/), vilket låter dig dra nytta av ett brett ekosystem av tredjepartspaket, och enkelt kunna installera och uppdatera dem.
 
-* A **package manager**, such as [Yarn](https://yarnpkg.com/) or [npm](https://www.npmjs.com/). It lets you take advantage of a vast ecosystem of third-party packages, and easily install or update them.
+* En **paketerare**, såsom [webpack](https://webpack.js.org/) eller [Parcel](https://parceljs.org/), vilket låter dig skriva modulär kod och buntar sedan ihop allt till små paket för att optimera hämtningstid.
 
-* A **bundler**, such as [webpack](https://webpack.js.org/) or [Parcel](https://parceljs.org/). It lets you write modular code and bundle it together into small packages to optimize load time.
+* En **kompilerare**, såsom [Babel](https://babeljs.io/), vilket låter dig skriva modern JavaScript-kod som sedan även fungerar i äldre webbläsare.
 
-* A **compiler** such as [Babel](https://babeljs.io/). It lets you write modern JavaScript code that still works in older browsers.
+Om du föredrar att sätta upp din egen JavaScript-verktygskedja från scratch, [kolla då den här guiden](https://blog.usejournal.com/creating-a-react-app-from-scratch-f3c693b84658) som återskapar några av funktionerna i Create React App.
 
-If you prefer to set up your own JavaScript toolchain from scratch, [check out this guide](https://blog.usejournal.com/creating-a-react-app-from-scratch-f3c693b84658) that re-creates some of the Create React App functionality.
-
-Don't forget to ensure your custom toolchain [is correctly set up for production](/docs/optimizing-performance.html#use-the-production-build).
+Glöm inte att försäkra dig om att din egna verktygskedja [är korrekt konfigurerad för produktion](/docs/optimizing-performance.html#use-the-production-build).
