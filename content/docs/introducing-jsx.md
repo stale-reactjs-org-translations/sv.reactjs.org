@@ -1,40 +1,40 @@
 ---
 id: introducing-jsx
-title: Introducing JSX
+title: Introduktion av JSX
 permalink: docs/introducing-jsx.html
 prev: hello-world.html
 next: rendering-elements.html
 ---
 
-Consider this variable declaration:
+Betrakta denna variabeldeklaration:
 
 ```js
-const element = <h1>Hello, world!</h1>;
+const element = <h1>Hej, världen!</h1>;
 ```
 
-This funny tag syntax is neither a string nor HTML.
+Denna märkliga tagg-syntax är varken en sträng eller HTML.
 
-It is called JSX, and it is a syntax extension to JavaScript. We recommend using it with React to describe what the UI should look like. JSX may remind you of a template language, but it comes with the full power of JavaScript.
+Det kallas JSX, och är en syntaktisk förlängning av JavaScript. Vi rekommenderar att använda det tillsammans med React för att beskriva hur användargränssnittet ska se ut. JSX må påminna om ett template-språk, men det kommer med den fulla kraften av JavaScript.
 
-JSX produces React "elements". We will explore rendering them to the DOM in the [next section](/docs/rendering-elements.html). Below, you can find the basics of JSX necessary to get you started.
+JSX skapar React-"element". Vi kommer utforska rendering av dessa till DOM:en i [nästa sektion](/docs/rendering-elements.html). Nedan kan du finna grunderna i JSX som är nödvändiga för att komma igång.
 
-### Why JSX? {#why-jsx}
+### Varför JSX? {#why-jsx}
 
-React embraces the fact that rendering logic is inherently coupled with other UI logic: how events are handled, how the state changes over time, and how the data is prepared for display.
+React omfamnar det faktum att renderingslogik är automatiskt kopplad till annan gränssnittslogik: hur händelser hanteras, hur tillstånd förändras över tid samt hur data förbereds för uppvisning.
 
-Instead of artificially separating *technologies* by putting markup and logic in separate files, React [separates *concerns*](https://en.wikipedia.org/wiki/Separation_of_concerns) with loosely coupled units called "components" that contain both. We will come back to components in a [further section](/docs/components-and-props.html), but if you're not yet comfortable putting markup in JS, [this talk](https://www.youtube.com/watch?v=x7cQ3mrcKaY) might convince you otherwise.
+Istället för att artificiellt separera *teknologier* genom att sätta struktur och logik i separata filer, [inkapslar](https://sv.wikipedia.org/wiki/Inkapsling_(Separation_of_Concerns)) React löst sammanhängande enheter kallade "komponenter" som innehåller både och. Vi återkommer till komponenter i ett [senare avsnitt](/docs/components-and-props.html), men om du fortfarande inte känner dig bekväm med att placera HTML i JS kanske [denna presentation](https://www.youtube.com/watch?v=x7cQ3mrcKaY) ändra din åsikt.
 
-React [doesn't require](/docs/react-without-jsx.html) using JSX, but most people find it helpful as a visual aid when working with UI inside the JavaScript code. It also allows React to show more useful error and warning messages.
+React [kräver inte](/docs/react-without-jsx.html) att du använder JSX, men de flesta känner att det bidrar med visuell hjälp när en arbetar med användargränssnitt i sin JavaScript-kod. Det tillåter även React att visa mer användbara fel- och varningsmeddelanden.
 
-With that out of the way, let's get started!
+Med det ur vägen, låt oss börja!
 
-### Embedding Expressions in JSX {#embedding-expressions-in-jsx}
+### Bädda in uttryck i JSX {#embedding-expressions-in-jsx}
 
-In the example below, we declare a variable called `name` and then use it inside JSX by wrapping it in curly braces:
+I exemplet nedan deklarerar vi variabeln `name` och använder den sedan i JSX genom att omsluta den i krokiga parenteser:
 
 ```js{1,2}
 const name = 'Josh Perez';
-const element = <h1>Hello, {name}</h1>;
+const element = <h1>Hej, {name}</h1>;
 
 ReactDOM.render(
   element,
@@ -42,9 +42,9 @@ ReactDOM.render(
 );
 ```
 
-You can put any valid [JavaScript expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#Expressions) inside the curly braces in JSX. For example, `2 + 2`, `user.firstName`, or `formatName(user)` are all valid JavaScript expressions.
+Du kan lägga vilket giltigt [JavaScript-uttryck](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#Expressions) som helst inuti dessa krokiga parenteser i JSX. Till exempel så är `2 + 2`, `user.firstName`, och `formatName(user)` alla giltiga JavaScript-uttryck.
 
-In the example below, we embed the result of calling a JavaScript function, `formatName(user)`, into an `<h1>` element.
+I exemplet nedan bäddar vi in resultatet av att anropa en JavaScript-funktion, `formatName(user)`, till ett `<h1>` element.
 
 ```js{12}
 function formatName(user) {
@@ -58,7 +58,7 @@ const user = {
 
 const element = (
   <h1>
-    Hello, {formatName(user)}!
+    Hej, {formatName(user)}!
   </h1>
 );
 
@@ -70,86 +70,86 @@ ReactDOM.render(
 
 [](codepen://introducing-jsx)
 
-We split JSX over multiple lines for readability. While it isn't required, when doing this, we also recommend wrapping it in parentheses to avoid the pitfalls of [automatic semicolon insertion](https://stackoverflow.com/q/2846283).
+Vi delar upp JSX över flera rader för läsbarhetens skull. Även fast det inte är något krav, rekommenderar vi ändå att omringa det i parenteser för att undvika fallgropen som är [automatisk insättning av semikolon](https://stackoverflow.com/q/2846283).
 
-### JSX is an Expression Too {#jsx-is-an-expression-too}
+### JSX är också ett uttryck {#jsx-is-an-expression-too}
 
-After compilation, JSX expressions become regular JavaScript function calls and evaluate to JavaScript objects.
+Efter kompilering blir JSX-uttryck vanliga funktionsanrop i JavaScript och utvärderas sedan till JavaScript-objekt.
 
-This means that you can use JSX inside of `if` statements and `for` loops, assign it to variables, accept it as arguments, and return it from functions:
+Detta betyder att du kan använda JSX inuti `if`-termer och `for`-loopar, tilldela det till variabler, mottaga som argument samt skicka tillbaka det från funktioner:
 
 ```js{3,5}
 function getGreeting(user) {
   if (user) {
-    return <h1>Hello, {formatName(user)}!</h1>;
+    return <h1>Hej, {formatName(user)}!</h1>;
   }
-  return <h1>Hello, Stranger.</h1>;
+  return <h1>Hej, Främling.</h1>;
 }
 ```
 
-### Specifying Attributes with JSX {#specifying-attributes-with-jsx}
+### Specificera Attribut med JSX {#specifying-attributes-with-jsx}
 
-You may use quotes to specify string literals as attributes:
+Du kan använda citationstecken för att specificera exakta strängar som attribut:
 
 ```js
 const element = <div tabIndex="0"></div>;
 ```
 
-You may also use curly braces to embed a JavaScript expression in an attribute:
+Du kanske även vill använda krokiga parenteser till att bädda in JavaScript-uttryck i ett attribut:
 
 ```js
 const element = <img src={user.avatarUrl}></img>;
 ```
 
-Don't put quotes around curly braces when embedding a JavaScript expression in an attribute. You should either use quotes (for string values) or curly braces (for expressions), but not both in the same attribute.
+Lägg inte citationstecken runt krokiga parenteser när du bäddar in ett JavaScript-uttryck i ett attribut. Istället borde du använda citationstecken (för strängvärden) eller krokiga parenteser (för uttryck), men inte i samma attribut.
 
->**Warning:**
+>**Varning:**
 >
->Since JSX is closer to JavaScript than to HTML, React DOM uses `camelCase` property naming convention instead of HTML attribute names.
+>Eftersom JSX är närmre JavaScript än HTML, använder React DOM `camelCase` som namnkonvention till attribut istället för HTML-namnattribut.
 >
->For example, `class` becomes [`className`](https://developer.mozilla.org/en-US/docs/Web/API/Element/className) in JSX, and `tabindex` becomes [`tabIndex`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/tabIndex).
+>Till exempel blir `class` [`className`](https://developer.mozilla.org/en-US/docs/Web/API/Element/className) i JSX och `tabindex` blir [`tabIndex`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/tabIndex).
 
-### Specifying Children with JSX {#specifying-children-with-jsx}
+### Specificera barn med JSX {#specifying-children-with-jsx}
 
-If a tag is empty, you may close it immediately with `/>`, like XML:
+Om en tagg är tom kan du stänga den direkt med `\>`, likt XML:
 
 ```js
 const element = <img src={user.avatarUrl} />;
 ```
 
-JSX tags may contain children:
+JSX-taggar kan innehålla barn:
 
 ```js
 const element = (
   <div>
-    <h1>Hello!</h1>
-    <h2>Good to see you here.</h2>
+    <h1>Hej!</h1>
+    <h2>Trevligt att träffa dig här.</h2>
   </div>
 );
 ```
 
-### JSX Prevents Injection Attacks {#jsx-prevents-injection-attacks}
+### JSX Förhindrar injektionsattacker {#jsx-prevents-injection-attacks}
 
-It is safe to embed user input in JSX:
+Det är säkert att bädda in användarinput i JSX:
 
 ```js
 const title = response.potentiallyMaliciousInput;
-// This is safe:
+// Det här är säkert:
 const element = <h1>{title}</h1>;
 ```
 
-By default, React DOM [escapes](https://stackoverflow.com/questions/7381974/which-characters-need-to-be-escaped-on-html) any values embedded in JSX before rendering them. Thus it ensures that you can never inject anything that's not explicitly written in your application. Everything is converted to a string before being rendered. This helps prevent [XSS (cross-site-scripting)](https://en.wikipedia.org/wiki/Cross-site_scripting) attacks.
+Per default, [undflyr](https://stackoverflow.com/questions/7381974/which-characters-need-to-be-escaped-on-html) React DOM de värden som bäddas in i JSX innan de renderas. Därmed säkrar den att du aldrig kan injecera något som inte är explicit skrivet i din applikation. All omvandlas till en sträng innan det renderas. Detta hjälper till att förhindra attacker såsom [XSS (cross-site-scripting)](https://en.wikipedia.org/wiki/Cross-site_scripting).
 
-### JSX Represents Objects {#jsx-represents-objects}
+### JSX Representerar Objekt {#jsx-represents-objects}
 
-Babel compiles JSX down to `React.createElement()` calls.
+Babel kompilerar ner JSX till `React.createElement()`-anrop.
 
-These two examples are identical:
+Dessa två exempel är identiska:
 
 ```js
 const element = (
   <h1 className="greeting">
-    Hello, world!
+    Hej, världen!
   </h1>
 );
 ```
@@ -158,11 +158,11 @@ const element = (
 const element = React.createElement(
   'h1',
   {className: 'greeting'},
-  'Hello, world!'
+  'Hej, världen!'
 );
 ```
 
-`React.createElement()` performs a few checks to help you write bug-free code but essentially it creates an object like this:
+`React.createElement()` utför en rad kontroller för att hjälpa dig skriva buggfri kod och till slut skapas ett objekt likt detta:
 
 ```js
 // Note: this structure is simplified
@@ -170,15 +170,15 @@ const element = {
   type: 'h1',
   props: {
     className: 'greeting',
-    children: 'Hello, world!'
+    children: 'Hej, världen!'
   }
 };
 ```
 
-These objects are called "React elements". You can think of them as descriptions of what you want to see on the screen. React reads these objects and uses them to construct the DOM and keep it up to date.
+Dessa objekt kallas "React element". Du kan föreställa dig dem som beskrivningar av vad du vill se på skärmen. React läser dessa objekt och använder dem för att skapa DOM:en och bibehålla den uppdaterad.
 
-We will explore rendering React elements to the DOM in the next section.
+Vi kommer att utforska rendering av React-element till DOM:en i nästa avsnitt.
 
->**Tip:**
+>**Tips:**
 >
->We recommend using the ["Babel" language definition](https://babeljs.io/docs/editors) for your editor of choice so that both ES6 and JSX code is properly highlighted. This website uses the [Oceanic Next](https://labs.voronianski.com/oceanic-next-color-scheme/) color scheme which is compatible with it.
+>Vi rekommenderar användningen av ["Babels" språkdefinition](https://babeljs.io/docs/editors) för ditt val av textredigerare, så att både ES6- och JSX-kod blir ordentligt belyst. Denna webbsida använder färgschemat [Oceanic Next](https://labs.voronianski.com/oceanic-next-color-scheme/) som det är kompatibelt med.
