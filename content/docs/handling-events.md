@@ -58,7 +58,7 @@ Här är `e` ett syntetiskt event. React definierar dessa syntetiska event enlig
 
 När du använder React ska du i allmänhet inte behöva anropa `addEventListener` för att lägga till lyssnare till ett DOM-element efter det att det har skapats. I stället förse elementet med en lyssnare när det ursprungligen rendreras.
 
-När du definierar en komponent med en [ES6-klass](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes) är ett vanligt mönster för en event-hanterare att vara en metod i klassen. Till exempel rendrerar denna "Toggle"-komponent en knapp som låter användaren växla mellan "ON" och "OFF"-läge:
+När du definierar en komponent med en [ES6-klass](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes) är ett vanligt mönster för en event-hanterare att vara en metod i klassen. Till exempel rendrerar denna `Toggle`-komponent en knapp som låter användaren växla mellan "ON" och "OFF"-läge:
 
 ```js{6,7,10-14,18}
 class Toggle extends React.Component {
@@ -102,7 +102,7 @@ Om du irriterar dig på att anropa `bind`, finns det två sätt du kan komma run
 ```js{2-6}
 class LoggingButton extends React.Component {
   // Denna syntax säkerställer att `this` är bunden inuti handleClick.
-  // Varning: detta är en *experimentelll* syntax.
+  // Varning: detta är en *experimentell* syntax.
   handleClick = () => {
     console.log('this är:', this);
   }
@@ -142,13 +142,13 @@ Problemet med den här syntaxen är att en annan callback skapas varje gång `Lo
 
 ## Passa argument till event-hanterare {#passing-arguments-to-event-handlers}
 
-Inuti en loop är det vanligt att man vill passa extra parametrar till en event hanterare. Till exempel om ´ìd` är radens ID skulle något av följande fungera:
+Inuti en loop är det vanligt att man vill passa extra parametrar till en event hanterare. Till exempel om `ìd` är radens ID skulle något av följande fungera:
 
 ```js
 <button onClick={(e) => this.deleteRow(id, e)}>Ta bort rad</button>
 <button onClick={this.deleteRow.bind(this, id)}>Ta bort rad</button>
 ```
 
-Ovanstående två rader är likvärdiga och använder [pil-funktion](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) och [`Function.prototype.bind`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/Function/bind).
+Ovanstående två rader är likvärdiga och använder [pil-funktioner](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) och [`Function.prototype.bind`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/Function/bind).
 
 I båda fallen kommer `e`-argumentet som representerar React-eventet att skickas som ett andra argument efter ID. Med en pilfunktion måste vi explicit skicka den, men med `bind` vidarebefordras alla ytterligare argument automatiskt.
