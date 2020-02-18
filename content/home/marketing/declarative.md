@@ -1,8 +1,8 @@
 ---
-title: Declarative
+title: Deklarativt
 order: 0
 ---
 
-React makes it painless to create interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes.
+React gör det smärtfritt att skapa interaktiva användagränssnitt. Konstruera simpla vyer för varje state i din applikation så kommer React att effektivt uppdatera och rita ut de komponenter som behövs när data ändras.
 
-Declarative views make your code more predictable and easier to debug.
+Deklarativa vyer gör din kod mer förutsägbar och enklare att felsöka.

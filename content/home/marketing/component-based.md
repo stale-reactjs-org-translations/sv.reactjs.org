@@ -1,8 +1,8 @@
 ---
-title: Component-Based
+title: Komponentbaserat
 order: 1
 ---
 
-Build encapsulated components that manage their own state, then compose them to make complex UIs.
+Bygg inkapslade komponenter som hantera sitt egna state, komponera sen ihop dessa för att skapa komplexa användargränssnitt.
 
-Since component logic is written in JavaScript instead of templates, you can easily pass rich data through your app and keep state out of the DOM.
+Eftersom logiken i komponenterna är skriven i JavaScript istället för mallar, så kan du enkelt skicka runt komplex data genom din applikation och hålla state utanför DOM.
