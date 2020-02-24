@@ -72,6 +72,10 @@ Du kan verifiera genom att inspektera det [senaste exemplet](codepen://rendering
 
 ![DOM-inspekteraren som visar uppdateringar](../images/docs/granular-dom-updates.gif)
 
+<<<<<<< HEAD
 Trots att vi skapar ett element som beskriver hela användargränssnittet varje sekund, kommer endast textnoden vars innehåll har ändrats att uppdateras av React DOM.
+=======
+Even though we create an element describing the whole UI tree on every tick, only the text node whose contents have changed gets updated by React DOM.
+>>>>>>> 821e20726266bc8113353d0c2b6d885f82e584a8
 
 Enligt vår erfarenhet är det mer meningsfullt att tänka på hur användargränssnittet ser ut vid en given tidpunkt, snarare än hur det kommer att förändras över tiden. Detta tänkande förhindrar en hel rad misstag.
