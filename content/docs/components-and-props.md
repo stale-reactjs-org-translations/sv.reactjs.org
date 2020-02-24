@@ -20,7 +20,7 @@ Komponenter låter dig bryta upp användargränssnittet i oberoende, återanvän
 
 Konceptuellt är komponenter som JavaScript-funktioner. De accepterar godtyckliga inputs (kallade "props") och returnerar React-element som beskriver vad som ska visas på skärmen.
 
-## Funktion och klasskomponenter {#function-and-class-components}
+## Funktion- och klasskomponenter {#function-and-class-components}
 
 Det enklaste sättet att definiera en komponent är att skriva en JavaScript-funktion:
 
@@ -30,7 +30,7 @@ function Welcome(props) {
 }
 ```
 
-Denna funktion är en giltig Reakt-komponent eftersom den accepterar en enda "props" (som står för properties) objektargument med data och returnerar ett React-element. Vi kallar sådana komponenter "funktionskomponenter" eftersom de bokstavligen är JavaScript-funktioner.
+Denna funktion är en giltig React-komponent eftersom den accepterar en enda "props" (som står för properties) objektargument med data och returnerar ett React-element. Vi kallar sådana komponenter "funktionskomponenter" eftersom de bokstavligen är JavaScript-funktioner.
 
 Du kan även använda en [ES6-klass](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes) för att definiera en komponent:
 
@@ -44,9 +44,7 @@ class Welcome extends React.Component {
 
 De två ovannämnda komponenterna är identiska ur Reacts synvinkel.
 
-Classes have some additional features that we will discuss in the [next sections](/docs/state-and-lifecycle.html). Until then, we will use function components for their conciseness.
-
-Klasser har några ytterligare funktioner, som vi kommer att diskutera i [nästa avsnitt](/docs/state-and-lifecycle.html). Fram till dess kommer vi att använda för funktionskomponenter för deras tydlighet.
+Klasser har några ytterligare funktioner, som vi kommer att diskutera i [senare avsnitt](/docs/state-and-lifecycle.html). Fram till dess kommer vi att använda för funktionskomponenter för deras tydlighet.
 
 ## Rendering av en komponent {#rendering-a-component}
 
@@ -83,7 +81,7 @@ ReactDOM.render(
 Låt oss sammanfatta vad som händer i det här exemplet:
 
 1. Vi kallar `ReactDOM.render()` med React-elementet `<Welcome name="Sarah" />`.
-2. React anropar `Welcome` komponenten med `{name: 'Sara'}` som dess "props".
+2. React anropar `Welcome` komponenten med `{name: 'Sara'}` som dess props.
 3. Vår `Welcome` komponent returnerar elementet `<h1>Hej, Sara</h1>` som resultat.
 4. React DOM uppdaterar effektivt DOM för att matcha `<h1>Hej, Sara</h1>`.
 
@@ -163,7 +161,7 @@ Den tar emot `author` (ett objekt), `text` (en sträng) och `date` (ett datum) s
 
 This component can be tricky to change because of all the nesting, and it is also hard to reuse individual parts of it. Let's extract a few components from it.
 
-Denna komponent kan vara svår att ändra på grund av all nestling, det är också svårt att återanvända enskilda delar av den. Låt oss extrahera några komponenter från det.
+Denna komponent kan vara svår att ändra på grund av all nestling, det är också svårt att återanvända enskilda delar av den. Låt oss extrahera några komponenter från den.
 
 Till att börja med så extraherar vi `Avatar`:
 
@@ -178,11 +176,9 @@ function Avatar(props) {
 }
 ```
 
-The `Avatar` doesn't need to know that it is being rendered inside a `Comment`. This is why we have given its prop a more generic name: `user` rather than `author`.
+`Avatar` behöver inte veta att den renderas i en `Comment`-komponent. Därför har vi gett dess Props ett mer generiskt namn: `user` istället för `author`.
 
-`Avatar` behöver inte veta att den renderas i en `Comment`-komponent. Därför har vi gett dess Props ett mer generiskt namn: `user` istaället för `author`.
-
-Vi rekommenderar att namnge Props från komponentens egen perspektiv snarare än i det sammanhang där den används.
+Vi rekommenderar att namnge props från komponentens egen perspektiv snarare än i det sammanhang där den används.
 
 Vi kan nu förenkla `Comment` lite:
 
@@ -246,7 +242,7 @@ Till en början kan extrahering av komponenter verka tråkigt, men att ha ett an
 
 ## Props är skrivskyddad {#props-are-read-only}
 
-Oavsett om du deklarerar en komponent [som en funktion eller en klass](#function-and-class-components), får den aldrig ändra sina egna Props. Ta denna `sum` funktion:
+Oavsett om du deklarerar en komponent [som en funktion eller en klass](#function-and-class-components), får den aldrig ändra sina egna props. Ta denna `sum` funktion:
 
 ```js
 function sum(a, b) {
@@ -254,7 +250,7 @@ function sum(a, b) {
 }
 ```
 
-Sådana funktioner kallas ["ren"](https://en.wikipedia.org/wiki/Pure_function) eftersom de inte ändrar sina inputs och alltid returnerar samma resultat för samma inputs.
+Sådana funktioner kallas för ["rena"](https://en.wikipedia.org/wiki/Pure_function) eftersom de inte ändrar sina inputs och alltid returnerar samma resultat för samma inputs.
 
 Som kontrast är denna funtion inte en "ren" funktion eftersom den ändrar sin egen input:
 
