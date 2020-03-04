@@ -1,6 +1,6 @@
 ---
 id: components-and-props
-title: Components and Props
+title: Komponenter och Props
 permalink: docs/components-and-props.html
 redirect_from:
   - "docs/reusable-components.html"
@@ -16,57 +16,57 @@ prev: rendering-elements.html
 next: state-and-lifecycle.html
 ---
 
-Components let you split the UI into independent, reusable pieces, and think about each piece in isolation. This page provides an introduction to the idea of components. You can find a [detailed component API reference here](/docs/react-component.html).
+Komponenter låter dig bryta upp användargränssnittet i oberoende, återanvändbara bitar och tänka på varje bit isolerat. Den här sidan ger dig en introduktion till tanken bakom komponenter. Du kan hitta ett [detaljerat API för komponenter här](/docs/react-component.html).
 
-Conceptually, components are like JavaScript functions. They accept arbitrary inputs (called "props") and return React elements describing what should appear on the screen.
+Konceptuellt är komponenter som JavaScript-funktioner. De accepterar godtyckliga inputs (kallade "props") och returnerar React-element som beskriver vad som ska visas på skärmen.
 
-## Function and Class Components {#function-and-class-components}
+## Funktion- och klasskomponenter {#function-and-class-components}
 
-The simplest way to define a component is to write a JavaScript function:
+Det enklaste sättet att definiera en komponent är att skriva en JavaScript-funktion:
 
 ```js
 function Welcome(props) {
-  return <h1>Hello, {props.name}</h1>;
+  return <h1>Hej, {props.name}</h1>;
 }
 ```
 
-This function is a valid React component because it accepts a single "props" (which stands for properties) object argument with data and returns a React element. We call such components "function components" because they are literally JavaScript functions.
+Denna funktion är en giltig React-komponent eftersom den accepterar en enda "props" (som står för properties) objektargument med data och returnerar ett React-element. Vi kallar sådana komponenter "funktionskomponenter" eftersom de bokstavligen är JavaScript-funktioner.
 
-You can also use an [ES6 class](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes) to define a component:
+Du kan även använda en [ES6-klass](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes) för att definiera en komponent:
 
 ```js
 class Welcome extends React.Component {
   render() {
-    return <h1>Hello, {this.props.name}</h1>;
+    return <h1>Hej, {this.props.name}</h1>;
   }
 }
 ```
 
-The above two components are equivalent from React's point of view.
+De två ovannämnda komponenterna är identiska ur Reacts synvinkel.
 
-Classes have some additional features that we will discuss in the [next sections](/docs/state-and-lifecycle.html). Until then, we will use function components for their conciseness.
+Klasser har några ytterligare funktioner, som vi kommer att diskutera i [senare avsnitt](/docs/state-and-lifecycle.html). Fram till dess kommer vi att använda för funktionskomponenter för deras tydlighet.
 
-## Rendering a Component {#rendering-a-component}
+## Rendering av en komponent {#rendering-a-component}
 
-Previously, we only encountered React elements that represent DOM tags:
+Tidigare har vi bara stött på React-element som representerade DOM-taggar:
 
 ```js
 const element = <div />;
 ```
 
-However, elements can also represent user-defined components:
+Elementen kan också representera användardefinierade komponenter:
 
 ```js
 const element = <Welcome name="Sara" />;
 ```
 
-When React sees an element representing a user-defined component, it passes JSX attributes to this component as a single object. We call this object "props".
+När React upptäcker ett element som representerar en användardefinierad komponent, överför React alla JSX attribut till denna komponent som ett enda objekt. Vi kallar detta objekt "props".
 
-For example, this code renders "Hello, Sara" on the page:
+Till exempel renderar denna kod "Hej, Sara" på sidan:
 
 ```js{1,5}
 function Welcome(props) {
-  return <h1>Hello, {props.name}</h1>;
+  return <h1>Hej, {props.name}</h1>;
 }
 
 const element = <Welcome name="Sara" />;
@@ -78,24 +78,25 @@ ReactDOM.render(
 
 [](codepen://components-and-props/rendering-a-component)
 
-Let's recap what happens in this example:
+Låt oss sammanfatta vad som händer i det här exemplet:
 
-1. We call `ReactDOM.render()` with the `<Welcome name="Sara" />` element.
-2. React calls the `Welcome` component with `{name: 'Sara'}` as the props.
-3. Our `Welcome` component returns a `<h1>Hello, Sara</h1>` element as the result.
-4. React DOM efficiently updates the DOM to match `<h1>Hello, Sara</h1>`.
+1. Vi kallar `ReactDOM.render()` med React-elementet `<Welcome name="Sarah" />`.
+2. React anropar `Welcome` komponenten med `{name: 'Sara'}` som dess props.
+3. Vår `Welcome` komponent returnerar elementet `<h1>Hej, Sara</h1>` som resultat.
+4. React DOM uppdaterar effektivt DOM för att matcha `<h1>Hej, Sara</h1>`.
 
->**Note:** Always start component names with a capital letter.
+>**Obs:** Börja alltid komponentnamnen med en stor bokstav.
 >
->React treats components starting with lowercase letters as DOM tags. For example, `<div />` represents an HTML div tag, but `<Welcome />` represents a component and requires `Welcome` to be in scope.
+>React behandlar komponenter som börjar med små bokstäver som DOM-taggar. Exempelvis representerar `<div />` en HTML-div-tagg, men `<Welcome />` representerar en komponent och kräver att `Welcome` definieras.
 >
->To learn more about the reasoning behind this convention, please read [JSX In Depth](/docs/jsx-in-depth.html#user-defined-components-must-be-capitalized).
+>För att lära dig mer om resonemanget bakom denna konvention, läs
+ [JSX i detalj](/docs/jsx-in-depth.html#user-defined-components-must-be-capitalized).
 
-## Composing Components {#composing-components}
+## Komponering av komponenter {#composing-components}
 
-Components can refer to other components in their output. This lets us use the same component abstraction for any level of detail. A button, a form, a dialog, a screen: in React apps, all those are commonly expressed as components.
+Komponenter kan hänvisa till andra komponenter i deras output. Det tillåter oss att använda samma komponentabstraktion för alla detaljnivåer. Eftersom knappar, formulär och skärmar i allmänhet kallas komponenter i React-appar.
 
-For example, we can create an `App` component that renders `Welcome` many times:
+Vi kan till exempel skapa en `App`-komponent som renderar `Welcome` flera gånger:
 
 ```js{8-10}
 function Welcome(props) {
@@ -122,11 +123,13 @@ ReactDOM.render(
 
 Typically, new React apps have a single `App` component at the very top. However, if you integrate React into an existing app, you might start bottom-up with a small component like `Button` and gradually work your way to the top of the view hierarchy.
 
-## Extracting Components {#extracting-components}
+Generellt sett har nya React-applikationer en enda `App`-komponent i roten. Å andra sidan, om du integrerar React i en befintlig app, kan du starta nerifrån och upp, med en liten komponent som `Button` och gradvis arbeta dig till toppen av visningshierarkin.
 
-Don't be afraid to split components into smaller components.
+## Extrahera komponenter {#extracting-components}
 
-For example, consider this `Comment` component:
+Var inte rädd för att dela upp komponenter i mindre komponenter.
+
+Låt oss ta denna `Comment` komponent som exempel:
 
 ```js
 function Comment(props) {
@@ -154,11 +157,13 @@ function Comment(props) {
 
 [](codepen://components-and-props/extracting-components)
 
-It accepts `author` (an object), `text` (a string), and `date` (a date) as props, and describes a comment on a social media website.
+Den tar emot `author` (ett objekt), `text` (en sträng) och `date` (ett datum) som Props och beskriver en kommentar på en webbplats för sociala medier.
 
 This component can be tricky to change because of all the nesting, and it is also hard to reuse individual parts of it. Let's extract a few components from it.
 
-First, we will extract `Avatar`:
+Denna komponent kan vara svår att ändra på grund av all nestling, det är också svårt att återanvända enskilda delar av den. Låt oss extrahera några komponenter från den.
+
+Till att börja med så extraherar vi `Avatar`:
 
 ```js{3-6}
 function Avatar(props) {
@@ -171,11 +176,11 @@ function Avatar(props) {
 }
 ```
 
-The `Avatar` doesn't need to know that it is being rendered inside a `Comment`. This is why we have given its prop a more generic name: `user` rather than `author`.
+`Avatar` behöver inte veta att den renderas i en `Comment`-komponent. Därför har vi gett dess Props ett mer generiskt namn: `user` istället för `author`.
 
-We recommend naming props from the component's own point of view rather than the context in which it is being used.
+Vi rekommenderar att namnge props från komponentens egen perspektiv snarare än i det sammanhang där den används.
 
-We can now simplify `Comment` a tiny bit:
+Vi kan nu förenkla `Comment` lite:
 
 ```js{5}
 function Comment(props) {
@@ -198,7 +203,7 @@ function Comment(props) {
 }
 ```
 
-Next, we will extract a `UserInfo` component that renders an `Avatar` next to the user's name:
+Sedan extraherar vi en `UserInfo`-komponent som visar en `Avatar` bredvid användarens namn:
 
 ```js{3-8}
 function UserInfo(props) {
@@ -213,7 +218,7 @@ function UserInfo(props) {
 }
 ```
 
-This lets us simplify `Comment` even further:
+Detta låter oss förenkla `Comment` ytterligare:
 
 ```js{4}
 function Comment(props) {
@@ -233,11 +238,11 @@ function Comment(props) {
 
 [](codepen://components-and-props/extracting-components-continued)
 
-Extracting components might seem like grunt work at first, but having a palette of reusable components pays off in larger apps. A good rule of thumb is that if a part of your UI is used several times (`Button`, `Panel`, `Avatar`), or is complex enough on its own (`App`, `FeedStory`, `Comment`), it is a good candidate to be a reusable component.
+Till en början kan extrahering av komponenter verka tråkigt, men att ha ett antal återanvändbara komponenter lönar sig i slutändan för större applikationer. I allmänhet, om delar av ditt användargränssnitt används flera gånger (`Button`, `Panel`, `Avatar`) eller om det är tillräckligt komplex i sig själv (`App`, `FeedStory`, `Comment`), är det en bra kandidat för en återanvändbar komponent.
 
-## Props are Read-Only {#props-are-read-only}
+## Props är skrivskyddad {#props-are-read-only}
 
-Whether you declare a component [as a function or a class](#function-and-class-components), it must never modify its own props. Consider this `sum` function:
+Oavsett om du deklarerar en komponent [som en funktion eller en klass](#function-and-class-components), får den aldrig ändra sina egna props. Ta denna `sum` funktion:
 
 ```js
 function sum(a, b) {
@@ -245,9 +250,9 @@ function sum(a, b) {
 }
 ```
 
-Such functions are called ["pure"](https://en.wikipedia.org/wiki/Pure_function) because they do not attempt to change their inputs, and always return the same result for the same inputs.
+Sådana funktioner kallas för ["rena"](https://en.wikipedia.org/wiki/Pure_function) eftersom de inte ändrar sina inputs och alltid returnerar samma resultat för samma inputs.
 
-In contrast, this function is impure because it changes its own input:
+Som kontrast är denna funtion inte en "ren" funktion eftersom den ändrar sin egen input:
 
 ```js
 function withdraw(account, amount) {
@@ -255,8 +260,8 @@ function withdraw(account, amount) {
 }
 ```
 
-React is pretty flexible but it has a single strict rule:
+React är ganska flexibel men det har en strikt regel:
 
-**All React components must act like pure functions with respect to their props.**
+**Alla React-komponenter måste bete sig som "rena" funktioner i förhållande till deras Props.**
 
-Of course, application UIs are dynamic and change over time. In the [next section](/docs/state-and-lifecycle.html), we will introduce a new concept of "state". State allows React components to change their output over time in response to user actions, network responses, and anything else, without violating this rule.
+Naturligtvis är applikationsgränssnitt dynamiska och förändras över tid. I [nästa avsnitt](/docs/state-and-lifecycle.html) kommer vi att introducera ett nytt begrepp "state". State tillåter React-komponenter att ändra sin output över tid som svar på användaråtgärder, nätverkssvar och mycket annat utan att bryta mot denna regel.
