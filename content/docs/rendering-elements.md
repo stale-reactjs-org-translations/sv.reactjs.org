@@ -35,7 +35,11 @@ Vi kallar detta en "root"-DOM-nod eftersom allt inom den kommer att hanteras av 
 
 Applikationer byggda med bara React har vanligtvis en enda "root"-DOM-nod. Om du integrerar React i en befintlig app så kan du ha så många isolerade DOM-noder som du vill.
 
+<<<<<<< HEAD
 För att rendera ett React-element i en "root"-DOM-nod, skicka båda till `ReactDOM.render()`:
+=======
+To render a React element into a root DOM node, pass both to [`ReactDOM.render()`](/docs/react-dom.html#render):
+>>>>>>> 6682068641c16df6547b3fcdb7877e71bb0bebf9
 
 `embed:rendering-elements/render-an-element.js`
 
@@ -47,7 +51,11 @@ Det visar "Hej, världen" på sidan.
 
 React-element är [oföränderliga](https://en.wikipedia.org/wiki/Immutable_object). När du väl har skapat ett element kan du inte ändra på dess barn eller attribut. Ett element är likt en stillbild i en film: den representerar användargränssnittet vid en specfik tidpunkt.
 
+<<<<<<< HEAD
 Med vad vi har lärt oss hittills är det enda sättet att uppdatera användargränssnittet, att skapa ett nytt element och skicka det till `ReactDOM.render()`.
+=======
+With our knowledge so far, the only way to update the UI is to create a new element, and pass it to [`ReactDOM.render()`](/docs/react-dom.html#render).
+>>>>>>> 6682068641c16df6547b3fcdb7877e71bb0bebf9
 
 Låt oss ta detta exempel på en tickande klocka:
 
@@ -55,11 +63,19 @@ Låt oss ta detta exempel på en tickande klocka:
 
 [](codepen://rendering-elements/update-rendered-element)
 
+<<<<<<< HEAD
 Den kallar på `ReactDOM.render()` varje sekund från en [`setInterval()`](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval) callback.
+=======
+It calls [`ReactDOM.render()`](/docs/react-dom.html#render) every second from a [`setInterval()`](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval) callback.
+>>>>>>> 6682068641c16df6547b3fcdb7877e71bb0bebf9
 
 >**Obs:**
 >
+<<<<<<< HEAD
 >I praktiken kallar de flesta React-applikationer på `ReactDOM.render()` endast en gång. I nästa avsnitt lär vi oss hur vi kapslar in sådan kod i [komponenter med state](/docs/state-and-lifecycle.html).
+=======
+>In practice, most React apps only call [`ReactDOM.render()`](/docs/react-dom.html#render) once. In the next sections we will learn how such code gets encapsulated into [stateful components](/docs/state-and-lifecycle.html).
+>>>>>>> 6682068641c16df6547b3fcdb7877e71bb0bebf9
 >
 >Vi rekomenderar att du läser avsnitten i ordning då de bygger vidare på varandra.
 
@@ -74,4 +90,8 @@ Du kan verifiera genom att inspektera det [senaste exemplet](codepen://rendering
 
 Trots att vi skapar ett element som beskriver hela användargränssnittet varje tick, kommer endast textnoden vars innehåll har ändrats att uppdateras av React DOM.
 
+<<<<<<< HEAD
 Enligt vår erfarenhet är det mer meningsfullt att tänka på hur användargränssnittet ser ut vid en given tidpunkt, snarare än hur det kommer att förändras över tiden. Detta tänkande förhindrar en hel rad misstag.
+=======
+In our experience, thinking about how the UI should look at any given moment, rather than how to change it over time, eliminates a whole class of bugs.
+>>>>>>> 6682068641c16df6547b3fcdb7877e71bb0bebf9
