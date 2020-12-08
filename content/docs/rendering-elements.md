@@ -35,7 +35,7 @@ Vi kallar detta en "root"-DOM-nod eftersom allt inom den kommer att hanteras av 
 
 Applikationer byggda med bara React har vanligtvis en enda "root"-DOM-nod. Om du integrerar React i en befintlig app så kan du ha så många isolerade DOM-noder som du vill.
 
-För att rendera ett React-element i en "root"-DOM-nod, skicka båda till `ReactDOM.render()`:
+För att rendera ett React-element i en "root"-DOM-nod, skicka båda till [`ReactDOM.render()`](/docs/react-dom.html#render):
 
 `embed:rendering-elements/render-an-element.js`
 
@@ -47,7 +47,7 @@ Det visar "Hej, världen" på sidan.
 
 React-element är [oföränderliga](https://en.wikipedia.org/wiki/Immutable_object). När du väl har skapat ett element kan du inte ändra på dess barn eller attribut. Ett element är likt en stillbild i en film: den representerar användargränssnittet vid en specfik tidpunkt.
 
-Med vad vi har lärt oss hittills är det enda sättet att uppdatera användargränssnittet, att skapa ett nytt element och skicka det till `ReactDOM.render()`.
+Med vad vi har lärt oss hittills är det enda sättet att uppdatera användargränssnittet, att skapa ett nytt element och skicka det till [`ReactDOM.render()`](/docs/react-dom.html#render).
 
 Låt oss ta detta exempel på en tickande klocka:
 
@@ -55,11 +55,11 @@ Låt oss ta detta exempel på en tickande klocka:
 
 [](codepen://rendering-elements/update-rendered-element)
 
-Den kallar på `ReactDOM.render()` varje sekund från en [`setInterval()`](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval) callback.
+Den kallar på [`ReactDOM.render()`](/docs/react-dom.html#render) varje sekund från en [`setInterval()`](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval) callback.
 
 >**Obs:**
 >
->I praktiken kallar de flesta React-applikationer på `ReactDOM.render()` endast en gång. I nästa avsnitt lär vi oss hur vi kapslar in sådan kod i [komponenter med state](/docs/state-and-lifecycle.html).
+>I praktiken kallar de flesta React-applikationer på [`ReactDOM.render()`](/docs/react-dom.html#render) endast en gång. I nästa avsnitt lär vi oss hur vi kapslar in sådan kod i [komponenter med state](/docs/state-and-lifecycle.html).
 >
 >Vi rekomenderar att du läser avsnitten i ordning då de bygger vidare på varandra.
 
