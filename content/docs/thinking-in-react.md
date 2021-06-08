@@ -1,6 +1,6 @@
 ---
 id: thinking-in-react
-title: Thinking in React
+title: Tänka i React
 permalink: docs/thinking-in-react.html
 redirect_from:
   - 'blog/2013/11/05/thinking-in-react.html'
@@ -8,17 +8,17 @@ redirect_from:
 prev: composition-vs-inheritance.html
 ---
 
-React is, in our opinion, the premier way to build big, fast Web apps with JavaScript. It has scaled very well for us at Facebook and Instagram.
+React är, enligt oss själva, den bästa metoden för att bygga stora och snabba webbappar med JavaScript. Det har anpassat sig väldigt väl för oss på Facebook och Instagram när vi vuxit.
 
-One of the many great parts of React is how it makes you think about apps as you build them. In this document, we'll walk you through the thought process of building a searchable product data table using React.
+En av de många fantastiska sakerna med React är hur det får dig att tänka på appar medan du bygger dem. I det här dokumentet kommer vi att gå igenom tankeprocessen vid byggande av en sökbar tabell med produktdata med hjälp av React.
 
-## Start With A Mock {#start-with-a-mock}
+## Börja med en mockup {#start-with-a-mock}
 
-Imagine that we already have a JSON API and a mock from our designer. The mock looks like this:
+Tänk dig att vi redan har ett JSON API och en mockup från vår designer. Mockupen ser ut så här:
 
 ![Mockup](../images/blog/thinking-in-react-mock.png)
 
-Our JSON API returns some data that looks like this:
+Vårt JSON API returnerar lite data som ser ut så här:
 
 ```
 [
@@ -31,27 +31,27 @@ Our JSON API returns some data that looks like this:
 ];
 ```
 
-## Step 1: Break The UI Into A Component Hierarchy {#step-1-break-the-ui-into-a-component-hierarchy}
+## Steg 1: Dela upp användargränssnittet i en komponenthierarki {#step-1-break-the-ui-into-a-component-hierarchy}
 
-The first thing you'll want to do is to draw boxes around every component (and subcomponent) in the mock and give them all names. If you're working with a designer, they may have already done this, so go talk to them! Their Photoshop layer names may end up being the names of your React components!
+Det första steget du vill ta är att rita rutor runt varje komponent (och subkomponent) i mockupen och namnge dem. Om du jobbar med en designer kanske de redan har gjort detta, så prata med dem! Deras lagernamn i Photoshop kan förmodligen användas som namn på dina React-komponenter!
 
-But how do you know what should be its own component? Use the same techniques for deciding if you should create a new function or object. One such technique is the [single responsibility principle](https://en.wikipedia.org/wiki/Single_responsibility_principle), that is, a component should ideally only do one thing. If it ends up growing, it should be decomposed into smaller subcomponents.
+Men hur vet man vad som ska vara en egen komponent? Använd samma metod som när man bör skapa en ny funktion eller ett nytt objekt. En sådan teknik är [single responsibility principle](https://en.wikipedia.org/wiki/Single_responsibility_principle), det vill säga att en komponent egentligen bara ska göra en sak. Om den börjar växa bör den delas upp i mindre subkomponenter.
 
-Since you're often displaying a JSON data model to a user, you'll find that if your model was built correctly, your UI (and therefore your component structure) will map nicely. That's because UI and data models tend to adhere to the same *information architecture*. Separate your UI into components, where each component matches one piece of your data model.
+Eftersom man ofta visar användare JSON-data, kommer du upptäcka att om din datamodell är korrekt uppbyggd kommer den att gå hand-i-hand med ditt användargränssnitt (och därav även med din komponentstruktur). Det beror på att användargränssnitt och datamodeller tenderar att hålla sig till samma *informationsarkitektur*. Separera ditt användargränssnitt i komponenter, där varje komponent matchar varsin del av din datamodell.
 
-![Component diagram](../images/blog/thinking-in-react-components.png)
+![Komponentdiagram](../images/blog/thinking-in-react-components.png)
 
-You'll see here that we have five components in our app. We've italicized the data each component represents.
+Här ser du att vi har fem komponenter i vår app. Vi har kursiverat datan varje komponent representerar.
 
-  1. **`FilterableProductTable` (orange):** contains the entirety of the example
-  2. **`SearchBar` (blue):** receives all *user input*
-  3. **`ProductTable` (green):** displays and filters the *data collection* based on *user input*
-  4. **`ProductCategoryRow` (turquoise):** displays a heading for each *category*
-  5. **`ProductRow` (red):** displays a row for each *product*
+  1. **`FilterableProductTable` (orange):** innehåller allt i exemplet
+  2. **`SearchBar` (blå):** tar emot all *användarinput*
+  3. **`ProductTable` (grön):** visar och filtrerar *datalistan* baserat på *användarinput*
+  4. **`ProductCategoryRow` (turkos):** visar en titel för varje *kategori*
+  5. **`ProductRow` (röd):** visar en rad för varje *produkt*
 
-If you look at `ProductTable`, you'll see that the table header (containing the "Name" and "Price" labels) isn't its own component. This is a matter of preference, and there's an argument to be made either way. For this example, we left it as part of `ProductTable` because it is part of rendering the *data collection* which is `ProductTable`'s responsibility. However, if this header grows to be complex (e.g., if we were to add affordances for sorting), it would certainly make sense to make this its own `ProductTableHeader` component.
+Ifall du tittar på `ProductTable` ser du att tabellhuvudet (som innehåller "Name"- och "Price"-etiketterna) inte är en separat komponent. Det här är en smaksak, och det går att argumentera för båda alternativen. I det här exemplet har vi låtit det vara en del av `ProductTable` eftersom det har en del i att rendera *datalistan*, vilket `ProductTable` ansvarar för. Om däremot tabellhuvudet skulle växa och bli mer komplext (t.ex. om vi skulle lägga till möjligheten att sortera) vore det logiskt att göra det till en egen `ProductTableHeader`-komponent.
 
-Now that we've identified the components in our mock, let's arrange them into a hierarchy. Components that appear within another component in the mock should appear as a child in the hierarchy:
+Nu när vi har identifierat komponenterna i vår mockup är det dags att ordna in dem i en hierarki. Komponenter som visas inuti en annan komponent i mockupen bör visas som en undernivå i hierarkin:
 
   * `FilterableProductTable`
     * `SearchBar`
@@ -59,88 +59,88 @@ Now that we've identified the components in our mock, let's arrange them into a 
       * `ProductCategoryRow`
       * `ProductRow`
 
-## Step 2: Build A Static Version in React {#step-2-build-a-static-version-in-react}
+## Steg 2: Bygg en statisk version i React {#step-2-build-a-static-version-in-react}
 
-<p data-height="600" data-theme-id="0" data-slug-hash="BwWzwm" data-default-tab="js" data-user="lacker" data-embed-version="2" class="codepen">See the Pen <a href="https://codepen.io/gaearon/pen/BwWzwm">Thinking In React: Step 2</a> on <a href="https://codepen.io">CodePen</a>.</p>
+<p data-height="600" data-theme-id="0" data-slug-hash="BwWzwm" data-default-tab="js" data-user="lacker" data-embed-version="2" class="codepen">Se Pennan <a href="https://codepen.io/gaearon/pen/BwWzwm">Thinking In React: Step 2</a> på <a href="https://codepen.io">CodePen</a>.</p>
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
-Now that you have your component hierarchy, it's time to implement your app. The easiest way is to build a version that takes your data model and renders the UI but has no interactivity. It's best to decouple these processes because building a static version requires a lot of typing and no thinking, and adding interactivity requires a lot of thinking and not a lot of typing. We'll see why.
+Nu när du har en komponenthierarki är det dags att implementera din app. Det lättaste sättet är att bygga en version som använder din datamodell och renderar användargränssnittet utan någon interaktivitet. Det är bäst att dela upp de här processerna eftersom det krävs mycket skrivande men inget tänkande att bygga en statisk version, medan att lägga till interaktivitet kräver en hel del tänkande men inte så mycket skrivande. Vi kommer att se varför det är så längre fram.
 
-To build a static version of your app that renders your data model, you'll want to build components that reuse other components and pass data using *props*. *props* are a way of passing data from parent to child. If you're familiar with the concept of *state*, **don't use state at all** to build this static version. State is reserved only for interactivity, that is, data that changes over time. Since this is a static version of the app, you don't need it.
+För att bygga en statisk version av din app som renderar din datamodell, behöver du bygga komponenter som återanvänder andra komponenter och skickar data mellan dessa via *props*. *props* är ett sätt att skicka data från en överordnad komponent till en underordnad. Om du är bekant med konceptet med *state*, **använd inte state över huvud taget** för att bygga den här statiska versionen. State är reserverat enbart för interaktivitet, med andra ord, data som förändras över tid. Eftersom det här är en statisk version av appen kommer du inte att behöva det.
 
-You can build top-down or bottom-up. That is, you can either start with building the components higher up in the hierarchy (i.e. starting with `FilterableProductTable`) or with the ones lower in it (`ProductRow`). In simpler examples, it's usually easier to go top-down, and on larger projects, it's easier to go bottom-up and write tests as you build.
+Du kan bygga uppifrån och ned eller nedifrån och upp. Med andra ord, du kan antingen börja att bygga komponenterna högre upp i hierarkin (t.ex. att börja med `FilterableProductTable`), eller med dem längre ned i den (`ProductRow`). I mer enkla exempel är det oftast lättare att gå uppifrån och ned, och på större projekt gå nedifrån och upp, och skriva tester medan du bygger.
 
-At the end of this step, you'll have a library of reusable components that render your data model. The components will only have `render()` methods since this is a static version of your app. The component at the top of the hierarchy (`FilterableProductTable`) will take your data model as a prop. If you make a change to your underlying data model and call `ReactDOM.render()` again, the UI will be updated. You can see how your UI is updated and where to make changes. React's **one-way data flow** (also called *one-way binding*) keeps everything modular and fast.
+I slutet av det här steget kommer du att ha ett bibliotek av återanvändbara komponenter som renderar din datamodell. Komponenterna kommer bara att ha en `render()`-metod eftersom det är en statisk version av din app. Komponenten i toppen av hierarkin (`FilterableProductTable`) kommer att ta emot din datamodell som en attribut. Om du gör en ändring i din underliggande datamodell och anropar `ReactDOM.render()` igen kommer användargränssnittet att uppdateras. Då kommer du att se hur ditt användargränssnitt uppdateras, och var någonstans man kan göra ändringar. React:s **envägsdataflöde** (även kallad *envägsbindning*) håller allting modulärt och snabbt.
 
-Refer to the [React docs](/docs/) if you need help executing this step.
+Se [React-dokumentationen](/docs/) om du behöver hjälp med att genomföra det här steget.
 
-### A Brief Interlude: Props vs State {#a-brief-interlude-props-vs-state}
+### En kortfattad förklaring: Props vs state {#a-brief-interlude-props-vs-state}
 
-There are two types of "model" data in React: props and state. It's important to understand the distinction between the two; skim [the official React docs](/docs/state-and-lifecycle.html) if you aren't sure what the difference is. See also [FAQ: What is the difference between state and props?](/docs/faq-state.html#what-is-the-difference-between-state-and-props)
+Det finns två typer av "modell"-data i React: props och state. Det är viktigt att förstå skillnaden mellan de två; skumma igenom [den officiella React-dokumentationen](/docs/state-and-lifecycle.html) om du inte är säker på vad skillnaden är. Se även [Vanliga frågor: Vad är skillnaden mellan state och props?](/docs/faq-state.html#what-is-the-difference-between-state-and-props)
 
-## Step 3: Identify The Minimal (but complete) Representation Of UI State {#step-3-identify-the-minimal-but-complete-representation-of-ui-state}
+## Steg 3: Identifiera den minimala (men kompletta) representationen av användargränssnittets olika state:s {#step-3-identify-the-minimal-but-complete-representation-of-ui-state}
 
-To make your UI interactive, you need to be able to trigger changes to your underlying data model. React achieves this with **state**.
+För att göra ditt användargränssnitt interaktivt begöver du kunna orsaka förändringar i din datamodell. React åstadkommer detta med **state**.
 
-To build your app correctly, you first need to think of the minimal set of mutable state that your app needs. The key here is [DRY: *Don't Repeat Yourself*](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself). Figure out the absolute minimal representation of the state your application needs and compute everything else you need on-demand. For example, if you're building a TODO list, keep an array of the TODO items around; don't keep a separate state variable for the count. Instead, when you want to render the TODO count, take the length of the TODO items array.
+För att bygga din app på rätt sätt behöver du först komma på vilket som är det minimala ändringsbara state som din app behöver. Nyckeln här är [DRY: *Don't Repeat Yourself*](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself). Tänk ut den absolut minimala återspeglingen av de olika tillstånd din applikation kommer att befinna sig i, och beräkna allt annat on-demand. Om du till exempel bygger en Att göra-lista, håll då en array av Att göra-punkterna till hands. När du vill rendera antalet Att göra-punkter, ta då längden på arrayen med Att göra-punkter, istället för att ha en separat variabel för antalet punkter.
 
-Think of all of the pieces of data in our example application. We have:
+Fundera över alla bitar av data i vår exempelapp. Vi har:
 
-  * The original list of products
-  * The search text the user has entered
-  * The value of the checkbox
-  * The filtered list of products
+  * Den ursprungliga listan med produkter
+  * Sökfrasen som användaren angett
+  * Värdet på kryssrutan
+  * Den filtrerade listan av produkter
 
-Let's go through each one and figure out which one is state. Ask three questions about each piece of data:
+Vi går igenom en efter en och räknar ut vilken av dem som är state. Ställ tre frågor om varje bit av data:
 
-  1. Is it passed in from a parent via props? If so, it probably isn't state.
-  2. Does it remain unchanged over time? If so, it probably isn't state.
-  3. Can you compute it based on any other state or props in your component? If so, it isn't state.
+  1. Kommer den inmatad från en överordnad komponent via props? I så fall är det troligen inte state.
+  2. Förblir den oförändrad över tid? I så fall är det troligen inte state.
+  3. Kan den beräknas baserat utifrån något annat state eller props i din komponent? Då är det inte state.
 
-The original list of products is passed in as props, so that's not state. The search text and the checkbox seem to be state since they change over time and can't be computed from anything. And finally, the filtered list of products isn't state because it can be computed by combining the original list of products with the search text and value of the checkbox.
+Den ursprungliga listan av produkter är inmatad som props, så det är inte state. Sökfrasen och kryssrutan verkar vara state eftersom de förändras över tid, och inte kan beräknas utifrån någonting. Slutligen, den filtrerade listan av produkter är inte state eftersom den kan beräknas genom att kombinera den ursprungliga listan av produkter med sökfrasen och kryssrutans värde.
 
-So finally, our state is:
+Så äntligen, vårt state är:
 
-  * The search text the user has entered
-  * The value of the checkbox
+  * Sökfrasen som användaren angett
+  * Värdet på kryssrutan
 
-## Step 4: Identify Where Your State Should Live {#step-4-identify-where-your-state-should-live}
+## Steg 4: Identifiera var ditt state bör finnas {#step-4-identify-where-your-state-should-live}
 
-<p data-height="600" data-theme-id="0" data-slug-hash="qPrNQZ" data-default-tab="js" data-user="lacker" data-embed-version="2" class="codepen">See the Pen <a href="https://codepen.io/gaearon/pen/qPrNQZ">Thinking In React: Step 4</a> on <a href="https://codepen.io">CodePen</a>.</p>
+<p data-height="600" data-theme-id="0" data-slug-hash="qPrNQZ" data-default-tab="js" data-user="lacker" data-embed-version="2" class="codepen">Se Pennan <a href="https://codepen.io/gaearon/pen/qPrNQZ">Thinking In React: Step 4</a> på <a href="https://codepen.io">CodePen</a>.</p>
 
-OK, so we've identified what the minimal set of app state is. Next, we need to identify which component mutates, or *owns*, this state.
+Okej, så vi har identifierat vad det minimala state:et för vår app är. Nästa steg är att identifiera vilka komponenter som muterar, eller *äger*, state:et.
 
-Remember: React is all about one-way data flow down the component hierarchy. It may not be immediately clear which component should own what state. **This is often the most challenging part for newcomers to understand,** so follow these steps to figure it out:
+Kom ihåg: React handlar om envägsdataflöde ned genom komponenthierarkin. Det kanske till en början inte är helt uppenbart vilken komponent som bör äga visst state. **Det här är ofta det svåraste för nykomlingar att förstå,** så vi följer de här stegen för att räkna ut det:
 
-For each piece of state in your application:
+För varje bit av state i din applikation:
 
-  * Identify every component that renders something based on that state.
-  * Find a common owner component (a single component above all the components that need the state in the hierarchy).
-  * Either the common owner or another component higher up in the hierarchy should own the state.
-  * If you can't find a component where it makes sense to own the state, create a new component solely for holding the state and add it somewhere in the hierarchy above the common owner component.
+  * Identifiera varje komponent som renderar någonting baserat på state:et.
+  * Hitta en gemensam ägar-komponent (en enda komponent över alla de komponenter som behöver state:et i hierarkin).
+  * Antingen bör den gemensamma ägar-komponenter eller en annan komponent högre upp i hierarkin äga state:et.
+  * Om du inte kan hitta en komponent som rent logiskt skulle kunna hålla state:et, skapa då en ny komponent enbart för att hålla state:et och lägg till den någonstans i hierarkin ovanför den gemensamma ägar-komponenten.
 
-Let's run through this strategy for our application:
+Låt oss gå igenom den här strategin för vår applikation:
 
-  * `ProductTable` needs to filter the product list based on state and `SearchBar` needs to display the search text and checked state.
-  * The common owner component is `FilterableProductTable`.
-  * It conceptually makes sense for the filter text and checked value to live in `FilterableProductTable`
+  * `ProductTable` behöver kunna filtrera produktlistan baserat på state, och `SearchBar` behöver kunna visa sökfrasen och state för ikryssad kryssruta.
+  * Den gemensamma ägar-komponenten är `FilterableProductTable`.
+  * Det är logiskt för sökfrasen och det ikryssade värdet att höra hemma i `FilterableProductTable`
 
-Cool, so we've decided that our state lives in `FilterableProductTable`. First, add an instance property `this.state = {filterText: '', inStockOnly: false}` to `FilterableProductTable`'s `constructor` to reflect the initial state of your application. Then, pass `filterText` and `inStockOnly` to `ProductTable` and `SearchBar` as a prop. Finally, use these props to filter the rows in `ProductTable` and set the values of the form fields in `SearchBar`.
+Coolt! Så nu har vi kommit fram till att vårt state hör hemma i `FilterableProductTable`. Först, lägg till en instance property `this.state = {filterText: '', inStockOnly: false}` på `FilterableProductTable`:s konstruktor för att återspegla det initiella state:et hos vår applikation. Därefter, skicka vidare `filterText` och `inStockOnly` till `ProductTable` och `SearchBar` som en prop. Till sist, använd dessa props för att filtrera raderna i `ProductTable`, och sätt värdena på formulärfälten i `SearchBar`.
 
-You can start seeing how your application will behave: set `filterText` to `"ball"` and refresh your app. You'll see that the data table is updated correctly.
+Nu börjar det synas hur din applikation kommer att bete sig: sätt `filterText` till `"ball"` och ladda om din app. Då ser du att datatabellen har uppdaterats korrekt.
 
-## Step 5: Add Inverse Data Flow {#step-5-add-inverse-data-flow}
+## Steg 5: Lägg till dataflöde i motsatt riktning {#step-5-add-inverse-data-flow}
 
-<p data-height="600" data-theme-id="0" data-slug-hash="LzWZvb" data-default-tab="js,result" data-user="rohan10" data-embed-version="2" data-pen-title="Thinking In React: Step 5" class="codepen">See the Pen <a href="https://codepen.io/gaearon/pen/LzWZvb">Thinking In React: Step 5</a> on <a href="https://codepen.io">CodePen</a>.</p>
+<p data-height="600" data-theme-id="0" data-slug-hash="LzWZvb" data-default-tab="js,result" data-user="rohan10" data-embed-version="2" data-pen-title="Thinking In React: Step 5" class="codepen">Se Pennan <a href="https://codepen.io/gaearon/pen/LzWZvb">Thinking In React: Step 5</a> på <a href="https://codepen.io">CodePen</a>.</p>
 
-So far, we've built an app that renders correctly as a function of props and state flowing down the hierarchy. Now it's time to support data flowing the other way: the form components deep in the hierarchy need to update the state in `FilterableProductTable`.
+Hittills har vi byggt en app som renderas korrekt, där props och state flödar nedåt genom hierarkin. Nu är det dags att lägga till stöd för dataflöde åt det motsatta hållet: formulärkomponenterna djupt nere i hierarkin behöver uppdatera state:et i `FilterableProductTable`.
 
-React makes this data flow explicit to help you understand how your program works, but it does require a little more typing than traditional two-way data binding.
+React gör att den här typen av dataflöde görs uttryckligen för att hjälpa dig att förstå hur ditt program fungerar, men det kräver lite mer skrivande än den traditionella tvåvägsbindningen.
 
-If you try to type or check the box in the current version of the example, you'll see that React ignores your input. This is intentional, as we've set the `value` prop of the `input` to always be equal to the `state` passed in from `FilterableProductTable`.
+Om du testar att skriva något eller kryssa i rutan i den nuvarande versionen av vår exempelapp, ser du att React ignorerar din input. Det är medvetet gjort så här, eftersom vi sätter `value`-attributen hos vår `input` till att alltid vara lika med det `state` som matas in från `FilterableProductTable`.
 
-Let's think about what we want to happen. We want to make sure that whenever the user changes the form, we update the state to reflect the user input. Since components should only update their own state, `FilterableProductTable` will pass callbacks to `SearchBar` that will fire whenever the state should be updated. We can use the `onChange` event on the inputs to be notified of it. The callbacks passed by `FilterableProductTable` will call `setState()`, and the app will be updated.
+Fundera en stund på vad vi vill ska hända. Vi vill vara säkra på att så fort användaren ändrar formuläret, så ska state:et uppdateras för att återspegla användarens input. Eftersom komponenter bara bör uppdatera sitt eget state, kommer `FilterableProductTable` att ge `SearchBar` en callback som anropas varje gång state:et ska uppdateras. Vi kan använda oss av `onChange`-eventet på inputfälten för att bli informerade om när det sker. De callbacks som matas in av `FilterableProductTable` kommer att anropa `setState()`, och därigenom uppdateras appen.
 
-## And That's It {#and-thats-it}
+## Det var allt {#and-thats-it}
 
-Hopefully, this gives you an idea of how to think about building components and applications with React. While it may be a little more typing than you're used to, remember that code is read far more than it's written, and it's less difficult to read this modular, explicit code. As you start to build large libraries of components, you'll appreciate this explicitness and modularity, and with code reuse, your lines of code will start to shrink. :)
+Förhoppningsvis har detta gett dig en inblick i hur du bör tänka när du bygger komponenter och applikationer med React. Det kanske visserligen är lite mer skrivande än vad du är van vid, men kom ihåg att man läser kod mycket oftare än man skriven den, och det är inte lika svårt att läsa den här slags modulära och uttryckliga koden. När du börjar bygga stora komponentbibliotek kommer du att uppskatta denna uttrycklighet och moduläritet, och med återanvändning av kod kommer dina kodrader att börja minska. :)
