@@ -40,7 +40,11 @@ React är ett JavaScript-bibliotek och därför kommer vi anta att du har en bas
 
 >Notera
 >
+<<<<<<< HEAD
 >Den här guiden använder till och från nyare JavaScript-syntax i exemplen. Om du inte har jobbat med JavaScript under de senaste åren bör [dessa tre punkter](https://gist.github.com/gaearon/683e676101005de0add59e8bb345340c) hjälpa dig på vägen.
+=======
+>This guide occasionally uses some newer JavaScript syntax in the examples. If you haven't worked with JavaScript in the last few years, [these three points](https://gist.github.com/gaearon/683e676101005de0add59e8bb345340c) should get you most of the way.
+>>>>>>> f3baa6d075c8de475b688abf035d7054bc8a9606
 
 
 ## Nu kör vi igång! {#lets-get-started}
