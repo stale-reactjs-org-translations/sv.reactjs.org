@@ -17,7 +17,7 @@ ReactDOM.render(
 
 Det visar rubriken "Hello, world!" på webbsidan.
 
-[](codepen://hello-world)
+**[Try it on CodePen](https://codepen.io/gaearon/pen/rrpgNB?editors=1010)**
 
 Klicka på länken ovan för att öppna en kodredigerare online. Testa att göra ändringar i koden och se hur de påverkar innehållet som visas. De flesta sidor i den här guiden kommer att ha exempel som detta där du kan göra ändringar och testa dig fram.
 
@@ -40,7 +40,11 @@ React är ett JavaScript-bibliotek och därför kommer vi anta att du har en bas
 
 >Notera
 >
+<<<<<<< HEAD
 >Den här guiden använder till och från nyare JavaScript-syntax i exemplen. Om du inte har jobbat med JavaScript under de senaste åren bör [dessa tre punkter](https://gist.github.com/gaearon/683e676101005de0add59e8bb345340c) hjälpa dig på vägen.
+=======
+>This guide occasionally uses some newer JavaScript syntax in the examples. If you haven't worked with JavaScript in the last few years, [these three points](https://gist.github.com/gaearon/683e676101005de0add59e8bb345340c) should get you most of the way.
+>>>>>>> 20f0fe280f3c122df7541256b983c46e21e33b20
 
 
 ## Nu kör vi igång! {#lets-get-started}
