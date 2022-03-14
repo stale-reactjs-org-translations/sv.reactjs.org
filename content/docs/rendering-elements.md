@@ -39,7 +39,7 @@ För att rendera ett React-element i en "root"-DOM-nod, skicka båda till [`Reac
 
 `embed:rendering-elements/render-an-element.js`
 
-[](codepen://rendering-elements/render-an-element)
+**[Try it on CodePen](https://codepen.io/gaearon/pen/ZpvBNJ?editors=1010)**
 
 Det visar "Hej, världen" på sidan.
 
@@ -53,7 +53,7 @@ Låt oss ta detta exempel på en tickande klocka:
 
 `embed:rendering-elements/update-rendered-element.js`
 
-[](codepen://rendering-elements/update-rendered-element)
+**[Try it on CodePen](https://codepen.io/gaearon/pen/gwoJZk?editors=1010)**
 
 Den kallar på [`ReactDOM.render()`](/docs/react-dom.html#render) varje sekund från en [`setInterval()`](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval) callback.
 
@@ -67,7 +67,11 @@ Den kallar på [`ReactDOM.render()`](/docs/react-dom.html#render) varje sekund f
 
 React DOM jämför det nuvarande elementet och dess barn med det föregående, och tillämpar endast de DOM-uppdateringar som innehåller en förändring.
 
+<<<<<<< HEAD
 Du kan verifiera genom att inspektera det [senaste exemplet](codepen://rendering-elements/update-rendered-element) med utvecklingsverktygen för webbläsare:
+=======
+You can verify by inspecting the [last example](https://codepen.io/gaearon/pen/gwoJZk?editors=1010) with the browser tools:
+>>>>>>> 7994045415a9066f8663ee5403e874edbb4c5f83
 
 
 ![DOM-inspekteraren som visar uppdateringar](../images/docs/granular-dom-updates.gif)
