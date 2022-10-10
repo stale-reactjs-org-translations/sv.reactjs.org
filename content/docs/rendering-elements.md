@@ -35,11 +35,15 @@ Vi kallar detta en "root"-DOM-nod eftersom allt inom den kommer att hanteras av 
 
 Applikationer byggda med bara React har vanligtvis en enda "root"-DOM-nod. Om du integrerar React i en befintlig app så kan du ha så många isolerade DOM-noder som du vill.
 
+<<<<<<< HEAD
 För att rendera ett React-element i en "root"-DOM-nod, skicka båda till [`ReactDOM.render()`](/docs/react-dom.html#render):
+=======
+To render a React element, first pass the DOM element to [`ReactDOM.createRoot()`](/docs/react-dom-client.html#createroot), then pass the React element to `root.render()`:
+>>>>>>> d07016aea812d26c60252a952bff7ae3e70bde27
 
 `embed:rendering-elements/render-an-element.js`
 
-[](codepen://rendering-elements/render-an-element)
+**[Try it on CodePen](https://codepen.io/gaearon/pen/ZpvBNJ?editors=1010)**
 
 Det visar "Hej, världen" på sidan.
 
@@ -47,19 +51,31 @@ Det visar "Hej, världen" på sidan.
 
 React-element är [oföränderliga](https://en.wikipedia.org/wiki/Immutable_object). När du väl har skapat ett element kan du inte ändra på dess barn eller attribut. Ett element är likt en stillbild i en film: den representerar användargränssnittet vid en specfik tidpunkt.
 
+<<<<<<< HEAD
 Med vad vi har lärt oss hittills är det enda sättet att uppdatera användargränssnittet, att skapa ett nytt element och skicka det till [`ReactDOM.render()`](/docs/react-dom.html#render).
+=======
+With our knowledge so far, the only way to update the UI is to create a new element, and pass it to `root.render()`.
+>>>>>>> d07016aea812d26c60252a952bff7ae3e70bde27
 
 Låt oss ta detta exempel på en tickande klocka:
 
 `embed:rendering-elements/update-rendered-element.js`
 
-[](codepen://rendering-elements/update-rendered-element)
+**[Try it on CodePen](https://codepen.io/gaearon/pen/gwoJZk?editors=1010)**
 
+<<<<<<< HEAD
 Den kallar på [`ReactDOM.render()`](/docs/react-dom.html#render) varje sekund från en [`setInterval()`](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval) callback.
+=======
+It calls [`root.render()`](/docs/react-dom.html#render) every second from a [`setInterval()`](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval) callback.
+>>>>>>> d07016aea812d26c60252a952bff7ae3e70bde27
 
 >**Obs:**
 >
+<<<<<<< HEAD
 >I praktiken kallar de flesta React-applikationer på [`ReactDOM.render()`](/docs/react-dom.html#render) endast en gång. I nästa avsnitt lär vi oss hur vi kapslar in sådan kod i [komponenter med state](/docs/state-and-lifecycle.html).
+=======
+>In practice, most React apps only call `root.render()` once. In the next sections we will learn how such code gets encapsulated into [stateful components](/docs/state-and-lifecycle.html).
+>>>>>>> d07016aea812d26c60252a952bff7ae3e70bde27
 >
 >Vi rekomenderar att du läser avsnitten i ordning då de bygger vidare på varandra.
 
@@ -67,7 +83,11 @@ Den kallar på [`ReactDOM.render()`](/docs/react-dom.html#render) varje sekund f
 
 React DOM jämför det nuvarande elementet och dess barn med det föregående, och tillämpar endast de DOM-uppdateringar som innehåller en förändring.
 
+<<<<<<< HEAD
 Du kan verifiera genom att inspektera det [senaste exemplet](codepen://rendering-elements/update-rendered-element) med utvecklingsverktygen för webbläsare:
+=======
+You can verify by inspecting the [last example](https://codepen.io/gaearon/pen/gwoJZk?editors=1010) with the browser tools:
+>>>>>>> d07016aea812d26c60252a952bff7ae3e70bde27
 
 
 ![DOM-inspekteraren som visar uppdateringar](../images/docs/granular-dom-updates.gif)
